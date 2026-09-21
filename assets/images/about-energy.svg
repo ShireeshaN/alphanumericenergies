@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1400">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a0c10"/><stop offset="1" stop-color="#1a1f26"/></linearGradient></defs>
+<rect width="1200" height="1400" rx="48" fill="url(#bg)"/>
+<g opacity=".18" stroke="#fff"><circle cx="910" cy="290" r="280" fill="none"/><circle cx="910" cy="290" r="210" fill="none"/></g>
+<g fill="#f5f7fa"><polygon points="220,846 790,690 770,740 200,900"/><polygon points="360,1048 920,900 900,950 340,1100" opacity=".72"/><rect x="178" y="388" width="266" height="210" rx="22" opacity=".95"/><rect x="496" y="340" width="188" height="258" rx="22" opacity=".82"/></g>
+<text x="120" y="176" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700" fill="#ffffff">ALPHA NUMERIC</text>
+<text x="120" y="258" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700" fill="#ffffff">ENERGY SYSTEMS</text>
+</svg>
