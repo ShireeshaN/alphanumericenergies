@@ -1,38 +1,2481 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg"><title>About | Alpha Numeric Energy</title><meta name="description" content="About Alpha Numeric Energy and the premium monochrome solar website structure."><link rel="stylesheet" href="assets/css/style.css"></head><body>
-<a class="skip" href="#main">Skip to content</a>
-<nav class="site-nav " id="siteNav" aria-label="Primary navigation">
-  <div class="wrap nav-shell">
-    <a class="brand" href="index.html" aria-label="Alpha Numeric Energy home">
-      <img class="logo-light" src="assets/images/logo-light.svg" alt="Alpha Numeric Energy">
-      <img class="logo-dark" src="assets/images/logo-dark.svg" alt="Alpha Numeric Energy">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090b0f">
+
+<title>About | Alphanumeric Energies</title>
+<meta name="description" content="Learn about Alphanumeric Energies — focused on renewable energy, solar solutions and power infrastructure across LT, HT, EHT and UHT.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   00 — GLOBAL
+   ============================================================ */
+:root{
+  --ink:#0d0f12;
+  --ink-2:#15181d;
+  --paper:#f5f4f0;
+  --paper-2:#ecece7;
+  --white:#ffffff;
+  --muted:#6c7178;
+  --line:#dcddd9;
+
+  --gold:#d7a840;
+  --gold-soft:#f0e0b2;
+  --blue:#5594ff;
+
+  --container:min(1380px,calc(100% - 64px));
+  --radius-xl:34px;
+  --radius-lg:26px;
+  --radius-md:18px;
+
+  --ease:cubic-bezier(.2,.72,.2,1);
+  --shadow:0 30px 80px rgba(0,0,0,.12);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Inter",sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  overflow-x:hidden;
+  text-rendering:optimizeLegibility;
+  -webkit-font-smoothing:antialiased;
+}
+body.menu-open{overflow:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%}
+button,input,textarea,select{font:inherit}
+button{color:inherit}
+
+.wrap{
+  width:var(--container);
+  margin:auto;
+}
+
+.editorial{
+  color:#777b82;
+}
+
+.kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:11px;
+  color:#777c83;
+  font:700 9px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:.17em;
+  text-transform:uppercase;
+}
+.kicker::before{
+  content:"";
+  width:30px;
+  height:1px;
+  background:currentColor;
+  opacity:.65;
+}
+
+.btn{
+  min-height:50px;
+  padding:0 19px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:13px;
+  border:1px solid transparent;
+  border-radius:999px;
+  font:700 9px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+  transition:
+    transform .25s ease,
+    background .25s ease,
+    border-color .25s ease,
+    color .25s ease;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-light{background:#fff;color:#111}
+.btn-light:hover{background:#f0f0ec}
+.btn-outline{
+  border-color:rgba(255,255,255,.25);
+  color:#fff;
+  background:rgba(255,255,255,.035);
+  backdrop-filter:blur(10px);
+}
+.btn-outline:hover{background:rgba(255,255,255,.10)}
+.btn-dark{background:#111;color:#fff}
+.btn-dark:hover{background:#24272c}
+
+.reveal{
+  opacity:0;
+  transform:translateY(28px);
+  transition:
+    opacity .85s var(--ease),
+    transform .85s var(--ease);
+}
+.reveal.show{
+  opacity:1;
+  transform:none;
+}
+
+.scroll-progress{
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:1300;
+  width:0;
+  height:2px;
+  background:linear-gradient(90deg,var(--gold),#f2d487);
+  box-shadow:0 0 12px rgba(215,168,64,.45);
+  pointer-events:none;
+}
+
+/* ============================================================
+   SHARED SECTION HEAD
+   ============================================================ */
+.section-pad{padding:124px 0}
+.section-head{
+  display:grid;
+  grid-template-columns:minmax(0,1.14fr) minmax(320px,.86fr);
+  gap:70px;
+  align-items:end;
+  margin-bottom:52px;
+}
+.section-head .kicker{margin-bottom:18px}
+.section-head h2{
+  max-width:900px;
+  font:700 clamp(38px,4.25vw,60px)/1.02 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:-.043em;
+}
+.section-head p{
+  max-width:455px;
+  color:var(--muted);
+  font-size:12.5px;
+  line-height:1.72;
+}
+
+/* ============================================================
+   BACK TO TOP
+   ============================================================ */
+.back-top{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  z-index:1000;
+  width:45px;
+  height:45px;
+  display:grid;
+  place-items:center;
+  border:1px solid #d7d8d4;
+  border-radius:50%;
+  background:rgba(255,255,255,.94);
+  color:#111;
+  cursor:pointer;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(10px);
+  box-shadow:0 12px 30px rgba(0,0,0,.10);
+  transition:.24s ease;
+}
+.back-top.show{
+  opacity:1;
+  visibility:visible;
+  transform:none;
+}
+.back-top:hover{
+  background:#111;
+  color:#fff;
+  border-color:#111;
+}
+
+/* ============================================================
+   GLOBAL RESPONSIVE
+   ============================================================ */
+@media(max-width:1180px){
+  :root{--container:min(100% - 44px,1380px)}
+
+  .section-head{
+    grid-template-columns:1fr;
+    gap:25px;
+  }
+}
+
+@media(max-width:980px){
+  :root{--container:min(100% - 32px,1380px)}
+}
+
+@media(max-width:700px){
+  :root{--container:min(100% - 28px,1380px)}
+
+  .section-pad{padding:88px 0}
+  .section-head{margin-bottom:35px}
+  .section-head h2{
+    font-size:clamp(34px,9.5vw,47px);
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,
+  *::before,
+  *::after{
+    animation:none!important;
+    transition-duration:.01ms!important;
+  }
+}
+</style>
+</head>
+
+
+
+<body>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+
+<style>
+/* About page active navigation */
+.site-nav:not(.scrolled) .about-active{
+  background:rgba(255,255,255,.10);
+}
+.site-nav.scrolled .about-active{
+  background:#eff0ec;
+}
+</style>
+
+<!-- ============================================================
+     SECTION 01 — NAVIGATION
+     ORDER: CSS → HTML → JAVASCRIPT
+     ============================================================ -->
+
+<style>
+/* ============================================================
+   01 — SECTION CSS
+   ============================================================ */
+/* ============================================================
+   01 — NAVIGATION
+   ============================================================ */
+.site-nav{
+  position:fixed;
+  inset:0 0 auto 0;
+  z-index:1200;
+  height:82px;
+  display:flex;
+  align-items:center;
+  color:#fff;
+  border-bottom:1px solid rgba(255,255,255,.10);
+  transition:
+    height .32s ease,
+    background .32s ease,
+    color .32s ease,
+    border-color .32s ease,
+    box-shadow .32s ease;
+}
+
+.site-nav.scrolled{
+  height:72px;
+  color:#111;
+  background:rgba(255,255,255,.93);
+  border-color:rgba(12,14,17,.08);
+  backdrop-filter:blur(18px);
+  box-shadow:0 12px 34px rgba(0,0,0,.055);
+}
+
+.nav-inner{
+  width:var(--container);
+  margin:auto;
+  display:flex;
+  align-items:center;
+  gap:24px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-shrink:0;
+}
+
+.brand-mark{
+  width:43px;
+  height:43px;
+  display:grid;
+  place-items:center;
+  border:1px solid currentColor;
+  border-radius:12px;
+  font:800 11px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:-.04em;
+}
+
+.brand-name{
+  font:800 14px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:-.035em;
+}
+.brand-name small{
+  display:block;
+  margin-top:6px;
+  opacity:.58;
+  font:700 6px/1 "Inter",sans-serif;
+  letter-spacing:.25em;
+}
+
+.nav-links{
+  margin-left:auto;
+  display:flex;
+  align-items:center;
+  gap:3px;
+}
+.nav-item{position:relative}
+
+.nav-link{
+  min-height:42px;
+  padding:0 13px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  border-radius:999px;
+  font-size:11px;
+  font-weight:600;
+  transition:.22s ease;
+}
+.nav-link:hover{background:rgba(255,255,255,.10)}
+.site-nav.scrolled .nav-link:hover{background:#eff0ec}
+
+.chevron{
+  width:6px;
+  height:6px;
+  border-right:1.4px solid currentColor;
+  border-bottom:1.4px solid currentColor;
+  transform:rotate(45deg) translateY(-2px);
+  transition:.22s ease;
+}
+.nav-item:hover .chevron{
+  transform:rotate(225deg) translate(-1px,-1px);
+}
+
+.dropdown{
+  position:absolute;
+  top:calc(100% + 10px);
+  left:50%;
+  width:max-content;
+  min-width:150px;
+  max-width:210px;
+  padding:6px;
+  transform:translate(-50%,10px);
+  border:1px solid #e2e3df;
+  border-radius:17px;
+  background:rgba(255,255,255,.985);
+  color:#111;
+  box-shadow:0 28px 65px rgba(0,0,0,.15);
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:.22s ease;
+}
+.nav-item:hover .dropdown,
+.nav-item:focus-within .dropdown{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+  transform:translate(-50%,0);
+}
+
+.dropdown a{
+  min-height:40px;
+  padding:0 11px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  border-radius:9px;
+  font-size:11px;
+  font-weight:600;
+  transition:.2s ease;
+}
+.dropdown a:hover{
+  background:#f2f2ef;
+  padding-left:17px;
+}
+.mobile-toggle{
+  display:none;
+  width:43px;
+  height:43px;
+  margin-left:auto;
+  border:1px solid rgba(255,255,255,.24);
+  border-radius:50%;
+  background:transparent;
+  color:inherit;
+  cursor:pointer;
+}
+.site-nav.scrolled .mobile-toggle{border-color:#d4d5d1}
+.mobile-toggle span{
+  display:block;
+  width:16px;
+  height:1px;
+  margin:4px auto;
+  background:currentColor;
+  transition:.2s ease;
+}
+
+/* Navigation Responsive */
+@media(max-width:980px){
+  .site-nav{height:75px}
+  .mobile-toggle{display:block}
+
+  .nav-links{
+    position:fixed;
+    top:75px;
+    left:16px;
+    right:16px;
+    max-height:calc(100vh - 94px);
+    overflow:auto;
+    margin-left:0;
+    padding:10px;
+    display:none;
+    flex-direction:column;
+    align-items:stretch;
+    border:1px solid #e0e1dd;
+    border-radius:19px;
+    background:rgba(255,255,255,.985);
+    color:#111;
+    box-shadow:0 28px 75px rgba(0,0,0,.18);
+  }
+
+  .nav-links.open{display:flex}
+  .nav-item{width:100%}
+
+  .nav-link{
+    width:100%;
+    min-height:49px;
+    padding:0 14px;
+    justify-content:space-between;
+    border-radius:11px;
+  }
+
+  .nav-link:hover{background:#f0f0ed}
+
+  .dropdown{
+    position:static;
+    width:100%;
+    max-width:none;
+    margin:0 0 7px;
+    padding:6px;
+    display:none;
+    transform:none!important;
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    background:#f3f3ef;
+    box-shadow:none;
+  }
+
+  .nav-item.open .dropdown{display:block}
+  .nav-item:hover .dropdown{display:none}
+  .nav-item.open:hover .dropdown{display:block}
+}
+
+@media(max-width:700px){
+  .brand-mark{
+    width:39px;
+    height:39px;
+  }
+
+  .brand-name{font-size:12px}
+}
+</style>
+
+<!-- ============================================================
+     01 — NAVIGATION
+     ============================================================ -->
+<header class="site-nav" id="siteNav">
+  <div class="nav-inner">
+
+    <a class="brand" href="index.html" aria-label="Alphanumeric Energies Home">
+      <span class="brand-mark">AE</span>
+      <span class="brand-name">
+        ALPHANUMERIC
+        <small>ENERGIES</small>
+      </span>
     </a>
-    <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false"><span></span></button>
-    <div class="nav-list" id="navList"><ul>
-      <li><a class="nav-link" href="index.html" >Home</a></li>
-      <li><a class="nav-link" href="about.html" aria-current="page">About</a></li>
-      <li class="has-menu"><a class="nav-link menu-trigger" href="solutions.html" >Solutions <svg viewBox="0 0 12 8"><path d="M1 1l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a>
-        <div class="mega" aria-label="Solutions menu">
-          <a href="on-grid.html"><b>01</b><span><strong>On-Grid</strong><small>Grid-tied solar systems</small></span><em>→</em></a>
-          <a href="off-grid.html"><b>02</b><span><strong>Off-Grid</strong><small>Independent energy systems</small></span><em>→</em></a>
-          <a href="ground-mounted.html"><b>03</b><span><strong>Ground-Mounted</strong><small>Utility &amp; large-scale solar</small></span><em>→</em></a>
-        </div></li>
-      <li><a class="nav-link" href="contact.html" >Contact</a></li>
-      <li><a class="nav-cta" href="contact.html">Let’s connect <svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-    </ul></div>
+
+    <nav class="nav-links" id="navLinks">
+
+      <div class="nav-item">
+        <a class="nav-link" href="index.html">Home</a>
+      </div>
+
+      <div class="nav-item">
+        <a class="nav-link about-active" href="about.html">About</a>
+      </div>
+
+      <div class="nav-item has-dropdown">
+        <a class="nav-link" href="solar.html">
+          Renewable Energy
+          <span class="chevron" aria-hidden="true"></span>
+        </a>
+
+        <div class="dropdown">
+          <a href="on-grid.html">
+            <span>On-Grid</span>
+          </a>
+          <a href="off-grid.html">
+            <span>Off-Grid</span>
+          </a>
+          <a href="ground-mounted.html">
+            <span>Ground-Mounted</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="nav-item has-dropdown">
+        <a class="nav-link" href="power.html">
+          Power
+          <span class="chevron" aria-hidden="true"></span>
+        </a>
+
+        <div class="dropdown">
+          <a href="lt.html">
+            <span>LT</span>
+          </a>
+          <a href="ht.html">
+            <span>HT</span>
+          </a>
+          <a href="eht.html">
+            <span>EHT</span>
+          </a>
+          <a href="uht.html">
+            <span>UHT</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a class="nav-link" href="contact.html">Contact</a>
+      </div>
+
+    </nav>
+
+
+    <button
+      class="mobile-toggle"
+      id="mobileToggle"
+      aria-label="Open navigation"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+    </button>
+
   </div>
-</nav>
-<main id="main"><section class="page-hero"><div class="wrap"><div class="row"><div class="reveal"><div class="eyebrow">About Alpha Numeric Energy</div><h1>Premium energy thinking, presented with clarity.</h1><p>Alpha Numeric Energy is positioned around solar energy systems that are clean in appearance, direct in communication and dependable in intent. The website language is deliberately premium, monochrome and modern while the solution narratives remain practical and easy to understand.</p></div><div class="page-visual reveal" style="background-image:url('assets/images/about-energy.svg')"></div></div></div></section><section class="section"><div class="wrap"><div class="section-head reveal"><div class="eyebrow">Core principles</div><div><h2>Designed to feel refined. Structured to remain useful.</h2><p>The visual language is elevated, but the purpose is still business-focused: communicate clearly, build confidence fast and make each energy model easy to navigate.</p></div></div><div class="panel-grid"><div class="panel reveal"><b>01</b><h3>Minimal visual noise</h3><p>White, black and gray establish a polished and premium interface without distraction.</p></div><div class="panel reveal"><b>02</b><h3>Clear solution separation</h3><p>On-grid, off-grid and ground-mounted models are presented with distinct purpose and logic.</p></div><div class="panel reveal"><b>03</b><h3>Content that informs</h3><p>Each page uses concise factual copy to explain what the system is, where it fits and why it matters.</p></div><div class="panel reveal"><b>04</b><h3>Responsive experience</h3><p>Layout, spacing and navigation adapt smoothly across laptop, tablet and mobile screens.</p></div><div class="panel reveal"><b>05</b><h3>Premium consistency</h3><p>The design language remains consistent across the entire site for a more complete brand impression.</p></div><div class="panel reveal"><b>06</b><h3>Client-ready structure</h3><p>Suitable for presenting solutions professionally to prospective customers and partners.</p></div></div></div></section><section class="section" style="background:var(--paper)"><div class="wrap"><div class="section-head reveal"><div class="eyebrow">Coverage</div><div><h2>Three energy models. One polished digital identity.</h2><p>This package is shaped as a complete website experience with dedicated solution pages, premium visual treatment and a responsive structure for easier maintenance.</p></div></div><div class="card-grid"><article class="card on reveal"><div class="card-top"></div><div class="card-body"><b>On-Grid</b><p>For grid-connected commercial rooftops, industrial roofs and facilities that want efficient daytime generation.</p></div></article><article class="card off reveal"><div class="card-top"></div><div class="card-body"><b>Off-Grid</b><p>For locations that need independent power, storage-backed continuity or limited utility dependence.</p></div></article><article class="card ground reveal"><div class="card-top"></div><div class="card-body"><b>Ground-Mounted</b><p>For larger capacities where open land enables structured solar rows and higher expansion potential.</p></div></article></div></div></section></main>
-<footer class="site-footer">
+</header>
+
+<script>
+(() => {
+/* ============================================================
+     NAVIGATION
+     ============================================================ */
+  const siteNav = document.getElementById("siteNav");
+  const mobileToggle = document.getElementById("mobileToggle");
+  const navLinks = document.getElementById("navLinks");
+
+  function updateNavbar(){
+    siteNav.classList.toggle("scrolled", window.scrollY > 28);
+  }
+
+  updateNavbar();
+  window.addEventListener("scroll", updateNavbar, {passive:true});
+
+  mobileToggle.addEventListener("click", () => {
+    const open = navLinks.classList.toggle("open");
+    mobileToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    document.body.classList.toggle("menu-open", open);
+  });
+
+  document.querySelectorAll(".has-dropdown > .nav-link").forEach(link => {
+    link.addEventListener("click", event => {
+      if(window.innerWidth <= 980){
+        event.preventDefault();
+
+        const item = link.parentElement;
+
+        document.querySelectorAll(".nav-item.open").forEach(openItem => {
+          if(openItem !== item) openItem.classList.remove("open");
+        });
+
+        item.classList.toggle("open");
+      }
+    });
+  });
+
+  document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+      if(window.innerWidth <= 980 && !link.parentElement.classList.contains("has-dropdown")){
+        navLinks.classList.remove("open");
+        document.body.classList.remove("menu-open");
+        mobileToggle.setAttribute("aria-expanded","false");
+      }
+    });
+  });
+
+  window.addEventListener("resize", () => {
+    if(window.innerWidth > 980){
+      navLinks.classList.remove("open");
+      document.body.classList.remove("menu-open");
+      mobileToggle.setAttribute("aria-expanded","false");
+      document.querySelectorAll(".nav-item.open").forEach(item => item.classList.remove("open"));
+    }
+  });
+})();
+</script>
+
+
+<main>
+
+<!-- ============================================================
+     SECTION 02 — ABOUT HERO
+     ORDER: CSS → HTML
+     ============================================================ -->
+
+<style>
+/* ============================================================
+   02 — ABOUT HERO
+   ============================================================ */
+
+.about-hero{
+  position:relative;
+  height:500px;
+  min-height:500px;
+  overflow:hidden;
+  isolation:isolate;
+  background:#090b0f;
+  color:#fff;
+}
+
+.about-hero-media{
+  position:absolute;
+  inset:0;
+  z-index:-4;
+}
+
+.about-hero-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 48%;
+  transform:scale(1.02);
+  animation:aboutHeroDrift 14s ease-in-out infinite alternate;
+}
+
+@keyframes aboutHeroDrift{
+  to{
+    transform:scale(1.055) translate3d(-.35%,-.2%,0);
+  }
+}
+
+.about-hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-3;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(6,8,11,.95) 0%,
+      rgba(6,8,11,.84) 31%,
+      rgba(6,8,11,.56) 54%,
+      rgba(6,8,11,.20) 78%,
+      rgba(6,8,11,.08) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(0,0,0,.38),
+      transparent 48%
+    );
+}
+
+.about-hero::after{
+  content:"";
+  position:absolute;
+  top:-180px;
+  right:-160px;
+  z-index:-2;
+  width:520px;
+  height:520px;
+  border-radius:50%;
+  background:
+    radial-gradient(
+      circle,
+      rgba(85,148,255,.13),
+      transparent 68%
+    );
+  filter:blur(8px);
+  pointer-events:none;
+}
+
+.about-hero-inner{
+  width:var(--container);
+  height:100%;
+  margin:auto;
+  padding:128px 0 58px;
+  display:flex;
+  align-items:center;
+}
+
+.about-hero-copy{
+  max-width:790px;
+}
+
+.about-hero .kicker{
+  margin-bottom:17px;
+  color:rgba(255,255,255,.52);
+}
+
+.about-hero h1{
+  max-width:790px;
+  font:700 clamp(43px,4.4vw,66px)/.97 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:-.045em;
+}
+
+.about-hero h1 span{
+  display:block;
+  color:rgba(255,255,255,.52);
+}
+
+.about-hero p{
+  max-width:585px;
+  margin-top:20px;
+  color:rgba(255,255,255,.66);
+  font-size:12.5px;
+  line-height:1.75;
+}
+
+.about-hero-foot{
+  position:absolute;
+  left:50%;
+  bottom:19px;
+  width:var(--container);
+  transform:translateX(-50%);
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  color:rgba(255,255,255,.31);
+  font:700 7px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+
+.about-hero-line{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.about-hero-line i{
+  width:44px;
+  height:1px;
+  background:linear-gradient(90deg,var(--gold),rgba(255,255,255,.16));
+}
+
+@media(max-width:700px){
+  .about-hero{
+    height:450px;
+    min-height:450px;
+  }
+
+  .about-hero-inner{
+    padding:118px 0 46px;
+  }
+
+  .about-hero h1{
+    font-size:clamp(36px,10vw,48px);
+  }
+
+  .about-hero p{
+    font-size:11.5px;
+  }
+
+  .about-hero-foot{
+    bottom:15px;
+  }
+
+  .about-hero-foot > span:last-child{
+    display:none;
+  }
+}
+</style>
+
+<section class="about-hero">
+
+  <div class="about-hero-media">
+    <img
+      src="assets/images/banners/transmission-2.png"
+      alt="Alphanumeric Energies power infrastructure"
+    >
+  </div>
+
+  <div class="about-hero-inner">
+
+    <div class="about-hero-copy reveal">
+
+      <div class="kicker">
+        About Alphanumeric Energies
+      </div>
+
+      <h1>
+        Focused energy solutions.
+        <span>Built around progress.</span>
+      </h1>
+
+      <p>
+        Alphanumeric Energies brings renewable energy and power
+        infrastructure into one focused platform — covering Solar
+        solutions and electrical infrastructure across LT, HT, EHT and UHT.
+      </p>
+
+    </div>
+
+  </div>
+
+  <div class="about-hero-foot">
+    <div class="about-hero-line">
+      <i></i>
+      Renewable Energy · Power Infrastructure
+    </div>
+    <span>Hyderabad · India</span>
+  </div>
+
+</section>
+
+
+<!-- ============================================================
+     SECTION 03 — COMPANY OVERVIEW
+     ORDER: CSS → HTML
+     ============================================================ -->
+
+<style>
+/* ============================================================
+   03 — COMPANY OVERVIEW
+   ============================================================ */
+
+.about-overview{
+  position:relative;
+  padding:112px 0;
+  background:var(--paper);
+}
+
+.about-overview-grid{
+  display:grid;
+  grid-template-columns:minmax(0,.86fr) minmax(460px,1.14fr);
+  gap:68px;
+  align-items:center;
+}
+
+.about-overview-copy .kicker{
+  margin-bottom:18px;
+}
+
+.about-overview-copy h2{
+  max-width:650px;
+  font:700 clamp(38px,4.05vw,58px)/1.01 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:-.044em;
+}
+
+.about-overview-copy h2 span{
+  color:#85888e;
+}
+
+.about-overview-copy p{
+  max-width:575px;
+  margin-top:22px;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.82;
+}
+
+.about-overview-note{
+  margin-top:29px;
+  padding-top:23px;
+  border-top:1px solid var(--line);
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.about-overview-note strong{
+  display:block;
+  font:700 16px/1.15 "Plus Jakarta Sans",sans-serif;
+}
+
+.about-overview-note span{
+  display:block;
+  margin-top:7px;
+  color:#8b8f95;
+  font-size:9px;
+  line-height:1.45;
+}
+
+.about-overview-visual{
+  position:relative;
+  min-height:530px;
+}
+
+.about-overview-image{
+  position:absolute;
+  inset:0 0 48px 54px;
+  overflow:hidden;
+  border-radius:30px;
+  background:#111;
+  box-shadow:0 28px 70px rgba(0,0,0,.12);
+}
+
+.about-overview-image img{
+  height:100%;
+  object-fit:cover;
+  transition:transform .9s var(--ease);
+}
+
+.about-overview-visual:hover .about-overview-image img{
+  transform:scale(1.04);
+}
+
+.about-overview-card{
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:min(330px,72%);
+  padding:24px 25px;
+  border:1px solid #dddeda;
+  border-radius:18px;
+  background:rgba(255,255,255,.95);
+  box-shadow:0 18px 50px rgba(0,0,0,.10);
+  backdrop-filter:blur(15px);
+}
+
+.about-overview-card small{
+  display:block;
+  color:#959892;
+  font:700 7px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+
+.about-overview-card strong{
+  display:block;
+  margin-top:10px;
+  font:700 19px/1.12 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:-.025em;
+}
+
+@media(max-width:1050px){
+  .about-overview-grid{
+    grid-template-columns:1fr;
+    gap:46px;
+  }
+
+  .about-overview-visual{
+    min-height:500px;
+  }
+}
+
+@media(max-width:700px){
+  .about-overview{
+    padding:82px 0;
+  }
+
+  .about-overview-note{
+    grid-template-columns:1fr;
+  }
+
+  .about-overview-visual{
+    min-height:400px;
+  }
+
+  .about-overview-image{
+    inset:0 0 58px 20px;
+    border-radius:22px;
+  }
+
+  .about-overview-card{
+    width:82%;
+  }
+}
+</style>
+
+<section class="about-overview">
+
   <div class="wrap">
-    <div class="foot-top">
-      <div class="foot-brand"><img src="assets/images/logo-light.svg" alt="Alpha Numeric Energy"><p>Solar energy systems with a premium design language — structured around clarity, reliability and performance across on-grid, off-grid and ground-mounted applications.</p></div>
-      <div><div class="foot-title">Navigate</div><div class="foot-links"><a href="about.html">About</a><a href="solutions.html">Solutions</a><a href="on-grid.html">On-Grid</a><a href="off-grid.html">Off-Grid</a><a href="ground-mounted.html">Ground-Mounted</a><a href="contact.html">Contact</a></div></div>
-      <div><div class="foot-title">Let’s connect.</div><address class="foot-contact"><a href="mailto:info@aniplgroup.com">info@aniplgroup.com</a><br>320 Fifth Floor, East Avenue, Ayyappa Society Main Rd, near YSR Statue, SBH Officers Colony, Mega Hills, Madhapur, Hyderabad, Telangana 500081</address>
-      <div class="socials"><a href="#" aria-label="Instagram"><span>IG</span></a><a href="#" aria-label="Facebook"><span>f</span></a><a href="#" aria-label="LinkedIn"><span>in</span></a><a href="#" aria-label="X"><span>X</span></a><a href="#" aria-label="YouTube"><span>▶</span></a><a href="#" aria-label="Pinterest"><span>P</span></a><a href="#" aria-label="Threads"><span>@</span></a></div>
+
+    <div class="about-overview-grid">
+
+      <div class="about-overview-copy reveal">
+
+        <div class="kicker">
+          Who We Are
+        </div>
+
+        <h2>
+          Two focused verticals.
+          <span>One connected energy approach.</span>
+        </h2>
+
+        <p>
+          Our work is structured around two clear areas: Renewable Energy
+          through Solar, and Power Infrastructure spanning LT, HT, EHT and UHT.
+          This focused model keeps each solution clear while supporting
+          integrated project requirements where both areas meet.
+        </p>
+
+        <div class="about-overview-note">
+
+          <div>
+            <strong>Solar</strong>
+            <span>On-Grid · Off-Grid · Ground-Mounted</span>
+          </div>
+
+          <div>
+            <strong>LT · HT</strong>
+            <span>Distribution and power infrastructure</span>
+          </div>
+
+          <div>
+            <strong>EHT · UHT</strong>
+            <span>High-capacity transmission infrastructure</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="about-overview-visual reveal">
+
+        <div class="about-overview-image">
+          <img
+            src="assets/images/banners/energy1.png"
+            alt="Solar energy infrastructure"
+          >
+        </div>
+
+        <div class="about-overview-card">
+          <small>Focused Capability</small>
+          <strong>
+            Renewable Energy + Power Infrastructure
+          </strong>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ============================================================
+     SECTION 04 — OUR FOCUS
+     ORDER: CSS → HTML
+     ============================================================ -->
+
+<style>
+/* ============================================================
+   04 — OUR FOCUS
+   ============================================================ */
+
+.about-focus{
+  padding:0 0 116px;
+  background:var(--paper);
+}
+
+.about-focus-head{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:45px;
+  margin-bottom:38px;
+  padding-top:34px;
+  border-top:1px solid var(--line);
+}
+
+.about-focus-head h2{
+  max-width:760px;
+  font:700 clamp(36px,3.8vw,54px)/1.02 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:-.042em;
+}
+
+.about-focus-head p{
+  max-width:400px;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.7;
+}
+
+.about-focus-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+
+.about-focus-card{
+  position:relative;
+  min-height:470px;
+  overflow:hidden;
+  isolation:isolate;
+  border-radius:26px;
+  background:#111;
+  color:#fff;
+  box-shadow:0 22px 55px rgba(0,0,0,.10);
+}
+
+.about-focus-card img{
+  position:absolute;
+  inset:0;
+  z-index:-3;
+  height:100%;
+  object-fit:cover;
+  transform:scale(1.015);
+  transition:transform .9s var(--ease);
+}
+
+.about-focus-card:hover img{
+  transform:scale(1.06);
+}
+
+.about-focus-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,.04),
+      rgba(0,0,0,.14) 38%,
+      rgba(0,0,0,.88) 100%
+    );
+}
+
+.about-focus-card::after{
+  content:"";
+  position:absolute;
+  left:30px;
+  right:30px;
+  bottom:0;
+  height:2px;
+  transform:scaleX(.18);
+  transform-origin:left;
+  transition:transform .55s var(--ease);
+}
+
+.about-focus-card.solar::after{
+  background:linear-gradient(90deg,var(--gold),transparent);
+}
+
+.about-focus-card.power::after{
+  background:linear-gradient(90deg,var(--blue),transparent);
+}
+
+.about-focus-card:hover::after{
+  transform:scaleX(1);
+}
+
+.about-focus-index{
+  position:absolute;
+  top:26px;
+  left:28px;
+  padding:8px 10px;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:999px;
+  background:rgba(0,0,0,.20);
+  color:rgba(255,255,255,.66);
+  backdrop-filter:blur(10px);
+  font:700 7px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+.about-focus-content{
+  position:absolute;
+  left:30px;
+  right:30px;
+  bottom:31px;
+}
+
+.about-focus-content h3{
+  font:700 clamp(31px,3vw,46px)/1.02 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:-.04em;
+}
+
+.about-focus-content p{
+  max-width:515px;
+  margin-top:12px;
+  color:rgba(255,255,255,.66);
+  font-size:12px;
+  line-height:1.7;
+}
+
+.about-focus-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:20px;
+}
+
+.about-focus-tags span{
+  padding:8px 10px;
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:999px;
+  background:rgba(255,255,255,.04);
+  color:rgba(255,255,255,.73);
+  font:700 7px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  backdrop-filter:blur(8px);
+}
+
+@media(max-width:900px){
+  .about-focus-head{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:18px;
+  }
+
+  .about-focus-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:700px){
+  .about-focus{
+    padding-bottom:86px;
+  }
+
+  .about-focus-card{
+    min-height:390px;
+    border-radius:22px;
+  }
+}
+</style>
+
+<section class="about-focus">
+
+  <div class="wrap">
+
+    <div class="about-focus-head reveal">
+
+      <h2>
+        Built around the areas
+        that matter most.
+      </h2>
+
+      <p>
+        A clear portfolio helps clients understand exactly where
+        each solution fits and how the two verticals can work together.
+      </p>
+
+    </div>
+
+
+    <div class="about-focus-grid">
+
+      <a class="about-focus-card solar reveal" href="solar.html">
+
+        <img
+          src="assets/images/banners/reneableenergys1.png"
+          alt="Renewable energy solar solutions"
+        >
+
+        <div class="about-focus-index">
+          01 · Renewable Energy
+        </div>
+
+        <div class="about-focus-content">
+
+          <h3>
+            Solar
+          </h3>
+
+          <p>
+            Focused solar solutions for commercial, industrial and
+            utility-scale requirements.
+          </p>
+
+          <div class="about-focus-tags">
+            <span>On-Grid</span>
+            <span>Off-Grid</span>
+            <span>Ground-Mounted</span>
+          </div>
+
+        </div>
+
+      </a>
+
+
+      <a class="about-focus-card power reveal" href="power.html">
+
+        <img
+          src="assets/images/power_service/eht_lines.png"
+          alt="Power transmission infrastructure"
+        >
+
+        <div class="about-focus-index">
+          02 · Power
+        </div>
+
+        <div class="about-focus-content">
+
+          <h3>
+            LT to UHT
+          </h3>
+
+          <p>
+            Power infrastructure spanning low-voltage distribution
+            through high-capacity transmission applications.
+          </p>
+
+          <div class="about-focus-tags">
+            <span>LT</span>
+            <span>HT</span>
+            <span>EHT</span>
+            <span>UHT</span>
+          </div>
+
+        </div>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ============================================================
+     SECTION 05 — HOW WE WORK
+     ORDER: CSS → HTML
+     ============================================================ -->
+
+<style>
+/* ============================================================
+   05 — HOW WE WORK
+   ============================================================ */
+
+.about-method{
+  position:relative;
+  padding:108px 0;
+  overflow:hidden;
+  background:#0b0d10;
+  color:#fff;
+}
+
+.about-method::before{
+  content:"";
+  position:absolute;
+  inset:auto -180px -260px auto;
+  width:620px;
+  height:620px;
+  border-radius:50%;
+  background:
+    radial-gradient(
+      circle,
+      rgba(85,148,255,.10),
+      transparent 68%
+    );
+  pointer-events:none;
+}
+
+.about-method .wrap{
+  position:relative;
+  z-index:2;
+}
+
+.about-method-head{
+  display:grid;
+  grid-template-columns:1fr .72fr;
+  gap:70px;
+  align-items:end;
+  margin-bottom:50px;
+}
+
+.about-method .kicker{
+  margin-bottom:17px;
+  color:rgba(255,255,255,.43);
+}
+
+.about-method h2{
+  max-width:820px;
+  font:700 clamp(38px,4vw,58px)/1.01 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:-.044em;
+}
+
+.about-method h2 span{
+  color:rgba(255,255,255,.38);
+}
+
+.about-method-head p{
+  max-width:430px;
+  color:rgba(255,255,255,.49);
+  font-size:12px;
+  line-height:1.72;
+}
+
+.about-method-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border-top:1px solid rgba(255,255,255,.10);
+  border-bottom:1px solid rgba(255,255,255,.10);
+}
+
+.about-method-item{
+  position:relative;
+  min-height:275px;
+  padding:27px 25px;
+  border-right:1px solid rgba(255,255,255,.09);
+}
+
+.about-method-item:last-child{
+  border-right:0;
+}
+
+.about-method-num{
+  color:rgba(255,255,255,.27);
+  font:700 8px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:.14em;
+}
+
+.about-method-item h3{
+  margin-top:100px;
+  font:700 23px/1.05 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:-.03em;
+}
+
+.about-method-item p{
+  max-width:245px;
+  margin-top:11px;
+  color:rgba(255,255,255,.48);
+  font-size:11.5px;
+  line-height:1.65;
+}
+
+.about-method-item::before{
+  content:"";
+  position:absolute;
+  left:25px;
+  top:-1px;
+  width:0;
+  height:2px;
+  background:var(--gold);
+  transition:width .35s ease;
+}
+
+.about-method-item:nth-child(even)::before{
+  background:var(--blue);
+}
+
+.about-method-item:hover::before{
+  width:58px;
+}
+
+@media(max-width:980px){
+  .about-method-head{
+    grid-template-columns:1fr;
+    gap:22px;
+  }
+
+  .about-method-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .about-method-item:nth-child(2){
+    border-right:0;
+  }
+
+  .about-method-item:nth-child(-n+2){
+    border-bottom:1px solid rgba(255,255,255,.09);
+  }
+}
+
+@media(max-width:700px){
+  .about-method{
+    padding:82px 0;
+  }
+
+  .about-method-grid{
+    grid-template-columns:1fr;
+  }
+
+  .about-method-item{
+    min-height:220px;
+    border-right:0;
+    border-bottom:1px solid rgba(255,255,255,.09);
+  }
+
+  .about-method-item:last-child{
+    border-bottom:0;
+  }
+
+  .about-method-item h3{
+    margin-top:72px;
+  }
+}
+</style>
+
+<section class="about-method">
+
+  <div class="wrap">
+
+    <div class="about-method-head reveal">
+
+      <div>
+
+        <div class="kicker">
+          Our Working Approach
+        </div>
+
+        <h2>
+          Clear scope.
+          <span>Connected execution.</span>
+        </h2>
+
+      </div>
+
+      <p>
+        Our delivery approach is built around understanding the
+        requirement, defining the right solution, coordinating the
+        scope and moving toward reliable activation.
+      </p>
+
+    </div>
+
+
+    <div class="about-method-grid">
+
+      <article class="about-method-item reveal">
+        <div class="about-method-num">01 · Understand</div>
+        <h3>Read the requirement clearly.</h3>
+        <p>
+          Start with the site, application, operating need
+          and project objective.
+        </p>
+      </article>
+
+      <article class="about-method-item reveal">
+        <div class="about-method-num">02 · Define</div>
+        <h3>Build the right solution path.</h3>
+        <p>
+          Match the requirement to the appropriate solar
+          or power infrastructure scope.
+        </p>
+      </article>
+
+      <article class="about-method-item reveal">
+        <div class="about-method-num">03 · Coordinate</div>
+        <h3>Keep the scope connected.</h3>
+        <p>
+          Coordinate systems, equipment and supporting
+          infrastructure within one defined path.
+        </p>
+      </article>
+
+      <article class="about-method-item reveal">
+        <div class="about-method-num">04 · Deliver</div>
+        <h3>Move toward reliable operation.</h3>
+        <p>
+          Execute with attention to clarity, quality,
+          commissioning and long-term usability.
+        </p>
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ============================================================
+     SECTION 06 — WHY ALPHANUMERIC
+     ORDER: CSS → HTML
+     ============================================================ -->
+
+<style>
+/* ============================================================
+   06 — WHY ALPHANUMERIC
+   ============================================================ */
+
+.about-why{
+  padding:112px 0;
+  background:#f5f4f0;
+}
+
+.about-why-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:50px;
+  margin-bottom:45px;
+}
+
+.about-why-head h2{
+  max-width:760px;
+  font:700 clamp(38px,4vw,58px)/1.01 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:-.043em;
+}
+
+.about-why-head h2 span{
+  color:#85888d;
+}
+
+.about-why-head p{
+  max-width:420px;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.72;
+}
+
+.about-why-list{
+  border-top:1px solid var(--line);
+}
+
+.about-why-item{
+  display:grid;
+  grid-template-columns:80px 1fr minmax(250px,.65fr);
+  gap:30px;
+  align-items:center;
+  min-height:128px;
+  padding:22px 8px;
+  border-bottom:1px solid var(--line);
+  transition:
+    padding-left .28s ease,
+    background .28s ease;
+}
+
+.about-why-item:hover{
+  padding-left:18px;
+  background:rgba(255,255,255,.58);
+}
+
+.about-why-num{
+  color:#a4a7aa;
+  font:700 9px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:.12em;
+}
+
+.about-why-item h3{
+  font:700 clamp(23px,2.1vw,31px)/1.04 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:-.032em;
+}
+
+.about-why-item p{
+  color:#73767b;
+  font-size:11.5px;
+  line-height:1.65;
+}
+
+@media(max-width:900px){
+  .about-why-head{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:18px;
+  }
+
+  .about-why-item{
+    grid-template-columns:55px 1fr;
+  }
+
+  .about-why-item p{
+    grid-column:2;
+  }
+}
+
+@media(max-width:700px){
+  .about-why{
+    padding:82px 0;
+  }
+
+  .about-why-item{
+    min-height:auto;
+    padding:25px 0;
+    gap:15px;
+  }
+}
+</style>
+
+<section class="about-why">
+
+  <div class="wrap">
+
+    <div class="about-why-head reveal">
+
+      <h2>
+        What defines
+        <span>our approach.</span>
+      </h2>
+
+      <p>
+        Four practical strengths guide how we think about
+        energy and infrastructure solutions.
+      </p>
+
+    </div>
+
+
+    <div class="about-why-list">
+
+      <div class="about-why-item reveal">
+        <span class="about-why-num">01</span>
+        <h3>Advanced Technology</h3>
+        <p>
+          Technology selected with performance,
+          practicality and economical value in mind.
+        </p>
+      </div>
+
+      <div class="about-why-item reveal">
+        <span class="about-why-num">02</span>
+        <h3>Reliable Professional Services</h3>
+        <p>
+          Structured coordination and support across
+          the project lifecycle.
+        </p>
+      </div>
+
+      <div class="about-why-item reveal">
+        <span class="about-why-num">03</span>
+        <h3>In-House Capability</h3>
+        <p>
+          Innovation, design and manufacturing aligned
+          within one integrated process.
+        </p>
+      </div>
+
+      <div class="about-why-item reveal">
+        <span class="about-why-num">04</span>
+        <h3>Scientific Approach</h3>
+        <p>
+          Analysis, technical logic and forward thinking
+          applied to scalable, efficient solutions.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ============================================================
+     SECTION 07 — DIRECTION
+     ORDER: CSS → HTML
+     ============================================================ -->
+
+<style>
+/* ============================================================
+   07 — DIRECTION
+   ============================================================ */
+
+.about-direction{
+  padding:0 0 112px;
+  background:#f5f4f0;
+}
+
+.about-direction-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+
+.about-direction-card{
+  min-height:360px;
+  padding:38px;
+  border:1px solid var(--line);
+  border-radius:24px;
+  background:#fff;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+.about-direction-card.dark{
+  background:#111317;
+  color:#fff;
+  border-color:#111317;
+}
+
+.about-direction-label{
+  color:#969993;
+  font:700 8px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+
+.about-direction-card.dark .about-direction-label{
+  color:rgba(255,255,255,.38);
+}
+
+.about-direction-card h3{
+  max-width:520px;
+  margin-top:90px;
+  font:700 clamp(29px,3vw,43px)/1.03 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:-.04em;
+}
+
+.about-direction-card p{
+  max-width:500px;
+  margin-top:17px;
+  color:#71746f;
+  font-size:12px;
+  line-height:1.7;
+}
+
+.about-direction-card.dark p{
+  color:rgba(255,255,255,.52);
+}
+
+@media(max-width:820px){
+  .about-direction-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:700px){
+  .about-direction{
+    padding-bottom:82px;
+  }
+
+  .about-direction-card{
+    min-height:300px;
+    padding:28px;
+  }
+
+  .about-direction-card h3{
+    margin-top:68px;
+  }
+}
+</style>
+
+<section class="about-direction">
+
+  <div class="wrap">
+
+    <div class="about-direction-grid">
+
+      <article class="about-direction-card reveal">
+
+        <div class="about-direction-label">
+          Our Direction
+        </div>
+
+        <div>
+          <h3>
+            Cleaner generation with stronger infrastructure.
+          </h3>
+
+          <p>
+            Keep renewable energy and power infrastructure focused,
+            practical and ready for the requirements of modern projects.
+          </p>
+        </div>
+
+      </article>
+
+
+      <article class="about-direction-card dark reveal">
+
+        <div class="about-direction-label">
+          Our Commitment
+        </div>
+
+        <div>
+          <h3>
+            Clear solutions. Dependable delivery. Long-term value.
+          </h3>
+
+          <p>
+            Bring clarity to every project by aligning technology,
+            scope and execution with the actual operating requirement.
+          </p>
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ============================================================
+     SECTION 08 — CLOSING CTA
+     ORDER: CSS → HTML
+     ============================================================ -->
+
+<style>
+/* ============================================================
+   08 — CLOSING CTA
+   ============================================================ */
+
+.about-cta{
+  padding:0 0 118px;
+  background:#f5f4f0;
+}
+
+.about-cta-box{
+  position:relative;
+  min-height:365px;
+  overflow:hidden;
+  isolation:isolate;
+  padding:48px;
+  border-radius:28px;
+  background:#0a0c0f;
+  color:#fff;
+  display:flex;
+  align-items:flex-end;
+}
+
+.about-cta-box img{
+  position:absolute;
+  inset:0;
+  z-index:-3;
+  height:100%;
+  object-fit:cover;
+  opacity:.40;
+}
+
+.about-cta-box::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(7,9,12,.96),
+      rgba(7,9,12,.73) 47%,
+      rgba(7,9,12,.20)
+    );
+}
+
+.about-cta-content{
+  max-width:760px;
+}
+
+.about-cta-content .kicker{
+  color:rgba(255,255,255,.48);
+  margin-bottom:16px;
+}
+
+.about-cta-content h2{
+  font:700 clamp(34px,3.8vw,54px)/1.01 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:-.043em;
+}
+
+.about-cta-content p{
+  max-width:560px;
+  margin-top:16px;
+  color:rgba(255,255,255,.57);
+  font-size:12px;
+  line-height:1.7;
+}
+
+.about-cta-link{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  min-height:42px;
+  margin-top:23px;
+  padding:0 15px;
+  border-radius:9px;
+  background:#fff;
+  color:#111;
+  font:700 8px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  transition:.22s ease;
+}
+
+.about-cta-link:hover{
+  transform:translateY(-2px);
+  background:#f0f0ec;
+}
+
+@media(max-width:700px){
+  .about-cta{
+    padding-bottom:88px;
+  }
+
+  .about-cta-box{
+    min-height:390px;
+    padding:30px 25px;
+    border-radius:22px;
+  }
+}
+</style>
+
+<section class="about-cta">
+
+  <div class="wrap">
+
+    <div class="about-cta-box reveal">
+
+      <img
+        src="assets/images/banners/reneableenergys1.png"
+        alt="Renewable energy infrastructure"
+      >
+
+      <div class="about-cta-content">
+
+        <div class="kicker">
+          Start a Conversation
+        </div>
+
+        <h2>
+          Planning a solar or power infrastructure requirement?
+        </h2>
+
+        <p>
+          Explore the relevant solution area or connect with
+          Alphanumeric Energies to discuss the project scope.
+        </p>
+
+        <a class="about-cta-link" href="contact.html">
+          Contact Us <span>↗</span>
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<!-- ============================================================
+     SECTION 09 — FOOTER
+     ORDER: CSS → HTML
+     ============================================================ -->
+
+<style>
+/* ============================================================
+   09 — SECTION CSS
+   ============================================================ */
+/* ============================================================
+   09 — FOOTER
+   ============================================================ */
+.footer{
+  position:relative;
+  overflow:hidden;
+  margin-top:0;
+  padding:0 0 28px;
+  background:#07090b;
+  color:#fff;
+}
+.footer::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto 0;
+  height:10px;
+  background:linear-gradient(90deg,#d7a840,#8f6b22 38%,#18202c 62%,#5594ff);
+  opacity:.95;
+}
+
+.footer-topline{
+  padding:94px 0 64px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.footer-topline .kicker{
+  color:rgba(255,255,255,.37);
+  margin-bottom:20px;
+}
+.footer-topline h2{
+  max-width:1100px;
+  font:700 clamp(37px,4.5vw,62px)/.98 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:-.043em;
+}
+.footer-topline h2 span{color:#71767e}
+
+.footer-grid{
+  padding:62px 0 54px;
+  display:grid;
+  grid-template-columns:1.4fr .8fr .9fr 1.15fr;
+  gap:48px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.footer .brand-mark{border-color:#30343a}
+.footer-brand-copy{
+  max-width:370px;
+  margin-top:21px;
+  color:rgba(255,255,255,.44);
+  font-size:11px;
+  line-height:1.75;
+}
+.footer-badge{
+  display:inline-flex;
+  margin-top:20px;
+  padding:8px 10px;
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:999px;
+  color:rgba(255,255,255,.42);
+  font:700 7px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+
+.footer-title{
+  margin-bottom:18px;
+  color:rgba(255,255,255,.35);
+  font:700 7px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.footer-links,
+.footer-contact{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.footer-links a,
+.footer-contact a,
+.footer-contact span{
+  color:rgba(255,255,255,.62);
+  font-size:11px;
+  line-height:1.55;
+  transition:.22s ease;
+}
+.footer-links a:hover,
+.footer-contact a:hover{
+  color:#fff;
+  transform:translateX(3px);
+}
+.footer-contact span{
+  max-width:315px;
+  color:rgba(255,255,255,.42);
+}
+
+.footer-cta-link{
+  width:max-content;
+  margin-top:10px;
+  padding-bottom:5px;
+  border-bottom:1px solid rgba(255,255,255,.25);
+  font:700 8px/1 "Plus Jakarta Sans",sans-serif!important;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+}
+
+.socials{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:22px;
+}
+.socials a{
+  width:40px;
+  height:40px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:50%;
+  background:rgba(255,255,255,.025);
+  color:rgba(255,255,255,.58);
+  transition:
+    transform .24s ease,
+    background .24s ease,
+    color .24s ease,
+    border-color .24s ease;
+}
+.socials a svg{
+  width:17px;
+  height:17px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.7;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.socials a .fill-icon{
+  fill:currentColor;
+  stroke:none;
+}
+.socials a:hover{
+  background:#fff;
+  color:#111;
+  border-color:#fff;
+  transform:translateY(-3px);
+}
+
+.footer-bottom{
+  padding-top:25px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  color:rgba(255,255,255,.27);
+  font:700 7px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+.footer-bottom-right{
+  display:flex;
+  gap:22px;
+  flex-wrap:wrap;
+}
+
+/* Footer Responsive */
+@media(max-width:980px){
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .footer-grid > div:first-child{grid-column:1/-1}
+}
+
+@media(max-width:700px){
+  .footer-topline{padding:66px 0 54px}
+
+  .footer-topline h2{
+    font-size:clamp(34px,9vw,48px);
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+    gap:36px;
+  }
+
+  .footer-grid > div:first-child{grid-column:auto}
+
+  .footer-bottom{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+}
+</style>
+
+<!-- ============================================================
+     09 — FOOTER
+     ============================================================ -->
+
+<footer class="footer">
+
+  <div class="footer-topline">
+    <div class="wrap reveal">
+      <div class="kicker">Alphanumeric Energies</div>
+      <h2>
+        Cleaner generation. Stronger networks.
+        <span>Infrastructure built for progress.</span>
+      </h2>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <div class="footer-grid">
+
+      <div>
+        <a class="brand" href="index.html" aria-label="Alphanumeric Energies Home">
+          <span class="brand-mark">AE</span>
+          <span class="brand-name">
+            ALPHANUMERIC
+            <small>ENERGIES</small>
+          </span>
+        </a>
+
+        <p class="footer-brand-copy">
+          Focused renewable energy and power infrastructure covering
+          Solar, LT, HT, EHT and UHT.
+        </p>
+
+        <span class="footer-badge">
+          Renewable Energy · Power
+        </span>
+      </div>
+
+      <div>
+        <div class="footer-title">Navigate</div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="solar.html">Renewable Energy</a>
+          <a href="power.html">Power</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-title">Solutions</div>
+        <div class="footer-links">
+          <a href="on-grid.html">On-Grid Solar</a>
+          <a href="off-grid.html">Off-Grid Solar</a>
+          <a href="ground-mounted.html">Ground-Mounted Solar</a>
+          <a href="lt.html">LT</a>
+          <a href="ht.html">HT</a>
+          <a href="eht.html">EHT</a>
+          <a href="uht.html">UHT</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-title">Connect</div>
+
+        <div class="footer-contact">
+          <a href="mailto:info@aniplgroup.com">
+            info@aniplgroup.com
+          </a>
+
+          <span>
+            320 Fifth Floor, East Avenue, Ayyappa Society Main Rd,
+            near YSR Statue, SBH Officers Colony, Mega Hills,
+            Madhapur, Hyderabad, Telangana 500081
+          </span>
+
+          <a class="footer-cta-link" href="contact.html">
+            Start a project <span>↗</span>
+          </a>
+        </div>
+
+        <div class="socials">
+
+          <a href="#" aria-label="Instagram" title="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect>
+              <circle cx="12" cy="12" r="4"></circle>
+              <circle class="fill-icon" cx="17.5" cy="6.7" r="1"></circle>
+            </svg>
+          </a>
+
+          <a href="#" aria-label="Facebook" title="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M14.3 8.2h3V4.6c-.5-.1-2.2-.2-4.2-.2-4.1 0-6.9 2.5-6.9 7.1v4H2v4h4.2V24h5.1v-4.5h4.2l.7-4h-4.9v-3.6c0-1.2.3-2 3-2z" class="fill-icon" transform="scale(.78) translate(3 0)"></path>
+            </svg>
+          </a>
+
+          <a href="#" aria-label="LinkedIn" title="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="9" width="4" height="11"></rect>
+              <circle cx="5" cy="5.5" r="2"></circle>
+              <path d="M11 20V9h4v1.8c1-1.5 2.5-2.3 4.1-2.1 2.8.3 3.9 2.3 3.9 5.8V20h-4v-5c0-1.8-.7-2.8-2.1-2.8-1.6 0-2.4 1.1-2.4 3.2V20z"></path>
+            </svg>
+          </a>
+
+          <a href="#" aria-label="Threads" title="Threads">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3.5c-4.8 0-8.2 3.1-8.2 8.5S7 20.5 12 20.5c4.4 0 7.4-2.4 7.4-6.1 0-3.2-2.2-5.1-5.3-5.1-2.8 0-4.8 1.4-4.8 3.6 0 2 1.6 3.3 3.7 3.3 2.7 0 4.5-1.9 4.5-4.6 0-4.7-2.1-7.4-5.8-7.4-3.4 0-5.6 2.1-5.6 5.7"></path>
+            </svg>
+          </a>
+
+          <a href="#" aria-label="X / Twitter" title="X / Twitter">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 4l16 16M20 4 4 20"></path>
+            </svg>
+          </a>
+
+          <a href="#" aria-label="YouTube" title="YouTube">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 12c0-3-.4-5-.9-5.8-.5-.8-1.4-1.2-2.4-1.3C16 4.6 14 4.5 12 4.5s-4 .1-5.7.4c-1 .1-1.9.5-2.4 1.3C3.4 7 3 9 3 12s.4 5 .9 5.8c.5.8 1.4 1.2 2.4 1.3 1.7.3 3.7.4 5.7.4s4-.1 5.7-.4c1-.1 1.9-.5 2.4-1.3.5-.8.9-2.8.9-5.8z"></path>
+              <path d="m10 9 5 3-5 3z" class="fill-icon"></path>
+            </svg>
+          </a>
+
+          <a href="#" aria-label="Google" title="Google">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.5 12.2c0-.6-.1-1.2-.2-1.7H12v3.2h4.8a4.1 4.1 0 0 1-1.8 2.7v2.2h2.9c1.7-1.6 2.6-3.8 2.6-6.4z"></path>
+              <path d="M12 20.8c2.4 0 4.4-.8 5.9-2.2L15 16.4c-.8.5-1.8.8-3 .8-2.3 0-4.3-1.6-5-3.7H4v2.3c1.5 3 4.5 5 8 5z"></path>
+              <path d="M7 13.5a5.5 5.5 0 0 1 0-3V8.2H4a9 9 0 0 0 0 7.6z"></path>
+              <path d="M12 6.8c1.3 0 2.5.4 3.4 1.3L18 5.5A8.7 8.7 0 0 0 4 8.2l3 2.3c.7-2.1 2.7-3.7 5-3.7z"></path>
+            </svg>
+          </a>
+
+          <a href="#" aria-label="Pinterest" title="Pinterest">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3.2a8.8 8.8 0 0 0-3.2 17c-.1-1.4 0-3 .4-4.4l1.1-4.4s-.3-.7-.3-1.7c0-1.6.9-2.8 2.1-2.8 1 0 1.5.7 1.5 1.6 0 1-.6 2.4-.9 3.7-.3 1.1.5 2 1.6 2 2 0 3.5-2.1 3.5-5.1 0-2.7-1.9-4.5-4.7-4.5-3.2 0-5.1 2.4-5.1 4.9 0 1 .4 2 .8 2.5.1.1.1.2.1.4l-.3 1.2c-.1.4-.4.5-.8.3-1.3-.6-2.1-2.5-2.1-4 0-3.2 2.4-6.2 6.8-6.2 3.6 0 6.3 2.5 6.3 5.9 0 3.5-2.2 6.4-5.3 6.4-1 0-2-.5-2.3-1.2l-.6 2.3c-.2.8-.8 1.9-1.1 2.5.8.2 1.7.4 2.6.4A8.8 8.8 0 0 0 12 3.2z"></path>
+            </svg>
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Alphanumeric Energies. All rights reserved.</span>
+
+      <div class="footer-bottom-right">
+        <span>Solar</span>
+        <span>Power</span>
+        <span>Hyderabad</span>
       </div>
     </div>
-    <div class="foot-bottom"><span>© 2026 Alpha Numeric Energy. All rights reserved.</span><span>On-Grid · Off-Grid · Ground-Mounted</span></div>
+
   </div>
 </footer>
-<script src="assets/js/main.js"></script>
-</body></html>
+
+<button
+  class="back-top"
+  id="backTop"
+  aria-label="Back to top"
+>
+  ↑
+</button>
+
+<!-- ============================================================
+     GLOBAL UTILITIES JAVASCRIPT
+     Reveal animation · Scroll progress · Back to top
+     ============================================================ -->
+
+<script>
+(() => {
+/* ============================================================
+     GLOBAL REVEAL
+     ============================================================ */
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add("show");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },{
+    threshold:.12,
+    rootMargin:"0px 0px -30px 0px"
+  });
+
+  document.querySelectorAll(".reveal").forEach((element,index) => {
+    element.style.transitionDelay = `${Math.min((index % 5) * 55,220)}ms`;
+    revealObserver.observe(element);
+  });
+
+/* ============================================================
+     SCROLL PROGRESS + BACK TO TOP
+     ============================================================ */
+  const scrollProgress = document.getElementById("scrollProgress");
+  const backTop = document.getElementById("backTop");
+
+  function updateScrollUI(){
+    const pageHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = pageHeight > 0 ? (window.scrollY / pageHeight) * 100 : 0;
+
+    scrollProgress.style.width = `${progress}%`;
+    backTop.classList.toggle("show", window.scrollY > 650);
+  }
+
+  updateScrollUI();
+  window.addEventListener("scroll", updateScrollUI, {passive:true});
+
+  backTop.addEventListener("click", () => {
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

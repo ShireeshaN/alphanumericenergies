@@ -1,38 +1,1909 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg"><title>Off-Grid | Alpha Numeric Energy</title><meta name="description" content="Off-grid solar solutions with independent energy continuity."><link rel="stylesheet" href="assets/css/style.css"></head><body>
-<a class="skip" href="#main">Skip to content</a>
-<nav class="site-nav " id="siteNav" aria-label="Primary navigation">
-  <div class="wrap nav-shell">
-    <a class="brand" href="index.html" aria-label="Alpha Numeric Energy home">
-      <img class="logo-light" src="assets/images/logo-light.svg" alt="Alpha Numeric Energy">
-      <img class="logo-dark" src="assets/images/logo-dark.svg" alt="Alpha Numeric Energy">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090b0f">
+
+<title>Off-Grid Solar | Alphanumeric Energies</title>
+<meta name="description" content="Warm premium off-grid solar and battery storage solutions for remote and independent power applications by Alphanumeric Energies.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   00 — GLOBAL
+   ============================================================ */
+:root{
+  --ink:#0d0f12;
+  --ink-2:#15181d;
+  --paper:#f5f4f0;
+  --paper-2:#ecece7;
+  --white:#ffffff;
+  --muted:#6c7178;
+  --line:#dcddd9;
+
+  --gold:#d7a840;
+  --gold-soft:#f0e0b2;
+  --blue:#5594ff;
+
+  --container:min(1380px,calc(100% - 64px));
+  --radius-xl:34px;
+  --radius-lg:26px;
+  --radius-md:18px;
+
+  --ease:cubic-bezier(.2,.72,.2,1);
+  --shadow:0 30px 80px rgba(0,0,0,.12);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Inter",sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  overflow-x:hidden;
+  text-rendering:optimizeLegibility;
+  -webkit-font-smoothing:antialiased;
+}
+body.menu-open{overflow:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%}
+button,input,textarea,select{font:inherit}
+button{color:inherit}
+
+.wrap{
+  width:var(--container);
+  margin:auto;
+}
+
+.editorial{
+  color:#777b82;
+}
+
+.kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:11px;
+  color:#777c83;
+  font:700 9px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:.17em;
+  text-transform:uppercase;
+}
+.kicker::before{
+  content:"";
+  width:30px;
+  height:1px;
+  background:currentColor;
+  opacity:.65;
+}
+
+.btn{
+  min-height:50px;
+  padding:0 19px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:13px;
+  border:1px solid transparent;
+  border-radius:999px;
+  font:700 9px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+  transition:
+    transform .25s ease,
+    background .25s ease,
+    border-color .25s ease,
+    color .25s ease;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-light{background:#fff;color:#111}
+.btn-light:hover{background:#f0f0ec}
+.btn-outline{
+  border-color:rgba(255,255,255,.25);
+  color:#fff;
+  background:rgba(255,255,255,.035);
+  backdrop-filter:blur(10px);
+}
+.btn-outline:hover{background:rgba(255,255,255,.10)}
+.btn-dark{background:#111;color:#fff}
+.btn-dark:hover{background:#24272c}
+
+.reveal{
+  opacity:0;
+  transform:translateY(28px);
+  transition:
+    opacity .85s var(--ease),
+    transform .85s var(--ease);
+}
+.reveal.show{
+  opacity:1;
+  transform:none;
+}
+
+.scroll-progress{
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:1300;
+  width:0;
+  height:2px;
+  background:linear-gradient(90deg,var(--gold),#f2d487);
+  box-shadow:0 0 12px rgba(215,168,64,.45);
+  pointer-events:none;
+}
+
+/* ============================================================
+   SHARED SECTION HEAD
+   ============================================================ */
+.section-pad{padding:124px 0}
+.section-head{
+  display:grid;
+  grid-template-columns:minmax(0,1.14fr) minmax(320px,.86fr);
+  gap:70px;
+  align-items:end;
+  margin-bottom:52px;
+}
+.section-head .kicker{margin-bottom:18px}
+.section-head h2{
+  max-width:900px;
+  font:700 clamp(38px,4.25vw,60px)/1.02 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:-.043em;
+}
+.section-head p{
+  max-width:455px;
+  color:var(--muted);
+  font-size:12.5px;
+  line-height:1.72;
+}
+
+/* ============================================================
+   BACK TO TOP
+   ============================================================ */
+.back-top{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  z-index:1000;
+  width:45px;
+  height:45px;
+  display:grid;
+  place-items:center;
+  border:1px solid #d7d8d4;
+  border-radius:50%;
+  background:rgba(255,255,255,.94);
+  color:#111;
+  cursor:pointer;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(10px);
+  box-shadow:0 12px 30px rgba(0,0,0,.10);
+  transition:.24s ease;
+}
+.back-top.show{
+  opacity:1;
+  visibility:visible;
+  transform:none;
+}
+.back-top:hover{
+  background:#111;
+  color:#fff;
+  border-color:#111;
+}
+
+/* ============================================================
+   GLOBAL RESPONSIVE
+   ============================================================ */
+@media(max-width:1180px){
+  :root{--container:min(100% - 44px,1380px)}
+
+  .section-head{
+    grid-template-columns:1fr;
+    gap:25px;
+  }
+}
+
+@media(max-width:980px){
+  :root{--container:min(100% - 32px,1380px)}
+}
+
+@media(max-width:700px){
+  :root{--container:min(100% - 28px,1380px)}
+
+  .section-pad{padding:88px 0}
+  .section-head{margin-bottom:35px}
+  .section-head h2{
+    font-size:clamp(34px,9.5vw,47px);
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,
+  *::before,
+  *::after{
+    animation:none!important;
+    transition-duration:.01ms!important;
+  }
+}
+</style>
+</head>
+
+
+
+<body>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+
+<style>
+.site-nav:not(.scrolled) .renewable-active{background:rgba(255,255,255,.10)}
+.site-nav.scrolled .renewable-active{background:#eff0ec}
+.dropdown .dropdown-active{background:#f1f1ed;font-weight:700}
+</style>
+
+<!-- ============================================================
+     SECTION 01 — NAVIGATION
+     ORDER: CSS → HTML → JAVASCRIPT
+     ============================================================ -->
+
+<style>
+/* ============================================================
+   01 — SECTION CSS
+   ============================================================ */
+/* ============================================================
+   01 — NAVIGATION
+   ============================================================ */
+.site-nav{
+  position:fixed;
+  inset:0 0 auto 0;
+  z-index:1200;
+  height:82px;
+  display:flex;
+  align-items:center;
+  color:#fff;
+  border-bottom:1px solid rgba(255,255,255,.10);
+  transition:
+    height .32s ease,
+    background .32s ease,
+    color .32s ease,
+    border-color .32s ease,
+    box-shadow .32s ease;
+}
+
+.site-nav.scrolled{
+  height:72px;
+  color:#111;
+  background:rgba(255,255,255,.93);
+  border-color:rgba(12,14,17,.08);
+  backdrop-filter:blur(18px);
+  box-shadow:0 12px 34px rgba(0,0,0,.055);
+}
+
+.nav-inner{
+  width:var(--container);
+  margin:auto;
+  display:flex;
+  align-items:center;
+  gap:24px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-shrink:0;
+}
+
+.brand-mark{
+  width:43px;
+  height:43px;
+  display:grid;
+  place-items:center;
+  border:1px solid currentColor;
+  border-radius:12px;
+  font:800 11px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:-.04em;
+}
+
+.brand-name{
+  font:800 14px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:-.035em;
+}
+.brand-name small{
+  display:block;
+  margin-top:6px;
+  opacity:.58;
+  font:700 6px/1 "Inter",sans-serif;
+  letter-spacing:.25em;
+}
+
+.nav-links{
+  margin-left:auto;
+  display:flex;
+  align-items:center;
+  gap:3px;
+}
+.nav-item{position:relative}
+
+.nav-link{
+  min-height:42px;
+  padding:0 13px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  border-radius:999px;
+  font-size:11px;
+  font-weight:600;
+  transition:.22s ease;
+}
+.nav-link:hover{background:rgba(255,255,255,.10)}
+.site-nav.scrolled .nav-link:hover{background:#eff0ec}
+
+.chevron{
+  width:6px;
+  height:6px;
+  border-right:1.4px solid currentColor;
+  border-bottom:1.4px solid currentColor;
+  transform:rotate(45deg) translateY(-2px);
+  transition:.22s ease;
+}
+.nav-item:hover .chevron{
+  transform:rotate(225deg) translate(-1px,-1px);
+}
+
+.dropdown{
+  position:absolute;
+  top:calc(100% + 10px);
+  left:50%;
+  width:max-content;
+  min-width:150px;
+  max-width:210px;
+  padding:6px;
+  transform:translate(-50%,10px);
+  border:1px solid #e2e3df;
+  border-radius:17px;
+  background:rgba(255,255,255,.985);
+  color:#111;
+  box-shadow:0 28px 65px rgba(0,0,0,.15);
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:.22s ease;
+}
+.nav-item:hover .dropdown,
+.nav-item:focus-within .dropdown{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+  transform:translate(-50%,0);
+}
+
+.dropdown a{
+  min-height:40px;
+  padding:0 11px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  border-radius:9px;
+  font-size:11px;
+  font-weight:600;
+  transition:.2s ease;
+}
+.dropdown a:hover{
+  background:#f2f2ef;
+  padding-left:17px;
+}
+.mobile-toggle{
+  display:none;
+  width:43px;
+  height:43px;
+  margin-left:auto;
+  border:1px solid rgba(255,255,255,.24);
+  border-radius:50%;
+  background:transparent;
+  color:inherit;
+  cursor:pointer;
+}
+.site-nav.scrolled .mobile-toggle{border-color:#d4d5d1}
+.mobile-toggle span{
+  display:block;
+  width:16px;
+  height:1px;
+  margin:4px auto;
+  background:currentColor;
+  transition:.2s ease;
+}
+
+/* Navigation Responsive */
+@media(max-width:980px){
+  .site-nav{height:75px}
+  .mobile-toggle{display:block}
+
+  .nav-links{
+    position:fixed;
+    top:75px;
+    left:16px;
+    right:16px;
+    max-height:calc(100vh - 94px);
+    overflow:auto;
+    margin-left:0;
+    padding:10px;
+    display:none;
+    flex-direction:column;
+    align-items:stretch;
+    border:1px solid #e0e1dd;
+    border-radius:19px;
+    background:rgba(255,255,255,.985);
+    color:#111;
+    box-shadow:0 28px 75px rgba(0,0,0,.18);
+  }
+
+  .nav-links.open{display:flex}
+  .nav-item{width:100%}
+
+  .nav-link{
+    width:100%;
+    min-height:49px;
+    padding:0 14px;
+    justify-content:space-between;
+    border-radius:11px;
+  }
+
+  .nav-link:hover{background:#f0f0ed}
+
+  .dropdown{
+    position:static;
+    width:100%;
+    max-width:none;
+    margin:0 0 7px;
+    padding:6px;
+    display:none;
+    transform:none!important;
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    background:#f3f3ef;
+    box-shadow:none;
+  }
+
+  .nav-item.open .dropdown{display:block}
+  .nav-item:hover .dropdown{display:none}
+  .nav-item.open:hover .dropdown{display:block}
+}
+
+@media(max-width:700px){
+  .brand-mark{
+    width:39px;
+    height:39px;
+  }
+
+  .brand-name{font-size:12px}
+}
+</style>
+
+<!-- ============================================================
+     01 — NAVIGATION
+     ============================================================ -->
+<header class="site-nav" id="siteNav">
+  <div class="nav-inner">
+
+    <a class="brand" href="index.html" aria-label="Alphanumeric Energies Home">
+      <span class="brand-mark">AE</span>
+      <span class="brand-name">
+        ALPHANUMERIC
+        <small>ENERGIES</small>
+      </span>
     </a>
-    <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false"><span></span></button>
-    <div class="nav-list" id="navList"><ul>
-      <li><a class="nav-link" href="index.html" >Home</a></li>
-      <li><a class="nav-link" href="about.html" >About</a></li>
-      <li class="has-menu"><a class="nav-link menu-trigger" href="solutions.html" aria-current="page">Solutions <svg viewBox="0 0 12 8"><path d="M1 1l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a>
-        <div class="mega" aria-label="Solutions menu">
-          <a href="on-grid.html"><b>01</b><span><strong>On-Grid</strong><small>Grid-tied solar systems</small></span><em>→</em></a>
-          <a href="off-grid.html"><b>02</b><span><strong>Off-Grid</strong><small>Independent energy systems</small></span><em>→</em></a>
-          <a href="ground-mounted.html"><b>03</b><span><strong>Ground-Mounted</strong><small>Utility &amp; large-scale solar</small></span><em>→</em></a>
-        </div></li>
-      <li><a class="nav-link" href="contact.html" >Contact</a></li>
-      <li><a class="nav-cta" href="contact.html">Let’s connect <svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-    </ul></div>
+
+    <nav class="nav-links" id="navLinks">
+
+      <div class="nav-item">
+        <a class="nav-link" href="index.html">Home</a>
+      </div>
+
+      <div class="nav-item">
+        <a class="nav-link" href="about.html">About</a>
+      </div>
+
+      <div class="nav-item has-dropdown">
+        <a class="nav-link renewable-active" href="solar.html">
+          Renewable Energy
+          <span class="chevron" aria-hidden="true"></span>
+        </a>
+
+        <div class="dropdown">
+          <a href="on-grid.html">
+            <span>On-Grid</span>
+          </a>
+          <a class="dropdown-active" href="off-grid.html">
+            <span>Off-Grid</span>
+          </a>
+          <a href="ground-mounted.html">
+            <span>Ground-Mounted</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="nav-item has-dropdown">
+        <a class="nav-link" href="power.html">
+          Power
+          <span class="chevron" aria-hidden="true"></span>
+        </a>
+
+        <div class="dropdown">
+          <a href="lt.html">
+            <span>LT</span>
+          </a>
+          <a href="ht.html">
+            <span>HT</span>
+          </a>
+          <a href="eht.html">
+            <span>EHT</span>
+          </a>
+          <a href="uht.html">
+            <span>UHT</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a class="nav-link" href="contact.html">Contact</a>
+      </div>
+
+    </nav>
+
+
+    <button
+      class="mobile-toggle"
+      id="mobileToggle"
+      aria-label="Open navigation"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+    </button>
+
   </div>
-</nav>
-<main id="main"><section class="page-hero dark"><div class="wrap"><div class="row"><div class="reveal"><div class="eyebrow" style="color:#aeb6c0">Off-Grid Solar</div><h1>Independent energy for sites that need continuity and control.</h1><p>Off-grid solar systems are designed for locations that require dependable power without relying completely on a utility network. With batteries and coordinated power management, they support autonomy, continuity and a higher level of energy self-sufficiency.</p><div class="stats"><div class="stat"><b>Storage backed</b><span>Battery systems help support continuity.</span></div><div class="stat"><b>Autonomous</b><span>Useful where utility dependence should be reduced.</span></div><div class="stat"><b>Remote ready</b><span>Strong option for isolated or backup-critical sites.</span></div></div></div><div class="page-visual reveal" style="background-image:url('assets/images/hero-off-grid.svg')"></div></div></div></section><section class="section"><div class="wrap"><div class="panel-grid"><div class="panel reveal"><b>01</b><h3>Independent operation</h3><p>The power architecture can serve the site even where grid availability is limited, unstable or intentionally minimized.</p></div><div class="panel reveal"><b>02</b><h3>Battery integration</h3><p>Storage plays a central role in maintaining supply continuity beyond direct solar production hours.</p></div><div class="panel reveal"><b>03</b><h3>Continuity-focused design</h3><p>A good solution for applications that cannot afford frequent interruptions or want stronger energy control.</p></div></div></div></section><section class="section" style="background:var(--paper)"><div class="wrap"><div class="section-head reveal"><div class="eyebrow">Where it fits</div><div><h2>Best where reliability must not depend only on the grid.</h2><p>Off-grid systems are valuable for remote sites, critical facilities and any application that benefits from a more self-contained energy setup. They allow the conversation to shift from simple savings to continuity and resilience.</p></div></div><div class="card-grid"><article class="card reveal"><div class="card-body"><b>Remote properties</b><p>Farms, distant facilities and non-urban sites often need autonomous energy support.</p></div></article><article class="card reveal"><div class="card-body"><b>Backup-critical operations</b><p>Some business processes benefit from a structured system that supports continuity more actively.</p></div></article><article class="card reveal"><div class="card-body"><b>Energy-independent positioning</b><p>The model also suits organizations that want a stronger self-sufficient energy identity.</p></div></article></div></div></section></main>
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="foot-top">
-      <div class="foot-brand"><img src="assets/images/logo-light.svg" alt="Alpha Numeric Energy"><p>Solar energy systems with a premium design language — structured around clarity, reliability and performance across on-grid, off-grid and ground-mounted applications.</p></div>
-      <div><div class="foot-title">Navigate</div><div class="foot-links"><a href="about.html">About</a><a href="solutions.html">Solutions</a><a href="on-grid.html">On-Grid</a><a href="off-grid.html">Off-Grid</a><a href="ground-mounted.html">Ground-Mounted</a><a href="contact.html">Contact</a></div></div>
-      <div><div class="foot-title">Let’s connect.</div><address class="foot-contact"><a href="mailto:info@aniplgroup.com">info@aniplgroup.com</a><br>320 Fifth Floor, East Avenue, Ayyappa Society Main Rd, near YSR Statue, SBH Officers Colony, Mega Hills, Madhapur, Hyderabad, Telangana 500081</address>
-      <div class="socials"><a href="#" aria-label="Instagram"><span>IG</span></a><a href="#" aria-label="Facebook"><span>f</span></a><a href="#" aria-label="LinkedIn"><span>in</span></a><a href="#" aria-label="X"><span>X</span></a><a href="#" aria-label="YouTube"><span>▶</span></a><a href="#" aria-label="Pinterest"><span>P</span></a><a href="#" aria-label="Threads"><span>@</span></a></div>
+</header>
+
+<script>
+(() => {
+/* ============================================================
+     NAVIGATION
+     ============================================================ */
+  const siteNav = document.getElementById("siteNav");
+  const mobileToggle = document.getElementById("mobileToggle");
+  const navLinks = document.getElementById("navLinks");
+
+  function updateNavbar(){
+    siteNav.classList.toggle("scrolled", window.scrollY > 28);
+  }
+
+  updateNavbar();
+  window.addEventListener("scroll", updateNavbar, {passive:true});
+
+  mobileToggle.addEventListener("click", () => {
+    const open = navLinks.classList.toggle("open");
+    mobileToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    document.body.classList.toggle("menu-open", open);
+  });
+
+  document.querySelectorAll(".has-dropdown > .nav-link").forEach(link => {
+    link.addEventListener("click", event => {
+      if(window.innerWidth <= 980){
+        event.preventDefault();
+
+        const item = link.parentElement;
+
+        document.querySelectorAll(".nav-item.open").forEach(openItem => {
+          if(openItem !== item) openItem.classList.remove("open");
+        });
+
+        item.classList.toggle("open");
+      }
+    });
+  });
+
+  document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+      if(window.innerWidth <= 980 && !link.parentElement.classList.contains("has-dropdown")){
+        navLinks.classList.remove("open");
+        document.body.classList.remove("menu-open");
+        mobileToggle.setAttribute("aria-expanded","false");
+      }
+    });
+  });
+
+  window.addEventListener("resize", () => {
+    if(window.innerWidth > 980){
+      navLinks.classList.remove("open");
+      document.body.classList.remove("menu-open");
+      mobileToggle.setAttribute("aria-expanded","false");
+      document.querySelectorAll(".nav-item.open").forEach(item => item.classList.remove("open"));
+    }
+  });
+})();
+</script>
+
+
+<main>
+
+<!-- ============================================================
+     02 — WARM CINEMATIC HERO
+     ============================================================ -->
+<style>
+.ofw-hero{
+  position:relative;
+  height:610px;
+  min-height:610px;
+  overflow:hidden;
+  isolation:isolate;
+  background:#120f0b;
+  color:#fff;
+}
+.ofw-hero-media{position:absolute;inset:0;z-index:-8;overflow:hidden}
+.ofw-hero-media img{
+  width:100%;height:100%;object-fit:cover;object-position:center 52%;
+  transform:scale(1.04);will-change:transform
+}
+.ofw-hero::before{
+  content:"";
+  position:absolute;inset:0;z-index:-7;
+  background:
+    linear-gradient(90deg,rgba(18,15,11,.94) 0%,rgba(18,15,11,.82) 31%,rgba(18,15,11,.49) 55%,rgba(18,15,11,.14) 80%,rgba(18,15,11,.04) 100%),
+    linear-gradient(0deg,rgba(0,0,0,.44),transparent 48%);
+}
+.ofw-hero::after{
+  content:"";
+  position:absolute;right:-130px;top:-160px;z-index:-6;width:560px;height:560px;border-radius:50%;
+  background:radial-gradient(circle,rgba(215,168,64,.18),transparent 70%);
+  filter:blur(18px);pointer-events:none
+}
+.ofw-shell{
+  width:var(--container);height:100%;margin:auto;padding:128px 0 58px;
+  display:grid;grid-template-columns:minmax(0,.93fr) minmax(420px,1.07fr);gap:66px;align-items:center
+}
+.ofw-copy{position:relative;z-index:4;max-width:720px}
+.ofw-copy .kicker{margin-bottom:16px;color:rgba(255,255,255,.52)}
+.ofw-copy h1{
+  max-width:740px;
+  font:700 clamp(45px,4.55vw,68px)/.965 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:-.048em
+}
+.ofw-copy h1 span{display:block;color:rgba(255,255,255,.52)}
+.ofw-copy>p{
+  max-width:575px;margin-top:20px;color:rgba(255,255,255,.68);font-size:12.5px;line-height:1.76
+}
+.ofw-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:25px}
+.ofw-btn{
+  min-height:40px;padding:0 15px;display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  border-radius:8px;font:700 8px/1 "Plus Jakarta Sans",sans-serif;letter-spacing:.08em;
+  text-transform:uppercase;transition:.24s ease
+}
+.ofw-btn.light{background:#fff;color:#111}
+.ofw-btn.line{border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.045);color:#fff;backdrop-filter:blur(10px)}
+.ofw-btn:hover{transform:translateY(-2px)}
+
+.ofw-side{display:flex;justify-content:flex-end;align-items:center}
+.ofw-panel{
+  width:min(470px,100%);
+  padding:24px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:22px;
+  background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.018)),rgba(13,10,8,.48);
+  backdrop-filter:blur(16px);
+  box-shadow:0 28px 75px rgba(0,0,0,.20)
+}
+.ofw-panel-top{
+  display:flex;justify-content:space-between;gap:18px;padding-bottom:17px;
+  border-bottom:1px solid rgba(255,255,255,.08)
+}
+.ofw-panel-top strong{font:700 9px/1 "Plus Jakarta Sans",sans-serif}
+.ofw-live{
+  display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.40);
+  font:700 7px/1 "Plus Jakarta Sans",sans-serif;letter-spacing:.10em;text-transform:uppercase
+}
+.ofw-live i{
+  width:6px;height:6px;border-radius:50%;background:var(--gold);
+  box-shadow:0 0 12px rgba(215,168,64,.8);animation:ofwPulse 1.8s ease-in-out infinite
+}
+@keyframes ofwPulse{50%{opacity:.35;transform:scale(1.45)}}
+.ofw-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.ofw-mini{
+  padding:16px;border:1px solid rgba(255,255,255,.08);border-radius:14px;background:rgba(255,255,255,.03)
+}
+.ofw-mini small{
+  display:block;color:rgba(255,255,255,.33);font:700 7px/1 "Plus Jakarta Sans",sans-serif;letter-spacing:.10em;text-transform:uppercase
+}
+.ofw-mini strong{display:block;margin-top:8px;font:700 15px/1.08 "Plus Jakarta Sans",sans-serif}
+.ofw-energy{
+  position:relative;height:124px;margin-top:14px;border-radius:14px;overflow:hidden;
+  background:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+  background-size:38px 38px
+}
+.ofw-energy svg{position:absolute;inset:0;width:100%;height:100%}
+.ofw-energy .line{
+  fill:none;stroke:#e2bd68;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:360;stroke-dashoffset:360;animation:ofwDraw 2s .25s forwards ease
+}
+.ofw-energy .line2{
+  fill:none;stroke:#f3d27f;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:360;stroke-dashoffset:360;animation:ofwDraw 2.25s .45s forwards ease
+}
+@keyframes ofwDraw{to{stroke-dashoffset:0}}
+.ofw-panel-foot{
+  display:flex;justify-content:space-between;gap:14px;padding-top:16px;margin-top:15px;
+  border-top:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.31);
+  font:700 7px/1 "Plus Jakarta Sans",sans-serif;letter-spacing:.10em;text-transform:uppercase
+}
+.ofw-bottom{
+  position:absolute;left:50%;bottom:18px;width:var(--container);transform:translateX(-50%);
+  display:flex;justify-content:space-between;gap:24px;color:rgba(255,255,255,.28);
+  font:700 7px/1 "Plus Jakarta Sans",sans-serif;letter-spacing:.13em;text-transform:uppercase
+}
+.ofw-scroll{display:flex;align-items:center;gap:9px}
+.ofw-scroll i{position:relative;width:56px;height:1px;overflow:hidden;background:rgba(255,255,255,.16)}
+.ofw-scroll i:after{content:"";position:absolute;left:-40%;top:0;width:40%;height:100%;background:#fff;animation:ofwSweep 2.8s linear infinite}
+@keyframes ofwSweep{to{left:110%}}
+
+@media(max-width:1050px){
+  .ofw-hero{height:auto;min-height:800px}
+  .ofw-shell{min-height:800px;grid-template-columns:1fr;gap:25px;padding:124px 0 68px}
+  .ofw-side{justify-content:flex-start}
+}
+@media(max-width:700px){
+  .ofw-hero{min-height:720px}
+  .ofw-shell{min-height:720px;padding:112px 0 60px}
+  .ofw-copy h1{font-size:clamp(36px,9.8vw,48px)}
+  .ofw-copy>p{font-size:11.5px}
+  .ofw-panel{padding:18px;border-radius:18px}
+  .ofw-grid{grid-template-columns:1fr}
+  .ofw-bottom>span:last-child{display:none}
+}
+</style>
+
+<section class="ofw-hero" id="ofwHero">
+  <div class="ofw-hero-media"><img id="ofwHeroImg" src="https://images.pexels.com/photos/2800832/pexels-photo-2800832.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Warm off-grid solar field"></div>
+  <div class="ofw-shell">
+    <div class="ofw-copy reveal">
+      <div class="kicker">Off-Grid Solar</div>
+      <h1>Independent power <span>built around storage.</span></h1>
+      <p>
+        A warmer, smarter off-grid energy system for remote sites and independent
+        applications — combining solar generation, battery storage and controlled
+        load management in one premium power architecture.
+      </p>
+      <div class="ofw-actions">
+        <a class="ofw-btn light" href="#ofwFlow">Explore System <span>↘</span></a>
+        <a class="ofw-btn line" href="contact.html">Discuss Project <span>↗</span></a>
       </div>
     </div>
-    <div class="foot-bottom"><span>© 2026 Alpha Numeric Energy. All rights reserved.</span><span>On-Grid · Off-Grid · Ground-Mounted</span></div>
+
+    <div class="ofw-side reveal">
+      <div class="ofw-panel">
+        <div class="ofw-panel-top">
+          <strong>Off-Grid Operating View</strong>
+          <span class="ofw-live"><i></i> Energy Active</span>
+        </div>
+        <div class="ofw-grid">
+          <div class="ofw-mini"><small>Generation</small><strong>Solar First</strong></div>
+          <div class="ofw-mini"><small>Storage</small><strong>Battery Reserve</strong></div>
+        </div>
+        <div class="ofw-energy">
+          <svg viewBox="0 0 420 124" preserveAspectRatio="none" aria-hidden="true">
+            <path class="line" d="M0 94 C45 86 72 72 103 55 C138 36 170 26 214 28 C255 30 286 50 326 67 C360 82 390 90 420 88"/>
+            <path class="line2" d="M0 102 C45 101 75 97 115 86 C156 75 192 63 233 61 C276 58 311 65 347 74 C378 81 400 84 420 80"/>
+          </svg>
+        </div>
+        <div class="ofw-panel-foot">
+          <span>Generate · Store · Supply</span>
+          <span>Independent Power</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ofw-bottom">
+    <span class="ofw-scroll"><i></i> Scroll to explore</span>
+    <span>Remote · Storage · Continuity</span>
+  </div>
+</section>
+
+<script>
+(() => {
+  const hero=document.getElementById("ofwHero");
+  const img=document.getElementById("ofwHeroImg");
+  if(!hero || !img) return;
+  let ticking=false;
+  const update=()=>{
+    const r=hero.getBoundingClientRect();
+    const p=Math.max(-1,Math.min(1,-r.top/Math.max(1,r.height)));
+    img.style.transform=`scale(1.045) translate3d(0,${p*16}px,0)`;
+    ticking=false;
+  };
+  window.addEventListener("scroll",()=>{ if(!ticking){requestAnimationFrame(update);ticking=true} },{passive:true});
+  update();
+})();
+</script>
+
+
+<!-- ============================================================
+     03 — PREMIUM INTRO / WARM EDITORIAL
+     ============================================================ -->
+<style>
+.ofw-intro{padding:118px 0 108px;background:#f5f1ea}
+.ofw-intro-grid{display:grid;grid-template-columns:.76fr 1.24fr;gap:76px;align-items:start}
+.ofw-intro-copy{position:sticky;top:112px}
+.ofw-intro-copy .kicker{margin-bottom:17px}
+.ofw-intro-copy h2{
+  max-width:570px;font:700 clamp(39px,4vw,58px)/1 "Plus Jakarta Sans",sans-serif;letter-spacing:-.044em
+}
+.ofw-intro-copy h2 span{color:#8a8376}
+.ofw-intro-copy p{max-width:485px;margin-top:21px;color:#746f66;font-size:12.5px;line-height:1.8}
+.ofw-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:30px}
+.ofw-card{padding:17px;border:1px solid #e2ddd2;border-radius:14px;background:#fff}
+.ofw-card strong{display:block;font:700 13px/1.12 "Plus Jakarta Sans",sans-serif}
+.ofw-card span{display:block;margin-top:6px;color:#8f8a82;font-size:9px;line-height:1.45}
+.ofw-visual{position:relative;min-height:660px;overflow:hidden;border-radius:30px;background:#111;box-shadow:0 28px 70px rgba(0,0,0,.10)}
+.ofw-visual img{position:absolute;inset:-6% 0;width:100%;height:112%;object-fit:cover;will-change:transform}
+.ofw-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 48%,rgba(0,0,0,.72))}
+.ofw-visual-cap{position:absolute;left:32px;right:32px;bottom:31px;z-index:2;color:#fff}
+.ofw-visual-cap small{color:rgba(255,255,255,.44);font:700 7px/1 "Plus Jakarta Sans",sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.ofw-visual-cap strong{display:block;max-width:510px;margin-top:10px;font:700 clamp(27px,2.6vw,39px)/1.04 "Plus Jakarta Sans",sans-serif;letter-spacing:-.034em}
+@media(max-width:980px){
+  .ofw-intro-grid{grid-template-columns:1fr;gap:42px}
+  .ofw-intro-copy{position:static}
+}
+@media(max-width:700px){
+  .ofw-intro{padding:82px 0}
+  .ofw-cards{grid-template-columns:1fr}
+  .ofw-visual{min-height:470px;border-radius:22px}
+}
+</style>
+
+<section class="ofw-intro">
+  <div class="wrap">
+    <div class="ofw-intro-grid">
+      <div class="ofw-intro-copy reveal">
+        <div class="kicker">Energy Independence</div>
+        <h2>Capture sunlight. <span>Keep energy available later.</span></h2>
+        <p>
+          Off-grid systems are defined by what happens after generation.
+          Power is produced when sunlight is available, then stored and managed
+          to support the site through varying demand conditions and non-solar hours.
+        </p>
+        <div class="ofw-cards">
+          <div class="ofw-card"><strong>Solar Generation</strong><span>Collect energy during daylight.</span></div>
+          <div class="ofw-card"><strong>Battery Storage</strong><span>Maintain usable reserve for later demand.</span></div>
+        </div>
+      </div>
+
+      <div class="ofw-visual reveal" data-ofw-parallax>
+        <img src="https://images.pexels.com/photos/9875441/pexels-photo-9875441.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Remote solar installation in warm sunlight">
+        <div class="ofw-visual-cap">
+          <small>Independent Power Architecture</small>
+          <strong>Generation, storage and supply working as one coordinated system.</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     04 — SYSTEM FLOW / WARM DARK
+     ============================================================ -->
+<style>
+.ofw-flow{position:relative;padding:112px 0 118px;overflow:hidden;background:#16110d;color:#fff}
+.ofw-flow:before{content:"";position:absolute;left:-200px;bottom:-280px;width:660px;height:660px;border-radius:50%;background:radial-gradient(circle,rgba(215,168,64,.12),transparent 70%)}
+.ofw-flow-head{display:grid;grid-template-columns:1fr .72fr;gap:70px;align-items:end;margin-bottom:48px;position:relative;z-index:2}
+.ofw-flow-head .kicker{margin-bottom:17px;color:rgba(255,255,255,.42)}
+.ofw-flow-head h2{max-width:820px;font:700 clamp(39px,4vw,58px)/1 "Plus Jakarta Sans",sans-serif;letter-spacing:-.044em}
+.ofw-flow-head h2 span{color:rgba(255,255,255,.38)}
+.ofw-flow-head p{max-width:430px;color:rgba(255,255,255,.47);font-size:12px;line-height:1.72}
+.ofw-board{position:relative;z-index:2;min-height:520px;padding:28px;overflow:hidden;border:1px solid rgba(255,255,255,.09);border-radius:26px;background:linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.01))}
+.ofw-board-top{display:flex;justify-content:space-between;gap:18px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.35);font:700 7px/1 "Plus Jakarta Sans",sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.ofw-map{position:relative;height:380px;margin-top:24px}
+.ofw-map svg{position:absolute;inset:0;width:100%;height:100%}
+.ofw-map .base{fill:none;stroke:rgba(255,255,255,.10);stroke-width:1.4}
+.ofw-map .active{fill:none;stroke:url(#ofwMapGrad);stroke-width:2.4;stroke-linecap:round;stroke-dasharray:9 12;animation:ofwMapRun 4.8s linear infinite}
+@keyframes ofwMapRun{to{stroke-dashoffset:-150}}
+.ofw-node{position:absolute;width:168px;min-height:114px;padding:16px;border:1px solid rgba(255,255,255,.10);border-radius:15px;background:rgba(17,12,9,.82);box-shadow:0 16px 38px rgba(0,0,0,.18);transition:.28s ease}
+.ofw-node:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.20);background:rgba(24,18,14,.95)}
+.ofw-node small{color:rgba(255,255,255,.32);font:700 7px/1 "Plus Jakarta Sans",sans-serif;letter-spacing:.10em;text-transform:uppercase}
+.ofw-node strong{display:block;margin-top:11px;font:700 15px/1.08 "Plus Jakarta Sans",sans-serif}
+.ofw-node p{margin-top:7px;color:rgba(255,255,255,.40);font-size:8.5px;line-height:1.5}
+.ofw-node.pv{left:2.5%;top:118px}
+.ofw-node.control{left:50%;top:34px;transform:translateX(-50%)}
+.ofw-node.control:hover{transform:translateX(-50%) translateY(-5px)}
+.ofw-node.load{right:2.5%;top:118px}
+.ofw-node.storage{left:50%;bottom:8px;transform:translateX(-50%)}
+.ofw-node.storage:hover{transform:translateX(-50%) translateY(-5px)}
+.ofw-meter{width:100%;height:5px;margin-top:12px;overflow:hidden;border-radius:999px;background:rgba(255,255,255,.08)}
+.ofw-meter i{display:block;width:24%;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--gold),#f0d584,#f7e5b5);animation:ofwBatterySweep 7s ease-in-out infinite}
+@keyframes ofwBatterySweep{0%,100%{width:24%}50%{width:91%}}
+
+@media(max-width:900px){
+  .ofw-flow-head{grid-template-columns:1fr;gap:20px}
+  .ofw-board{min-height:680px}
+  .ofw-map{height:560px}
+  .ofw-map svg{display:none}
+  .ofw-node,.ofw-node.pv,.ofw-node.control,.ofw-node.load,.ofw-node.storage{position:relative;left:auto;right:auto;top:auto;bottom:auto;width:100%;min-height:108px;margin-bottom:12px;transform:none}
+  .ofw-node:hover,.ofw-node.control:hover,.ofw-node.storage:hover{transform:translateY(-3px)}
+}
+@media(max-width:700px){
+  .ofw-flow{padding:82px 0}
+  .ofw-board{padding:18px;border-radius:20px}
+}
+</style>
+
+<section class="ofw-flow" id="ofwFlow">
+  <div class="wrap">
+    <div class="ofw-flow-head reveal">
+      <div>
+        <div class="kicker">System Architecture</div>
+        <h2>Generate. Store. <span>Supply with continuity.</span></h2>
+      </div>
+      <p>
+        Off-grid architecture brings solar generation, power conversion,
+        battery storage and load supply together into one independent energy path.
+      </p>
+    </div>
+
+    <div class="ofw-board reveal">
+      <div class="ofw-board-top">
+        <span>Independent Energy Architecture</span>
+        <span>Solar · Storage · Load</span>
+      </div>
+
+      <div class="ofw-map">
+        <svg viewBox="0 0 1100 380" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="ofwMapGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#d7a840"/>
+              <stop offset="65%" stop-color="#f0d584"/>
+              <stop offset="100%" stop-color="#f5e9c5"/>
+            </linearGradient>
+          </defs>
+          <path class="base" d="M166 180 C315 180 360 90 550 90 C740 90 785 180 934 180"/>
+          <path class="base" d="M550 90 C550 180 550 220 550 328"/>
+          <path class="active" d="M166 180 C315 180 360 90 550 90 C740 90 785 180 934 180"/>
+          <path class="active" d="M550 90 C550 180 550 220 550 328"/>
+        </svg>
+
+        <article class="ofw-node pv">
+          <small>01 · Generate</small>
+          <strong>Solar PV Array</strong>
+          <p>Capture sunlight and convert it into DC electrical energy.</p>
+        </article>
+
+        <article class="ofw-node control">
+          <small>02 · Manage</small>
+          <strong>Power Control</strong>
+          <p>Coordinate conversion, charging, discharge logic and load priority.</p>
+        </article>
+
+        <article class="ofw-node load">
+          <small>03 · Supply</small>
+          <strong>Site Load</strong>
+          <p>Deliver usable power according to the site's operating demand.</p>
+        </article>
+
+        <article class="ofw-node storage">
+          <small>04 · Store</small>
+          <strong>Battery Storage</strong>
+          <p>Hold available solar energy for later use and continuity.</p>
+          <div class="ofw-meter"><i></i></div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     05 — DAY / NIGHT STORY
+     ============================================================ -->
+<style>
+.ofw-story{padding:118px 0;background:#f5f1ea}
+.ofw-story-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:62px;align-items:start}
+.ofw-story-visual{position:sticky;top:96px;min-height:600px;overflow:hidden;border-radius:28px;background:#111}
+.ofw-story-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .46s ease,transform .7s var(--ease),filter .5s ease}
+.ofw-story-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.72))}
+.ofw-story-caption{position:absolute;left:28px;right:28px;bottom:27px;z-index:3;color:#fff}
+.ofw-story-caption small{color:rgba(255,255,255,.43);font:700 7px/1 "Plus Jakarta Sans",sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.ofw-story-caption strong{display:block;max-width:520px;margin-top:10px;font:700 28px/1.05 "Plus Jakarta Sans",sans-serif;letter-spacing:-.033em}
+.ofw-story-copy{padding-top:12px}
+.ofw-story-copy .kicker{margin-bottom:17px}
+.ofw-story-copy>h2{max-width:590px;font:700 clamp(39px,3.9vw,56px)/1 "Plus Jakarta Sans",sans-serif;letter-spacing:-.043em}
+.ofw-story-copy>h2 span{color:#8a8376}
+.ofw-story-copy>p{max-width:510px;margin-top:19px;color:#746f66;font-size:12px;line-height:1.75}
+.ofw-phase-list{margin-top:42px;border-top:1px solid #e1dbcf}
+.ofw-phase{min-height:175px;padding:27px 4px;border-bottom:1px solid #e1dbcf;opacity:.46;transition:opacity .34s ease,padding-left .34s ease}
+.ofw-phase.active{opacity:1;padding-left:15px}
+.ofw-phase span{color:#9b958b;font:700 8px/1 "Plus Jakarta Sans",sans-serif;letter-spacing:.12em}
+.ofw-phase h3{margin-top:25px;font:700 24px/1.06 "Plus Jakarta Sans",sans-serif;letter-spacing:-.03em}
+.ofw-phase p{max-width:500px;margin-top:10px;color:#7a756d;font-size:11.5px;line-height:1.65}
+@media(max-width:960px){
+  .ofw-story-grid{grid-template-columns:1fr}
+  .ofw-story-visual{position:relative;top:auto;min-height:500px}
+}
+@media(max-width:700px){
+  .ofw-story{padding:82px 0}
+  .ofw-story-visual{min-height:390px;border-radius:22px}
+}
+</style>
+
+<section class="ofw-story">
+  <div class="wrap">
+    <div class="ofw-story-grid">
+      <div class="ofw-story-visual reveal">
+        <img id="ofwPhaseImg" src="https://images.pexels.com/photos/433308/pexels-photo-433308.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Sunlit solar field">
+        <div class="ofw-story-caption">
+          <small id="ofwPhaseSmall">01 · Daylight</small>
+          <strong id="ofwPhaseTitle">Solar generation supports the load while building energy reserve.</strong>
+        </div>
+      </div>
+
+      <div class="ofw-story-copy">
+        <div class="kicker reveal">Energy Continuity</div>
+        <h2 class="reveal">Day to evening. <span>One continuous strategy.</span></h2>
+        <p class="reveal">
+          Off-grid performance depends on how energy is managed throughout the cycle:
+          direct solar support during the day, charging during available production,
+          stored-energy use after sunset and control logic that keeps the system balanced.
+        </p>
+
+        <div class="ofw-phase-list">
+          <article class="ofw-phase active"
+            data-img="https://images.pexels.com/photos/433308/pexels-photo-433308.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            data-small="01 · Daylight"
+            data-title="Solar generation supports the load while building energy reserve."
+            data-filter="brightness(1)">
+            <span>01</span>
+            <h3>Generate & Support</h3>
+            <p>During available sunlight, solar power can directly support the connected load and reduce pressure on stored energy.</p>
+          </article>
+
+          <article class="ofw-phase"
+            data-img="https://images.pexels.com/photos/9800023/pexels-photo-9800023.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            data-small="02 · Charging"
+            data-title="Battery storage is charged for later operation and reserve continuity."
+            data-filter="brightness(.92)">
+            <span>02</span>
+            <h3>Charge Storage</h3>
+            <p>Available production can be directed to battery storage based on the required reserve strategy and site demand.</p>
+          </article>
+
+          <article class="ofw-phase"
+            data-img="https://images.pexels.com/photos/9875441/pexels-photo-9875441.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            data-small="03 · After Sunset"
+            data-title="Stored energy continues supporting priority loads when solar production falls."
+            data-filter="brightness(.70) saturate(.92)">
+            <span>03</span>
+            <h3>Supply from Reserve</h3>
+            <p>As sunlight reduces, battery energy can continue supporting critical or planned operating loads.</p>
+          </article>
+
+          <article class="ofw-phase"
+            data-img="https://images.pexels.com/photos/159397/solar-panel-array-power-sun-electricity-159397.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            data-small="04 · Energy Management"
+            data-title="Control logic keeps solar, storage and demand operating together."
+            data-filter="brightness(.84)">
+            <span>04</span>
+            <h3>Manage the Cycle</h3>
+            <p>Smart control coordinates generation, charging, discharge and load priorities to keep the system stable.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(() => {
+  const phases=[...document.querySelectorAll(".ofw-phase")];
+  const img=document.getElementById("ofwPhaseImg");
+  const small=document.getElementById("ofwPhaseSmall");
+  const title=document.getElementById("ofwPhaseTitle");
+  if(!phases.length || !img) return;
+
+  const activate=phase=>{
+    if(phase.classList.contains("active")) return;
+    phases.forEach(p=>p.classList.toggle("active",p===phase));
+    img.style.opacity=".14";
+    img.style.transform="scale(1.035)";
+    setTimeout(()=>{
+      img.src=phase.dataset.img;
+      img.style.filter=phase.dataset.filter || "";
+      small.textContent=phase.dataset.small;
+      title.textContent=phase.dataset.title;
+      img.onload=()=>{ img.style.opacity="1"; img.style.transform="scale(1)"; };
+    },170);
+  };
+
+  const observer=new IntersectionObserver(entries=>{
+    const visible=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+    if(visible) activate(visible.target);
+  },{threshold:[.35,.55,.75]});
+
+  phases.forEach(p=>observer.observe(p));
+})();
+</script>
+
+
+<!-- ============================================================
+     06 — APPLICATION GALLERY
+     ============================================================ -->
+<style>
+.ofw-apps{padding:112px 0;background:#efeae1}
+.ofw-apps-head{display:flex;justify-content:space-between;align-items:end;gap:46px;margin-bottom:42px}
+.ofw-apps-head h2{max-width:800px;font:700 clamp(38px,4vw,58px)/1.01 "Plus Jakarta Sans",sans-serif;letter-spacing:-.043em}
+.ofw-apps-head p{max-width:430px;color:#746f66;font-size:12px;line-height:1.72}
+.ofw-app-grid{display:grid;grid-template-columns:1.15fr .85fr;grid-template-rows:255px 255px;gap:14px}
+.ofw-app{position:relative;overflow:hidden;isolation:isolate;border-radius:24px;background:#111;color:#fff}
+.ofw-app.main{grid-row:1/span 2}
+.ofw-app img{position:absolute;inset:0;z-index:-3;width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.ofw-app:hover img{transform:scale(1.055)}
+.ofw-app:before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(180deg,rgba(0,0,0,.03),rgba(0,0,0,.10) 45%,rgba(0,0,0,.78))}
+.ofw-app-content{position:absolute;left:27px;right:27px;bottom:25px}
+.ofw-app-content span{color:rgba(255,255,255,.46);font:700 7px/1 "Plus Jakarta Sans",sans-serif;letter-spacing:.11em;text-transform:uppercase}
+.ofw-app-content h3{margin-top:9px;font:700 clamp(24px,2.6vw,38px)/1.04 "Plus Jakarta Sans",sans-serif;letter-spacing:-.035em}
+.ofw-app-content p{max-width:500px;margin-top:9px;color:rgba(255,255,255,.60);font-size:10.8px;line-height:1.62}
+@media(max-width:900px){
+  .ofw-apps-head{align-items:flex-start;flex-direction:column;gap:18px}
+  .ofw-app-grid{grid-template-columns:1fr;grid-template-rows:400px 280px 280px}
+  .ofw-app.main{grid-row:auto}
+}
+@media(max-width:700px){
+  .ofw-apps{padding:82px 0}
+  .ofw-app-grid{grid-template-rows:370px 250px 250px}
+  .ofw-app{border-radius:20px}
+}
+</style>
+
+<section class="ofw-apps">
+  <div class="wrap">
+    <div class="ofw-apps-head reveal">
+      <h2>Independent solar power for remote, distributed and self-reliant applications.</h2>
+      <p>
+        Off-grid systems are especially useful where grid access is limited,
+        uncertain or not part of the operating strategy.
+      </p>
+    </div>
+
+    <div class="ofw-app-grid">
+      <article class="ofw-app main reveal">
+        <img src="https://images.pexels.com/photos/2800832/pexels-photo-2800832.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Warm solar field">
+        <div class="ofw-app-content">
+          <span>Remote Infrastructure</span>
+          <h3>Independent energy in sun-rich locations.</h3>
+          <p>Suitable for remote facilities and applications that need locally generated power with energy reserve.</p>
+        </div>
+      </article>
+
+      <article class="ofw-app reveal">
+        <img src="https://images.pexels.com/photos/9875441/pexels-photo-9875441.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Remote solar site">
+        <div class="ofw-app-content">
+          <span>Distributed Operations</span>
+          <h3>Power closer to where work happens.</h3>
+          <p>Support distributed operations with solar generation and controlled battery-backed continuity.</p>
+        </div>
+      </article>
+
+      <article class="ofw-app reveal">
+        <img src="https://images.pexels.com/photos/9800023/pexels-photo-9800023.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Battery energy storage equipment">
+        <div class="ofw-app-content">
+          <span>Stored Energy</span>
+          <h3>Reserve built for continuity.</h3>
+          <p>Energy storage helps maintain power availability when direct solar production is reduced.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     07 — CORE SYSTEM STRIP
+     ============================================================ -->
+<style>
+.ofw-core{padding:112px 0;background:#f5f1ea}
+.ofw-core-head{display:grid;grid-template-columns:1fr .72fr;gap:70px;align-items:end;margin-bottom:42px}
+.ofw-core-head h2{max-width:800px;font:700 clamp(38px,4vw,58px)/1.01 "Plus Jakarta Sans",sans-serif;letter-spacing:-.043em}
+.ofw-core-head h2 span{color:#8a8376}
+.ofw-core-head p{max-width:430px;color:#746f66;font-size:12px;line-height:1.72}
+.ofw-core-strip{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid #e1dbcf;border-bottom:1px solid #e1dbcf}
+.ofw-core-item{min-height:295px;padding:26px 22px;border-right:1px solid #e1dbcf;transition:background .28s ease,transform .28s ease}
+.ofw-core-item:last-child{border-right:0}
+.ofw-core-item:hover{background:#fff;transform:translateY(-4px)}
+.ofw-core-num{color:#9b958b;font:700 8px/1 "Plus Jakarta Sans",sans-serif;letter-spacing:.13em}
+.ofw-core-item h3{margin-top:113px;font:700 20px/1.06 "Plus Jakarta Sans",sans-serif;letter-spacing:-.028em}
+.ofw-core-item p{margin-top:10px;color:#777168;font-size:11px;line-height:1.63}
+.ofw-core-tag{display:inline-flex;margin-top:19px;padding:7px 9px;border:1px solid #ddd6c8;border-radius:999px;color:#9a9489;font:700 7px/1 "Plus Jakarta Sans",sans-serif;letter-spacing:.09em;text-transform:uppercase}
+@media(max-width:1050px){
+  .ofw-core-head{grid-template-columns:1fr;gap:20px}
+  .ofw-core-strip{grid-template-columns:repeat(2,1fr)}
+  .ofw-core-item{border-bottom:1px solid #e1dbcf}
+  .ofw-core-item:nth-child(2n){border-right:0}
+  .ofw-core-item:last-child{grid-column:1/-1;border-bottom:0}
+}
+@media(max-width:700px){
+  .ofw-core{padding:82px 0}
+  .ofw-core-strip{grid-template-columns:1fr}
+  .ofw-core-item,.ofw-core-item:last-child{grid-column:auto;min-height:225px;border-right:0}
+  .ofw-core-item h3{margin-top:70px}
+}
+</style>
+
+<section class="ofw-core">
+  <div class="wrap">
+    <div class="ofw-core-head reveal">
+      <h2>The layers behind <span>premium off-grid power.</span></h2>
+      <p>
+        Off-grid performance depends on more than panels — generation, control,
+        storage, protection and visibility all work together.
+      </p>
+    </div>
+
+    <div class="ofw-core-strip">
+      <article class="ofw-core-item reveal"><div class="ofw-core-num">01</div><h3>PV Modules</h3><p>Convert the solar resource into usable DC energy.</p><span class="ofw-core-tag">Generation</span></article>
+      <article class="ofw-core-item reveal"><div class="ofw-core-num">02</div><h3>Power Control</h3><p>Manage charging, discharge strategy and power conversion.</p><span class="ofw-core-tag">Control</span></article>
+      <article class="ofw-core-item reveal"><div class="ofw-core-num">03</div><h3>Battery Storage</h3><p>Provide the energy reserve needed beyond direct generation hours.</p><span class="ofw-core-tag">Storage</span></article>
+      <article class="ofw-core-item reveal"><div class="ofw-core-num">04</div><h3>Protection</h3><p>Support safe system coordination and power distribution.</p><span class="ofw-core-tag">Safety</span></article>
+      <article class="ofw-core-item reveal"><div class="ofw-core-num">05</div><h3>Monitoring</h3><p>Keep generation, reserve and operating condition visible.</p><span class="ofw-core-tag">Visibility</span></article>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     08 — STORAGE DASHBOARD
+     ============================================================ -->
+<style>
+.ofw-monitor{padding:112px 0;background:#16110d;color:#fff}
+.ofw-monitor-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:62px;align-items:center}
+.ofw-monitor-copy .kicker{margin-bottom:17px;color:rgba(255,255,255,.42)}
+.ofw-monitor-copy h2{max-width:590px;font:700 clamp(38px,3.9vw,56px)/1.01 "Plus Jakarta Sans",sans-serif;letter-spacing:-.043em}
+.ofw-monitor-copy h2 span{color:rgba(255,255,255,.38)}
+.ofw-monitor-copy p{max-width:500px;margin-top:19px;color:rgba(255,255,255,.47);font-size:12px;line-height:1.74}
+.ofw-dash{min-height:450px;padding:24px;border:1px solid rgba(255,255,255,.10);border-radius:24px;background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.015));box-shadow:0 28px 70px rgba(0,0,0,.22)}
+.ofw-dash-top{display:flex;justify-content:space-between;gap:18px;padding-bottom:19px;border-bottom:1px solid rgba(255,255,255,.08)}
+.ofw-dash-top strong{font:700 11px/1 "Plus Jakarta Sans",sans-serif}
+.ofw-dash-top span{color:rgba(255,255,255,.34);font:700 7px/1 "Plus Jakarta Sans",sans-serif;letter-spacing:.11em;text-transform:uppercase}
+.ofw-dash-main{display:grid;grid-template-columns:.72fr 1.28fr;gap:16px;margin-top:20px}
+.ofw-soc{min-height:245px;padding:19px;border:1px solid rgba(255,255,255,.08);border-radius:16px;background:rgba(255,255,255,.022);display:flex;flex-direction:column;justify-content:space-between}
+.ofw-soc-ring{position:relative;width:145px;height:145px;margin:5px auto 0;display:grid;place-items:center}
+.ofw-soc-ring svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+.ofw-soc-ring circle{fill:none;stroke-width:8}
+.ofw-soc-ring .track{stroke:rgba(255,255,255,.08)}
+.ofw-soc-ring .value{stroke:url(#ofwSocGrad);stroke-linecap:round;stroke-dasharray:339.3;stroke-dashoffset:339.3;transition:stroke-dashoffset 1.8s var(--ease)}
+.ofw-monitor.in-view .ofw-soc-ring .value{stroke-dashoffset:81}
+.ofw-soc-ring strong{font:700 28px/1 "Plus Jakarta Sans",sans-serif}
+.ofw-soc-ring small{display:block;margin-top:5px;color:rgba(255,255,255,.34);font:700 7px/1 "Plus Jakarta Sans",sans-serif;letter-spacing:.09em;text-transform:uppercase}
+.ofw-soc-foot{text-align:center;color:rgba(255,255,255,.34);font-size:9px}
+.ofw-chart{position:relative;min-height:245px;overflow:hidden;border:1px solid rgba(255,255,255,.08);border-radius:16px;background:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:46px 46px}
+.ofw-chart svg{position:absolute;inset:0;width:100%;height:100%}
+.ofw-chart .solar,.ofw-chart .storage{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:640;stroke-dashoffset:640;transition:stroke-dashoffset 1.8s var(--ease)}
+.ofw-chart .solar{stroke:#e5bd61;stroke-width:3}
+.ofw-chart .storage{stroke:#f3db9a;stroke-width:2.2;transition-delay:.18s}
+.ofw-monitor.in-view .ofw-chart .solar,.ofw-monitor.in-view .ofw-chart .storage{stroke-dashoffset:0}
+.ofw-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.ofw-stat{padding:14px;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:rgba(255,255,255,.022)}
+.ofw-stat small{display:block;color:rgba(255,255,255,.31);font:700 7px/1 "Plus Jakarta Sans",sans-serif;letter-spacing:.10em;text-transform:uppercase}
+.ofw-stat strong{display:block;margin-top:7px;font:700 14px/1 "Plus Jakarta Sans",sans-serif}
+@media(max-width:950px){
+  .ofw-monitor-grid{grid-template-columns:1fr}
+}
+@media(max-width:700px){
+  .ofw-monitor{padding:82px 0}
+  .ofw-dash{padding:17px;border-radius:20px}
+  .ofw-dash-main{grid-template-columns:1fr}
+  .ofw-stats{grid-template-columns:1fr}
+}
+</style>
+
+<section class="ofw-monitor">
+  <div class="wrap">
+    <div class="ofw-monitor-grid">
+      <div class="ofw-monitor-copy reveal">
+        <div class="kicker">Storage Intelligence</div>
+        <h2>See the reserve. <span>See the operating balance.</span></h2>
+        <p>
+          Monitoring helps visualize generation, stored energy and operating behaviour —
+          making the off-grid system easier to understand and manage.
+        </p>
+      </div>
+
+      <div class="ofw-dash reveal">
+        <div class="ofw-dash-top">
+          <strong>Off-Grid Energy Overview</strong>
+          <span>Illustrative Monitoring Interface</span>
+        </div>
+
+        <div class="ofw-dash-main">
+          <div class="ofw-soc">
+            <div class="ofw-soc-ring">
+              <svg viewBox="0 0 120 120" aria-hidden="true">
+                <defs>
+                  <linearGradient id="ofwSocGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#d7a840"/>
+                    <stop offset="100%" stop-color="#f2e1ae"/>
+                  </linearGradient>
+                </defs>
+                <circle class="track" cx="60" cy="60" r="54"></circle>
+                <circle class="value" cx="60" cy="60" r="54"></circle>
+              </svg>
+              <div style="text-align:center">
+                <strong>76%</strong>
+                <small>Battery</small>
+              </div>
+            </div>
+            <div class="ofw-soc-foot">Stored energy available</div>
+          </div>
+
+          <div class="ofw-chart">
+            <svg viewBox="0 0 620 245" preserveAspectRatio="none" aria-hidden="true">
+              <path class="solar" d="M0 210 C55 205 90 176 125 145 C175 100 206 67 260 58 C318 49 345 74 390 94 C438 115 465 142 510 164 C550 184 580 198 620 205"/>
+              <path class="storage" d="M0 215 C70 214 100 207 145 195 C190 183 225 161 270 142 C320 121 360 112 405 121 C450 130 480 151 520 163 C560 176 590 172 620 162"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="ofw-stats">
+          <div class="ofw-stat"><small>Solar</small><strong>Generation View</strong></div>
+          <div class="ofw-stat"><small>Storage</small><strong>Reserve View</strong></div>
+          <div class="ofw-stat"><small>System</small><strong>Status View</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(() => {
+  const section=document.querySelector(".ofw-monitor");
+  if(!section) return;
+  const ob=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ section.classList.add("in-view"); ob.disconnect(); } });
+  },{threshold:.24});
+  ob.observe(section);
+})();
+</script>
+
+
+<!-- ============================================================
+     09 — PROCESS
+     ============================================================ -->
+<style>
+.ofw-process{padding:112px 0;background:#f5f1ea}
+.ofw-process-head{display:flex;justify-content:space-between;align-items:end;gap:45px;margin-bottom:42px}
+.ofw-process-head h2{max-width:770px;font:700 clamp(38px,4vw,57px)/1.01 "Plus Jakarta Sans",sans-serif;letter-spacing:-.043em}
+.ofw-process-head p{max-width:420px;color:#746f66;font-size:12px;line-height:1.72}
+.ofw-process-list{border-top:1px solid #e1dbcf}
+.ofw-process-row{display:grid;grid-template-columns:80px 1fr .75fr auto;gap:28px;align-items:center;min-height:112px;border-bottom:1px solid #e1dbcf;transition:padding-left .28s ease,background .28s ease}
+.ofw-process-row:hover{padding-left:14px;background:rgba(255,255,255,.62)}
+.ofw-process-row .num{color:#9b958b;font:700 8px/1 "Plus Jakarta Sans",sans-serif;letter-spacing:.12em}
+.ofw-process-row strong{font:700 20px/1.05 "Plus Jakarta Sans",sans-serif;letter-spacing:-.025em}
+.ofw-process-row p{color:#777168;font-size:11.3px;line-height:1.6}
+.ofw-process-row b{color:#9b958b;font:700 7px/1 "Plus Jakarta Sans",sans-serif;letter-spacing:.10em;text-transform:uppercase}
+@media(max-width:900px){
+  .ofw-process-head{align-items:flex-start;flex-direction:column;gap:18px}
+  .ofw-process-row{grid-template-columns:55px 1fr}
+  .ofw-process-row p,.ofw-process-row b{grid-column:2}
+}
+@media(max-width:700px){
+  .ofw-process{padding:82px 0}
+  .ofw-process-row{min-height:auto;padding:24px 0}
+}
+</style>
+
+<section class="ofw-process">
+  <div class="wrap">
+    <div class="ofw-process-head reveal">
+      <h2>Off-grid design begins with the load, the reserve and the solar resource.</h2>
+      <p>
+        The best off-grid system is planned around actual demand, autonomy target
+        and how the site expects to use power across the day.
+      </p>
+    </div>
+
+    <div class="ofw-process-list">
+      <div class="ofw-process-row reveal"><span class="num">01</span><strong>Load Review</strong><p>Study operating demand, critical loads and daily usage pattern.</p><b>Demand</b></div>
+      <div class="ofw-process-row reveal"><span class="num">02</span><strong>Reserve Planning</strong><p>Define storage requirement and energy continuity expectation.</p><b>Storage</b></div>
+      <div class="ofw-process-row reveal"><span class="num">03</span><strong>System Design</strong><p>Coordinate PV capacity, control logic, storage and protection.</p><b>Architecture</b></div>
+      <div class="ofw-process-row reveal"><span class="num">04</span><strong>Commission & Monitor</strong><p>Verify operation, charging behaviour and visibility of system performance.</p><b>Activation</b></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     10 — FINAL CTA
+     ============================================================ -->
+<style>
+.ofw-cta{padding:0 0 118px;background:#f5f1ea}
+.ofw-cta-box{position:relative;min-height:440px;overflow:hidden;isolation:isolate;padding:48px;display:flex;align-items:flex-end;border-radius:30px;background:#0b0d10;color:#fff}
+.ofw-cta-box img{position:absolute;inset:0;z-index:-4;width:100%;height:100%;object-fit:cover;object-position:center 48%;transition:transform 1s var(--ease)}
+.ofw-cta-box:hover img{transform:scale(1.035)}
+.ofw-cta-box:before{content:"";position:absolute;inset:0;z-index:-3;background:linear-gradient(90deg,rgba(10,7,5,.97),rgba(10,7,5,.74) 48%,rgba(10,7,5,.18))}
+.ofw-cta-content{max-width:770px}
+.ofw-cta-content .kicker{margin-bottom:16px;color:rgba(255,255,255,.45)}
+.ofw-cta-content h2{font:700 clamp(35px,3.9vw,56px)/1.01 "Plus Jakarta Sans",sans-serif;letter-spacing:-.044em}
+.ofw-cta-content p{max-width:565px;margin-top:16px;color:rgba(255,255,255,.57);font-size:12px;line-height:1.72}
+.ofw-cta-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}
+@media(max-width:700px){
+  .ofw-cta{padding-bottom:88px}
+  .ofw-cta-box{min-height:400px;padding:30px 24px;border-radius:22px}
+}
+</style>
+
+<section class="ofw-cta">
+  <div class="wrap">
+    <div class="ofw-cta-box reveal">
+      <img src="https://images.pexels.com/photos/2800832/pexels-photo-2800832.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Warm solar power landscape">
+      <div class="ofw-cta-content">
+        <div class="kicker">Off-Grid Solar</div>
+        <h2>Build a self-reliant energy system with solar and storage.</h2>
+        <p>
+          Share the site's load requirement, operating pattern and continuity objective
+          to define the right off-grid solar architecture.
+        </p>
+        <div class="ofw-cta-actions">
+          <a class="ofw-btn light" href="contact.html">Contact Us <span>↗</span></a>
+          <a class="ofw-btn line" href="solar.html">Solar Overview <span>↗</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script>
+(() => {
+  const imgs=[...document.querySelectorAll("[data-ofw-parallax] img")];
+  if(!imgs.length || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  let ticking=false;
+  const update=()=>{
+    const vh=window.innerHeight;
+    imgs.forEach(img=>{
+      const box=img.parentElement.getBoundingClientRect();
+      if(box.bottom<0 || box.top>vh) return;
+      const center=box.top+box.height/2;
+      const delta=(center-vh/2)/vh;
+      img.style.transform=`translate3d(0,${delta*-34}px,0) scale(1.055)`;
+    });
+    ticking=false;
+  };
+
+  window.addEventListener("scroll",()=>{ if(!ticking){requestAnimationFrame(update);ticking=true} },{passive:true});
+  window.addEventListener("resize",update);
+  update();
+})();
+</script>
+
+
+<!-- ============================================================
+     SECTION 09 — FOOTER
+     ORDER: CSS → HTML
+     ============================================================ -->
+
+<style>
+/* ============================================================
+   09 — SECTION CSS
+   ============================================================ */
+/* ============================================================
+   09 — FOOTER
+   ============================================================ */
+.footer{
+  position:relative;
+  overflow:hidden;
+  margin-top:0;
+  padding:0 0 28px;
+  background:#07090b;
+  color:#fff;
+}
+.footer::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto 0;
+  height:10px;
+  background:linear-gradient(90deg,#d7a840,#8f6b22 38%,#18202c 62%,#5594ff);
+  opacity:.95;
+}
+
+.footer-topline{
+  padding:94px 0 64px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.footer-topline .kicker{
+  color:rgba(255,255,255,.37);
+  margin-bottom:20px;
+}
+.footer-topline h2{
+  max-width:1100px;
+  font:700 clamp(37px,4.5vw,62px)/.98 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:-.043em;
+}
+.footer-topline h2 span{color:#71767e}
+
+.footer-grid{
+  padding:62px 0 54px;
+  display:grid;
+  grid-template-columns:1.4fr .8fr .9fr 1.15fr;
+  gap:48px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.footer .brand-mark{border-color:#30343a}
+.footer-brand-copy{
+  max-width:370px;
+  margin-top:21px;
+  color:rgba(255,255,255,.44);
+  font-size:11px;
+  line-height:1.75;
+}
+.footer-badge{
+  display:inline-flex;
+  margin-top:20px;
+  padding:8px 10px;
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:999px;
+  color:rgba(255,255,255,.42);
+  font:700 7px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+
+.footer-title{
+  margin-bottom:18px;
+  color:rgba(255,255,255,.35);
+  font:700 7px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.footer-links,
+.footer-contact{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.footer-links a,
+.footer-contact a,
+.footer-contact span{
+  color:rgba(255,255,255,.62);
+  font-size:11px;
+  line-height:1.55;
+  transition:.22s ease;
+}
+.footer-links a:hover,
+.footer-contact a:hover{
+  color:#fff;
+  transform:translateX(3px);
+}
+.footer-contact span{
+  max-width:315px;
+  color:rgba(255,255,255,.42);
+}
+
+.footer-cta-link{
+  width:max-content;
+  margin-top:10px;
+  padding-bottom:5px;
+  border-bottom:1px solid rgba(255,255,255,.25);
+  font:700 8px/1 "Plus Jakarta Sans",sans-serif!important;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+}
+
+.socials{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:22px;
+}
+.socials a{
+  width:40px;
+  height:40px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:50%;
+  background:rgba(255,255,255,.025);
+  color:rgba(255,255,255,.58);
+  transition:
+    transform .24s ease,
+    background .24s ease,
+    color .24s ease,
+    border-color .24s ease;
+}
+.socials a svg{
+  width:17px;
+  height:17px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.7;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.socials a .fill-icon{
+  fill:currentColor;
+  stroke:none;
+}
+.socials a:hover{
+  background:#fff;
+  color:#111;
+  border-color:#fff;
+  transform:translateY(-3px);
+}
+
+.footer-bottom{
+  padding-top:25px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  color:rgba(255,255,255,.27);
+  font:700 7px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+.footer-bottom-right{
+  display:flex;
+  gap:22px;
+  flex-wrap:wrap;
+}
+
+/* Footer Responsive */
+@media(max-width:980px){
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .footer-grid > div:first-child{grid-column:1/-1}
+}
+
+@media(max-width:700px){
+  .footer-topline{padding:66px 0 54px}
+
+  .footer-topline h2{
+    font-size:clamp(34px,9vw,48px);
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+    gap:36px;
+  }
+
+  .footer-grid > div:first-child{grid-column:auto}
+
+  .footer-bottom{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+}
+</style>
+
+<!-- ============================================================
+     09 — FOOTER
+     ============================================================ -->
+
+<footer class="footer">
+
+  <div class="footer-topline">
+    <div class="wrap reveal">
+      <div class="kicker">Alphanumeric Energies</div>
+      <h2>
+        Cleaner generation. Stronger networks.
+        <span>Infrastructure built for progress.</span>
+      </h2>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <div class="footer-grid">
+
+      <div>
+        <a class="brand" href="index.html" aria-label="Alphanumeric Energies Home">
+          <span class="brand-mark">AE</span>
+          <span class="brand-name">
+            ALPHANUMERIC
+            <small>ENERGIES</small>
+          </span>
+        </a>
+
+        <p class="footer-brand-copy">
+          Focused renewable energy and power infrastructure covering
+          Solar, LT, HT, EHT and UHT.
+        </p>
+
+        <span class="footer-badge">
+          Renewable Energy · Power
+        </span>
+      </div>
+
+      <div>
+        <div class="footer-title">Navigate</div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="solar.html">Renewable Energy</a>
+          <a href="power.html">Power</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-title">Solutions</div>
+        <div class="footer-links">
+          <a href="on-grid.html">On-Grid Solar</a>
+          <a href="off-grid.html">Off-Grid Solar</a>
+          <a href="ground-mounted.html">Ground-Mounted Solar</a>
+          <a href="lt.html">LT</a>
+          <a href="ht.html">HT</a>
+          <a href="eht.html">EHT</a>
+          <a href="uht.html">UHT</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-title">Connect</div>
+
+        <div class="footer-contact">
+          <a href="mailto:info@aniplgroup.com">
+            info@aniplgroup.com
+          </a>
+
+          <span>
+            320 Fifth Floor, East Avenue, Ayyappa Society Main Rd,
+            near YSR Statue, SBH Officers Colony, Mega Hills,
+            Madhapur, Hyderabad, Telangana 500081
+          </span>
+
+          <a class="footer-cta-link" href="contact.html">
+            Start a project <span>↗</span>
+          </a>
+        </div>
+
+        <div class="socials">
+
+          <a href="#" aria-label="Instagram" title="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect>
+              <circle cx="12" cy="12" r="4"></circle>
+              <circle class="fill-icon" cx="17.5" cy="6.7" r="1"></circle>
+            </svg>
+          </a>
+
+          <a href="#" aria-label="Facebook" title="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M14.3 8.2h3V4.6c-.5-.1-2.2-.2-4.2-.2-4.1 0-6.9 2.5-6.9 7.1v4H2v4h4.2V24h5.1v-4.5h4.2l.7-4h-4.9v-3.6c0-1.2.3-2 3-2z" class="fill-icon" transform="scale(.78) translate(3 0)"></path>
+            </svg>
+          </a>
+
+          <a href="#" aria-label="LinkedIn" title="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="9" width="4" height="11"></rect>
+              <circle cx="5" cy="5.5" r="2"></circle>
+              <path d="M11 20V9h4v1.8c1-1.5 2.5-2.3 4.1-2.1 2.8.3 3.9 2.3 3.9 5.8V20h-4v-5c0-1.8-.7-2.8-2.1-2.8-1.6 0-2.4 1.1-2.4 3.2V20z"></path>
+            </svg>
+          </a>
+
+          <a href="#" aria-label="Threads" title="Threads">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3.5c-4.8 0-8.2 3.1-8.2 8.5S7 20.5 12 20.5c4.4 0 7.4-2.4 7.4-6.1 0-3.2-2.2-5.1-5.3-5.1-2.8 0-4.8 1.4-4.8 3.6 0 2 1.6 3.3 3.7 3.3 2.7 0 4.5-1.9 4.5-4.6 0-4.7-2.1-7.4-5.8-7.4-3.4 0-5.6 2.1-5.6 5.7"></path>
+            </svg>
+          </a>
+
+          <a href="#" aria-label="X / Twitter" title="X / Twitter">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 4l16 16M20 4 4 20"></path>
+            </svg>
+          </a>
+
+          <a href="#" aria-label="YouTube" title="YouTube">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 12c0-3-.4-5-.9-5.8-.5-.8-1.4-1.2-2.4-1.3C16 4.6 14 4.5 12 4.5s-4 .1-5.7.4c-1 .1-1.9.5-2.4 1.3C3.4 7 3 9 3 12s.4 5 .9 5.8c.5.8 1.4 1.2 2.4 1.3 1.7.3 3.7.4 5.7.4s4-.1 5.7-.4c1-.1 1.9-.5 2.4-1.3.5-.8.9-2.8.9-5.8z"></path>
+              <path d="m10 9 5 3-5 3z" class="fill-icon"></path>
+            </svg>
+          </a>
+
+          <a href="#" aria-label="Google" title="Google">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.5 12.2c0-.6-.1-1.2-.2-1.7H12v3.2h4.8a4.1 4.1 0 0 1-1.8 2.7v2.2h2.9c1.7-1.6 2.6-3.8 2.6-6.4z"></path>
+              <path d="M12 20.8c2.4 0 4.4-.8 5.9-2.2L15 16.4c-.8.5-1.8.8-3 .8-2.3 0-4.3-1.6-5-3.7H4v2.3c1.5 3 4.5 5 8 5z"></path>
+              <path d="M7 13.5a5.5 5.5 0 0 1 0-3V8.2H4a9 9 0 0 0 0 7.6z"></path>
+              <path d="M12 6.8c1.3 0 2.5.4 3.4 1.3L18 5.5A8.7 8.7 0 0 0 4 8.2l3 2.3c.7-2.1 2.7-3.7 5-3.7z"></path>
+            </svg>
+          </a>
+
+          <a href="#" aria-label="Pinterest" title="Pinterest">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3.2a8.8 8.8 0 0 0-3.2 17c-.1-1.4 0-3 .4-4.4l1.1-4.4s-.3-.7-.3-1.7c0-1.6.9-2.8 2.1-2.8 1 0 1.5.7 1.5 1.6 0 1-.6 2.4-.9 3.7-.3 1.1.5 2 1.6 2 2 0 3.5-2.1 3.5-5.1 0-2.7-1.9-4.5-4.7-4.5-3.2 0-5.1 2.4-5.1 4.9 0 1 .4 2 .8 2.5.1.1.1.2.1.4l-.3 1.2c-.1.4-.4.5-.8.3-1.3-.6-2.1-2.5-2.1-4 0-3.2 2.4-6.2 6.8-6.2 3.6 0 6.3 2.5 6.3 5.9 0 3.5-2.2 6.4-5.3 6.4-1 0-2-.5-2.3-1.2l-.6 2.3c-.2.8-.8 1.9-1.1 2.5.8.2 1.7.4 2.6.4A8.8 8.8 0 0 0 12 3.2z"></path>
+            </svg>
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Alphanumeric Energies. All rights reserved.</span>
+
+      <div class="footer-bottom-right">
+        <span>Solar</span>
+        <span>Power</span>
+        <span>Hyderabad</span>
+      </div>
+    </div>
+
   </div>
 </footer>
-<script src="assets/js/main.js"></script>
-</body></html>
+
+<button
+  class="back-top"
+  id="backTop"
+  aria-label="Back to top"
+>
+  ↑
+</button>
+
+<!-- ============================================================
+     GLOBAL UTILITIES JAVASCRIPT
+     Reveal animation · Scroll progress · Back to top
+     ============================================================ -->
+
+<script>
+(() => {
+/* ============================================================
+     GLOBAL REVEAL
+     ============================================================ */
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add("show");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },{
+    threshold:.12,
+    rootMargin:"0px 0px -30px 0px"
+  });
+
+  document.querySelectorAll(".reveal").forEach((element,index) => {
+    element.style.transitionDelay = `${Math.min((index % 5) * 55,220)}ms`;
+    revealObserver.observe(element);
+  });
+
+/* ============================================================
+     SCROLL PROGRESS + BACK TO TOP
+     ============================================================ */
+  const scrollProgress = document.getElementById("scrollProgress");
+  const backTop = document.getElementById("backTop");
+
+  function updateScrollUI(){
+    const pageHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = pageHeight > 0 ? (window.scrollY / pageHeight) * 100 : 0;
+
+    scrollProgress.style.width = `${progress}%`;
+    backTop.classList.toggle("show", window.scrollY > 650);
+  }
+
+  updateScrollUI();
+  window.addEventListener("scroll", updateScrollUI, {passive:true});
+
+  backTop.addEventListener("click", () => {
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

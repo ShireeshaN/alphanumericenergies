@@ -1,0 +1,3692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090b0f">
+
+<title>Alphanumeric Energies | Renewable Energy & Power</title>
+<meta name="description" content="Alphanumeric Energies delivers focused solar energy solutions and power infrastructure across LT, HT, EHT and UHT.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   00 — GLOBAL
+   ============================================================ */
+:root{
+  --ink:#0d0f12;
+  --ink-2:#15181d;
+  --paper:#f5f4f0;
+  --paper-2:#ecece7;
+  --white:#ffffff;
+  --muted:#6c7178;
+  --line:#dcddd9;
+
+  --gold:#d7a840;
+  --gold-soft:#f0e0b2;
+  --blue:#5594ff;
+
+  --container:min(1380px,calc(100% - 64px));
+  --radius-xl:34px;
+  --radius-lg:26px;
+  --radius-md:18px;
+
+  --ease:cubic-bezier(.2,.72,.2,1);
+  --shadow:0 30px 80px rgba(0,0,0,.12);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Inter",sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  overflow-x:hidden;
+  text-rendering:optimizeLegibility;
+  -webkit-font-smoothing:antialiased;
+}
+body.menu-open{overflow:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%}
+button,input,textarea,select{font:inherit}
+button{color:inherit}
+
+.wrap{
+  width:var(--container);
+  margin:auto;
+}
+
+.editorial{
+  color:#777b82;
+}
+
+.kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:11px;
+  color:#777c83;
+  font:700 9px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:.17em;
+  text-transform:uppercase;
+}
+.kicker::before{
+  content:"";
+  width:30px;
+  height:1px;
+  background:currentColor;
+  opacity:.65;
+}
+
+.btn{
+  min-height:50px;
+  padding:0 19px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:13px;
+  border:1px solid transparent;
+  border-radius:999px;
+  font:700 9px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+  transition:
+    transform .25s ease,
+    background .25s ease,
+    border-color .25s ease,
+    color .25s ease;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-light{background:#fff;color:#111}
+.btn-light:hover{background:#f0f0ec}
+.btn-outline{
+  border-color:rgba(255,255,255,.25);
+  color:#fff;
+  background:rgba(255,255,255,.035);
+  backdrop-filter:blur(10px);
+}
+.btn-outline:hover{background:rgba(255,255,255,.10)}
+.btn-dark{background:#111;color:#fff}
+.btn-dark:hover{background:#24272c}
+
+.reveal{
+  opacity:0;
+  transform:translateY(28px);
+  transition:
+    opacity .85s var(--ease),
+    transform .85s var(--ease);
+}
+.reveal.show{
+  opacity:1;
+  transform:none;
+}
+
+.scroll-progress{
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:1300;
+  width:0;
+  height:2px;
+  background:linear-gradient(90deg,var(--gold),#f2d487);
+  box-shadow:0 0 12px rgba(215,168,64,.45);
+  pointer-events:none;
+}
+
+/* ============================================================
+   SHARED SECTION HEAD
+   ============================================================ */
+.section-pad{padding:124px 0}
+.section-head{
+  display:grid;
+  grid-template-columns:minmax(0,1.14fr) minmax(320px,.86fr);
+  gap:70px;
+  align-items:end;
+  margin-bottom:52px;
+}
+.section-head .kicker{margin-bottom:18px}
+.section-head h2{
+  max-width:900px;
+  font:700 clamp(38px,4.25vw,60px)/1.02 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:-.043em;
+}
+.section-head p{
+  max-width:455px;
+  color:var(--muted);
+  font-size:12.5px;
+  line-height:1.72;
+}
+
+/* ============================================================
+   BACK TO TOP
+   ============================================================ */
+.back-top{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  z-index:1000;
+  width:45px;
+  height:45px;
+  display:grid;
+  place-items:center;
+  border:1px solid #d7d8d4;
+  border-radius:50%;
+  background:rgba(255,255,255,.94);
+  color:#111;
+  cursor:pointer;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(10px);
+  box-shadow:0 12px 30px rgba(0,0,0,.10);
+  transition:.24s ease;
+}
+.back-top.show{
+  opacity:1;
+  visibility:visible;
+  transform:none;
+}
+.back-top:hover{
+  background:#111;
+  color:#fff;
+  border-color:#111;
+}
+
+/* ============================================================
+   GLOBAL RESPONSIVE
+   ============================================================ */
+@media(max-width:1180px){
+  :root{--container:min(100% - 44px,1380px)}
+
+  .section-head{
+    grid-template-columns:1fr;
+    gap:25px;
+  }
+}
+
+@media(max-width:980px){
+  :root{--container:min(100% - 32px,1380px)}
+}
+
+@media(max-width:700px){
+  :root{--container:min(100% - 28px,1380px)}
+
+  .section-pad{padding:88px 0}
+  .section-head{margin-bottom:35px}
+  .section-head h2{
+    font-size:clamp(34px,9.5vw,47px);
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,
+  *::before,
+  *::after{
+    animation:none!important;
+    transition-duration:.01ms!important;
+  }
+}
+</style>
+</head>
+
+
+<body>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<!-- ============================================================
+     SECTION 01 — NAVIGATION
+     ORDER: CSS → HTML → JAVASCRIPT
+     ============================================================ -->
+
+<style>
+/* ============================================================
+   01 — SECTION CSS
+   ============================================================ */
+/* ============================================================
+   01 — NAVIGATION
+   ============================================================ */
+.site-nav{
+  position:fixed;
+  inset:0 0 auto 0;
+  z-index:1200;
+  height:82px;
+  display:flex;
+  align-items:center;
+  color:#fff;
+  border-bottom:1px solid rgba(255,255,255,.10);
+  transition:
+    height .32s ease,
+    background .32s ease,
+    color .32s ease,
+    border-color .32s ease,
+    box-shadow .32s ease;
+}
+
+.site-nav.scrolled{
+  height:72px;
+  color:#111;
+  background:rgba(255,255,255,.93);
+  border-color:rgba(12,14,17,.08);
+  backdrop-filter:blur(18px);
+  box-shadow:0 12px 34px rgba(0,0,0,.055);
+}
+
+.nav-inner{
+  width:var(--container);
+  margin:auto;
+  display:flex;
+  align-items:center;
+  gap:24px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-shrink:0;
+}
+
+.brand-mark{
+  width:43px;
+  height:43px;
+  display:grid;
+  place-items:center;
+  border:1px solid currentColor;
+  border-radius:12px;
+  font:800 11px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:-.04em;
+}
+
+.brand-name{
+  font:800 14px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:-.035em;
+}
+.brand-name small{
+  display:block;
+  margin-top:6px;
+  opacity:.58;
+  font:700 6px/1 "Inter",sans-serif;
+  letter-spacing:.25em;
+}
+
+.nav-links{
+  margin-left:auto;
+  display:flex;
+  align-items:center;
+  gap:3px;
+}
+.nav-item{position:relative}
+
+.nav-link{
+  min-height:42px;
+  padding:0 13px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  border-radius:999px;
+  font-size:11px;
+  font-weight:600;
+  transition:.22s ease;
+}
+.nav-link:hover{background:rgba(255,255,255,.10)}
+.site-nav.scrolled .nav-link:hover{background:#eff0ec}
+
+.chevron{
+  width:6px;
+  height:6px;
+  border-right:1.4px solid currentColor;
+  border-bottom:1.4px solid currentColor;
+  transform:rotate(45deg) translateY(-2px);
+  transition:.22s ease;
+}
+.nav-item:hover .chevron{
+  transform:rotate(225deg) translate(-1px,-1px);
+}
+
+.dropdown{
+  position:absolute;
+  top:calc(100% + 10px);
+  left:50%;
+  width:max-content;
+  min-width:150px;
+  max-width:210px;
+  padding:6px;
+  transform:translate(-50%,10px);
+  border:1px solid #e2e3df;
+  border-radius:17px;
+  background:rgba(255,255,255,.985);
+  color:#111;
+  box-shadow:0 28px 65px rgba(0,0,0,.15);
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:.22s ease;
+}
+.nav-item:hover .dropdown,
+.nav-item:focus-within .dropdown{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+  transform:translate(-50%,0);
+}
+
+.dropdown a{
+  min-height:40px;
+  padding:0 11px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  border-radius:9px;
+  font-size:11px;
+  font-weight:600;
+  transition:.2s ease;
+}
+.dropdown a:hover{
+  background:#f2f2ef;
+  padding-left:17px;
+}
+.mobile-toggle{
+  display:none;
+  width:43px;
+  height:43px;
+  margin-left:auto;
+  border:1px solid rgba(255,255,255,.24);
+  border-radius:50%;
+  background:transparent;
+  color:inherit;
+  cursor:pointer;
+}
+.site-nav.scrolled .mobile-toggle{border-color:#d4d5d1}
+.mobile-toggle span{
+  display:block;
+  width:16px;
+  height:1px;
+  margin:4px auto;
+  background:currentColor;
+  transition:.2s ease;
+}
+
+/* Navigation Responsive */
+@media(max-width:980px){
+  .site-nav{height:75px}
+  .mobile-toggle{display:block}
+
+  .nav-links{
+    position:fixed;
+    top:75px;
+    left:16px;
+    right:16px;
+    max-height:calc(100vh - 94px);
+    overflow:auto;
+    margin-left:0;
+    padding:10px;
+    display:none;
+    flex-direction:column;
+    align-items:stretch;
+    border:1px solid #e0e1dd;
+    border-radius:19px;
+    background:rgba(255,255,255,.985);
+    color:#111;
+    box-shadow:0 28px 75px rgba(0,0,0,.18);
+  }
+
+  .nav-links.open{display:flex}
+  .nav-item{width:100%}
+
+  .nav-link{
+    width:100%;
+    min-height:49px;
+    padding:0 14px;
+    justify-content:space-between;
+    border-radius:11px;
+  }
+
+  .nav-link:hover{background:#f0f0ed}
+
+  .dropdown{
+    position:static;
+    width:100%;
+    max-width:none;
+    margin:0 0 7px;
+    padding:6px;
+    display:none;
+    transform:none!important;
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    background:#f3f3ef;
+    box-shadow:none;
+  }
+
+  .nav-item.open .dropdown{display:block}
+  .nav-item:hover .dropdown{display:none}
+  .nav-item.open:hover .dropdown{display:block}
+}
+
+@media(max-width:700px){
+  .brand-mark{
+    width:39px;
+    height:39px;
+  }
+
+  .brand-name{font-size:12px}
+}
+</style>
+
+<!-- ============================================================
+     01 — NAVIGATION
+     ============================================================ -->
+<header class="site-nav" id="siteNav">
+  <div class="nav-inner">
+
+    <a class="brand" href="index.html" aria-label="Alphanumeric Energies Home">
+      <span class="brand-mark">AE</span>
+      <span class="brand-name">
+        ALPHANUMERIC
+        <small>ENERGIES</small>
+      </span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+
+      <div class="nav-item">
+        <a class="nav-link" href="index.html">Home</a>
+      </div>
+
+      <div class="nav-item">
+        <a class="nav-link" href="about.html">About</a>
+      </div>
+
+      <div class="nav-item has-dropdown">
+        <a class="nav-link" href="solar.html">
+          Renewable Energy
+          <span class="chevron" aria-hidden="true"></span>
+        </a>
+
+        <div class="dropdown">
+          <a href="on-grid.html">
+            <span>On-Grid</span>
+          </a>
+          <a href="off-grid.html">
+            <span>Off-Grid</span>
+          </a>
+          <a href="ground-mounted.html">
+            <span>Ground-Mounted</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="nav-item has-dropdown">
+        <a class="nav-link" href="power.html">
+          Power
+          <span class="chevron" aria-hidden="true"></span>
+        </a>
+
+        <div class="dropdown">
+          <a href="lt.html">
+            <span>LT</span>
+          </a>
+          <a href="ht.html">
+            <span>HT</span>
+          </a>
+          <a href="eht.html">
+            <span>EHT</span>
+          </a>
+          <a href="uht.html">
+            <span>UHT</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a class="nav-link" href="contact.html">Contact</a>
+      </div>
+
+    </nav>
+
+
+    <button
+      class="mobile-toggle"
+      id="mobileToggle"
+      aria-label="Open navigation"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+</header>
+
+<script>
+(() => {
+/* ============================================================
+     NAVIGATION
+     ============================================================ */
+  const siteNav = document.getElementById("siteNav");
+  const mobileToggle = document.getElementById("mobileToggle");
+  const navLinks = document.getElementById("navLinks");
+
+  function updateNavbar(){
+    siteNav.classList.toggle("scrolled", window.scrollY > 28);
+  }
+
+  updateNavbar();
+  window.addEventListener("scroll", updateNavbar, {passive:true});
+
+  mobileToggle.addEventListener("click", () => {
+    const open = navLinks.classList.toggle("open");
+    mobileToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    document.body.classList.toggle("menu-open", open);
+  });
+
+  document.querySelectorAll(".has-dropdown > .nav-link").forEach(link => {
+    link.addEventListener("click", event => {
+      if(window.innerWidth <= 980){
+        event.preventDefault();
+
+        const item = link.parentElement;
+
+        document.querySelectorAll(".nav-item.open").forEach(openItem => {
+          if(openItem !== item) openItem.classList.remove("open");
+        });
+
+        item.classList.toggle("open");
+      }
+    });
+  });
+
+  document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+      if(window.innerWidth <= 980 && !link.parentElement.classList.contains("has-dropdown")){
+        navLinks.classList.remove("open");
+        document.body.classList.remove("menu-open");
+        mobileToggle.setAttribute("aria-expanded","false");
+      }
+    });
+  });
+
+  window.addEventListener("resize", () => {
+    if(window.innerWidth > 980){
+      navLinks.classList.remove("open");
+      document.body.classList.remove("menu-open");
+      mobileToggle.setAttribute("aria-expanded","false");
+      document.querySelectorAll(".nav-item.open").forEach(item => item.classList.remove("open"));
+    }
+  });
+})();
+</script>
+
+<main>
+
+<!-- ============================================================
+     SECTION 02 — HERO
+     CONCEPT: CLEAN CINEMATIC MOTION
+     Desktop height ≈ 680px
+     No grid / no network lines / no floating cards
+     ============================================================ -->
+
+<style>
+/* ============================================================
+   02 — HERO CSS
+   ============================================================ */
+
+.hero{
+  position:relative;
+  height:clamp(640px,78vh,700px);
+  min-height:640px;
+  max-height:700px;
+  overflow:hidden;
+  isolation:isolate;
+  background:#080a0d;
+  color:#fff;
+}
+
+/* ------------------------------------------------------------
+   BACKGROUND IMAGES
+   ------------------------------------------------------------ */
+.hero-bg{
+  position:absolute;
+  inset:0;
+  z-index:-6;
+  opacity:0;
+  transform:scale(1.018);
+  transition:
+    opacity .95s ease,
+    transform 7s cubic-bezier(.2,.7,.2,1);
+}
+
+.hero-bg.active{
+  opacity:1;
+  transform:scale(1.045);
+}
+
+.hero-bg img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+}
+
+.hero-bg.power img{
+  object-position:center 48%;
+}
+
+/* ------------------------------------------------------------
+   CLEAN CINEMATIC OVERLAY
+   Keeps image visible, dark only where text sits
+   ------------------------------------------------------------ */
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  z-index:-5;
+  pointer-events:none;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5,7,9,.91) 0%,
+      rgba(5,7,9,.79) 29%,
+      rgba(5,7,9,.47) 50%,
+      rgba(5,7,9,.16) 73%,
+      rgba(5,7,9,.05) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(0,0,0,.35) 0%,
+      transparent 42%
+    );
+}
+
+/* ------------------------------------------------------------
+   SOFT AMBIENT MOTION
+   A subtle accent glow that slowly drifts.
+   It never covers the image with lines or shapes.
+   ------------------------------------------------------------ */
+.hero-ambient{
+  position:absolute;
+  right:-120px;
+  top:50%;
+  z-index:-4;
+
+  width:520px;
+  height:520px;
+
+  transform:translateY(-50%);
+
+  border-radius:50%;
+
+  pointer-events:none;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(215,168,64,.11) 0%,
+      rgba(215,168,64,.04) 34%,
+      transparent 70%
+    );
+
+  filter:blur(12px);
+
+  animation:
+    ambientDrift 8s
+    ease-in-out
+    infinite;
+
+  transition:
+    background .45s ease;
+}
+
+.hero[data-mode="power"] .hero-ambient{
+  background:
+    radial-gradient(
+      circle,
+      rgba(85,148,255,.13) 0%,
+      rgba(85,148,255,.045) 34%,
+      transparent 70%
+    );
+}
+
+@keyframes ambientDrift{
+  0%,100%{
+    transform:
+      translate3d(0,-50%,0)
+      scale(.98);
+    opacity:.72;
+  }
+
+  50%{
+    transform:
+      translate3d(-22px,-50%,0)
+      scale(1.04);
+    opacity:1;
+  }
+}
+
+/* ------------------------------------------------------------
+   MODE CHANGE MOTION
+   Runs only when changing Solar / Power
+   ------------------------------------------------------------ */
+.hero-transition{
+  position:absolute;
+  inset:0;
+  z-index:14;
+
+  pointer-events:none;
+
+  opacity:0;
+
+  background:
+    linear-gradient(
+      100deg,
+      transparent 0%,
+      rgba(255,255,255,.025) 35%,
+      rgba(255,255,255,.11) 49%,
+      rgba(255,255,255,.025) 63%,
+      transparent 100%
+    );
+
+  transform:translateX(105%);
+}
+
+.hero-transition.run{
+  animation:
+    cleanSweep .72s
+    cubic-bezier(.22,.72,.2,1);
+}
+
+@keyframes cleanSweep{
+  0%{
+    opacity:0;
+    transform:translateX(105%);
+  }
+
+  25%{
+    opacity:1;
+  }
+
+  100%{
+    opacity:0;
+    transform:translateX(-105%);
+  }
+}
+
+/* ------------------------------------------------------------
+   SWITCH
+   ------------------------------------------------------------ */
+.hero-switch{
+  position:absolute;
+
+  top:98px;
+  right:max(
+    24px,
+    calc(
+      (100vw - min(1380px,calc(100% - 64px))) / 2
+    )
+  );
+
+  z-index:20;
+
+  display:flex;
+  gap:5px;
+
+  padding:5px;
+
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:999px;
+
+  background:rgba(6,8,10,.38);
+
+  backdrop-filter:blur(14px);
+
+  box-shadow:
+    0 12px 30px rgba(0,0,0,.14);
+}
+
+.hero-switch button{
+  min-height:36px;
+  padding:0 14px;
+
+  border:0;
+  border-radius:999px;
+
+  background:transparent;
+
+  color:rgba(255,255,255,.55);
+
+  font:
+    700 8px/1
+    "Plus Jakarta Sans",sans-serif;
+
+  letter-spacing:.10em;
+  text-transform:uppercase;
+
+  cursor:pointer;
+
+  transition:
+    background .22s ease,
+    color .22s ease;
+}
+
+.hero-switch button:hover{
+  color:#fff;
+}
+
+.hero-switch button.active{
+  background:#fff;
+  color:#111;
+}
+
+/* ------------------------------------------------------------
+   LAYOUT
+   ------------------------------------------------------------ */
+.hero-shell{
+  width:var(--container);
+  height:100%;
+  margin:auto;
+
+  padding:
+    118px
+    0
+    70px;
+
+  display:flex;
+  align-items:center;
+}
+
+/* ------------------------------------------------------------
+   CONTENT
+   ------------------------------------------------------------ */
+.hero-copy{
+  position:relative;
+  z-index:8;
+
+  width:min(690px,58vw);
+}
+
+.hero-eyebrow{
+  display:flex;
+  align-items:center;
+  gap:11px;
+
+  margin-bottom:18px;
+
+  color:rgba(255,255,255,.58);
+
+  font:
+    700 8px/1
+    "Plus Jakarta Sans",sans-serif;
+
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+
+.hero-eyebrow::before{
+  content:"";
+
+  width:29px;
+  height:1px;
+
+  background:currentColor;
+}
+
+.hero-title{
+  max-width:675px;
+
+  font:
+    700 clamp(44px,4.25vw,64px)/.99
+    "Plus Jakarta Sans",sans-serif;
+
+  letter-spacing:-.034em;
+}
+
+.hero-title span{
+  display:block;
+  color:#d6d7d2;
+}
+
+.hero-desc{
+  max-width:545px;
+
+  margin-top:20px;
+
+  color:rgba(255,255,255,.68);
+
+  font-size:12.5px;
+  line-height:1.72;
+}
+
+.hero-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+
+  margin-top:18px;
+}
+
+.hero-tags span{
+  position:relative;
+
+  padding:
+    8px
+    10px;
+
+  border:
+    1px solid
+    rgba(255,255,255,.14);
+
+  border-radius:999px;
+
+  background:
+    rgba(255,255,255,.035);
+
+  color:
+    rgba(255,255,255,.75);
+
+  backdrop-filter:blur(7px);
+
+  font:
+    700 7px/1
+    "Plus Jakarta Sans",sans-serif;
+
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+
+  margin-top:23px;
+}
+
+/* ------------------------------------------------------------
+   CONTENT MOTION
+   ------------------------------------------------------------ */
+.hero-copy.is-changing .hero-eyebrow,
+.hero-copy.is-changing .hero-title,
+.hero-copy.is-changing .hero-desc,
+.hero-copy.is-changing .hero-tags,
+.hero-copy.is-changing .hero-actions{
+  animation:
+    contentIn .55s
+    cubic-bezier(.2,.72,.2,1);
+}
+
+@keyframes contentIn{
+  0%{
+    opacity:.22;
+    transform:translateY(9px);
+  }
+
+  100%{
+    opacity:1;
+    transform:none;
+  }
+}
+
+/* ------------------------------------------------------------
+   CLEAN BOTTOM MOTION BAR
+   Only small detail, no disturbance to image
+   ------------------------------------------------------------ */
+.hero-motion-bar{
+  position:absolute;
+
+  left:50%;
+  bottom:25px;
+  z-index:20;
+
+  width:var(--container);
+
+  transform:translateX(-50%);
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:22px;
+}
+
+.hero-motion-label{
+  display:flex;
+  align-items:center;
+  gap:10px;
+
+  color:rgba(255,255,255,.33);
+
+  font:
+    700 7px/1
+    "Plus Jakarta Sans",sans-serif;
+
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+
+.hero-motion-line{
+  position:relative;
+
+  width:80px;
+  height:1px;
+
+  overflow:hidden;
+
+  background:
+    rgba(255,255,255,.18);
+}
+
+.hero-motion-line::after{
+  content:"";
+
+  position:absolute;
+  top:0;
+  left:-35%;
+
+  width:35%;
+  height:100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.95),
+      transparent
+    );
+
+  animation:
+    lineMotion 3.4s
+    linear
+    infinite;
+}
+
+@keyframes lineMotion{
+  to{
+    left:110%;
+  }
+}
+
+.hero-mode-meta{
+  color:rgba(255,255,255,.28);
+
+  font:
+    700 7px/1
+    "Plus Jakarta Sans",sans-serif;
+
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+
+/* ------------------------------------------------------------
+   RESPONSIVE
+   ------------------------------------------------------------ */
+@media(max-width:1100px){
+
+  .hero{
+    height:620px;
+    min-height:620px;
+    max-height:620px;
+  }
+
+  .hero-copy{
+    width:min(650px,68vw);
+  }
+}
+
+@media(max-width:820px){
+
+  .hero{
+    height:600px;
+    min-height:600px;
+    max-height:600px;
+  }
+
+  .hero-shell{
+    padding:
+      124px
+      0
+      58px;
+  }
+
+  .hero-copy{
+    width:100%;
+    max-width:620px;
+  }
+}
+
+@media(max-width:700px){
+
+  .hero{
+    height:580px;
+    min-height:580px;
+    max-height:580px;
+  }
+
+  .hero-switch{
+    top:84px;
+    left:14px;
+    right:14px;
+
+    justify-content:center;
+  }
+
+  .hero-switch button{
+    flex:1;
+  }
+
+  .hero-shell{
+    padding:
+      140px
+      0
+      50px;
+  }
+
+  .hero-title{
+    font-size:
+      clamp(38px,10.8vw,50px);
+  }
+
+  .hero-desc{
+    max-width:100%;
+    font-size:11.5px;
+  }
+
+  .hero-actions .btn{
+    width:100%;
+  }
+
+  .hero-motion-bar{
+    bottom:18px;
+  }
+
+  .hero-mode-meta{
+    display:none;
+  }
+
+  .hero-ambient{
+    width:380px;
+    height:380px;
+
+    right:-190px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+
+  .hero-bg,
+  .hero-ambient,
+  .hero-transition,
+  .hero-motion-line::after{
+    animation:none!important;
+    transition:none!important;
+  }
+}
+</style>
+
+
+<!-- ============================================================
+     02 — HERO HTML
+     ============================================================ -->
+<section
+  class="hero"
+  id="hero"
+  data-mode="solar"
+>
+
+  <!-- SOLAR BACKGROUND -->
+  <div
+    class="hero-bg solar active"
+    data-bg="solar"
+  >
+    <img
+      src="assets/images/banners/reneableenergys1.png"
+      alt="Premium solar energy installation"
+    >
+  </div>
+
+
+  <!-- POWER BACKGROUND -->
+  <div
+    class="hero-bg power"
+    data-bg="power"
+  >
+    <img
+      src="assets/images/banners/transmission-2.png"
+      alt="Electrical transmission infrastructure"
+    >
+  </div>
+
+
+  <!-- CLEAN CINEMATIC OVERLAY -->
+  <div
+    class="hero-overlay"
+    aria-hidden="true"
+  ></div>
+
+
+  <!-- SOFT AMBIENT MOTION -->
+  <div
+    class="hero-ambient"
+    aria-hidden="true"
+  ></div>
+
+
+  <!-- MODE CHANGE SWEEP -->
+  <div
+    class="hero-transition"
+    id="heroTransition"
+    aria-hidden="true"
+  ></div>
+
+
+  <!-- SOLAR / POWER SWITCH -->
+  <div
+    class="hero-switch"
+    aria-label="Switch hero view"
+  >
+
+    <button
+      class="active"
+      data-mode="solar"
+    >
+      Renewable Energy
+    </button>
+
+    <button
+      data-mode="power"
+    >
+      Power
+    </button>
+
+  </div>
+
+
+  <!-- CONTENT -->
+  <div class="hero-shell">
+
+    <div
+      class="hero-copy"
+      id="heroCopy"
+    >
+
+      <div
+        class="hero-eyebrow"
+        id="heroEyebrow"
+      >
+        Renewable Energy · Solar
+      </div>
+
+
+      <h1
+        class="hero-title"
+        id="heroTitle"
+      >
+        Solar solutions.
+        <span>
+          Built for every scale.
+        </span>
+      </h1>
+
+
+      <p
+        class="hero-desc"
+        id="heroDesc"
+      >
+        High-performance solar solutions
+        for commercial, industrial and
+        utility-scale applications —
+        from grid-connected systems to
+        independent power and large
+        solar installations.
+      </p>
+
+
+      <div
+        class="hero-tags"
+        id="heroTags"
+      >
+        <span>On-Grid</span>
+        <span>Off-Grid</span>
+        <span>Ground-Mounted</span>
+      </div>
+
+
+      <div class="hero-actions">
+
+        <a
+          class="btn btn-light"
+          id="heroPrimary"
+          href="solar.html"
+        >
+          Explore Solar
+          <span>↗</span>
+        </a>
+
+        <a
+          class="btn btn-outline"
+          id="heroSecondary"
+          href="power.html"
+        >
+          Explore Power
+          <span>↗</span>
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- SMALL MOTION DETAIL -->
+  <div class="hero-motion-bar">
+
+    <div class="hero-motion-label">
+      <span class="hero-motion-line"></span>
+      <span id="heroMotionLabel">
+        Solar Infrastructure
+      </span>
+    </div>
+
+    <div
+      class="hero-mode-meta"
+      id="heroModeMeta"
+    >
+      On-Grid · Off-Grid · Ground-Mounted
+    </div>
+
+  </div>
+
+</section>
+
+
+<script>
+(() => {
+
+/* ============================================================
+   HERO JAVASCRIPT
+   ============================================================ */
+
+  const hero =
+    document.getElementById("hero");
+
+  const heroCopy =
+    document.getElementById("heroCopy");
+
+  const heroEyebrow =
+    document.getElementById("heroEyebrow");
+
+  const heroTitle =
+    document.getElementById("heroTitle");
+
+  const heroDesc =
+    document.getElementById("heroDesc");
+
+  const heroTags =
+    document.getElementById("heroTags");
+
+  const heroPrimary =
+    document.getElementById("heroPrimary");
+
+  const heroSecondary =
+    document.getElementById("heroSecondary");
+
+  const heroTransition =
+    document.getElementById("heroTransition");
+
+  const heroMotionLabel =
+    document.getElementById("heroMotionLabel");
+
+  const heroModeMeta =
+    document.getElementById("heroModeMeta");
+
+  const heroButtons = [
+    ...document.querySelectorAll(
+      ".hero-switch button"
+    )
+  ];
+
+  const heroBackgrounds = [
+    ...document.querySelectorAll(
+      ".hero-bg"
+    )
+  ];
+
+
+  const modes = {
+
+    solar:{
+
+      eyebrow:
+        "Renewable Energy · Solar",
+
+      title:
+        'Solar solutions.<span>Built for every scale.</span>',
+
+      desc:
+        "High-performance solar solutions for commercial, industrial and utility-scale applications — from grid-connected systems to independent power and large solar installations.",
+
+      tags:[
+        "On-Grid",
+        "Off-Grid",
+        "Ground-Mounted"
+      ],
+
+      primary:[
+        "Explore Solar",
+        "solar.html"
+      ],
+
+      secondary:[
+        "Explore Power",
+        "power.html"
+      ],
+
+      motionLabel:
+        "Solar Infrastructure",
+
+      meta:
+        "On-Grid · Off-Grid · Ground-Mounted"
+    },
+
+
+    power:{
+
+      eyebrow:
+        "Electrical Power · LT to UHT",
+
+      title:
+        'Power infrastructure.<span>From LT to UHT.</span>',
+
+      desc:
+        "A clear power portfolio across LT, HT, EHT and UHT — supporting distribution, substations and transmission infrastructure up to 765kV.",
+
+      tags:[
+        "LT",
+        "HT",
+        "EHT",
+        "UHT"
+      ],
+
+      primary:[
+        "Explore Power",
+        "power.html"
+      ],
+
+      secondary:[
+        "Explore Solar",
+        "solar.html"
+      ],
+
+      motionLabel:
+        "Power Infrastructure",
+
+      meta:
+        "LT · HT · EHT · UHT"
+    }
+
+  };
+
+
+  let currentMode = "solar";
+  let heroTimer = null;
+
+  const heroDuration = 7000;
+
+
+  function runTransition(){
+
+    heroTransition.classList.remove(
+      "run"
+    );
+
+    void heroTransition.offsetWidth;
+
+    heroTransition.classList.add(
+      "run"
+    );
+
+  }
+
+
+  function setMode(
+    mode,
+    restartTimer = true
+  ){
+
+    currentMode = mode;
+
+    const data =
+      modes[mode];
+
+
+    hero.dataset.mode =
+      mode;
+
+
+    runTransition();
+
+
+    heroButtons.forEach(
+      button => {
+
+        button.classList.toggle(
+          "active",
+          button.dataset.mode === mode
+        );
+
+      }
+    );
+
+
+    heroBackgrounds.forEach(
+      background => {
+
+        background.classList.toggle(
+          "active",
+          background.dataset.bg === mode
+        );
+
+      }
+    );
+
+
+    heroCopy.classList.remove(
+      "is-changing"
+    );
+
+    void heroCopy.offsetWidth;
+
+    heroCopy.classList.add(
+      "is-changing"
+    );
+
+
+    heroEyebrow.textContent =
+      data.eyebrow;
+
+
+    heroTitle.innerHTML =
+      data.title;
+
+
+    heroDesc.textContent =
+      data.desc;
+
+
+    heroTags.innerHTML =
+      data.tags
+        .map(
+          tag =>
+          `<span>${tag}</span>`
+        )
+        .join("");
+
+
+    heroPrimary.innerHTML =
+      `${data.primary[0]} <span>↗</span>`;
+
+    heroPrimary.href =
+      data.primary[1];
+
+
+    heroSecondary.innerHTML =
+      `${data.secondary[0]} <span>↗</span>`;
+
+    heroSecondary.href =
+      data.secondary[1];
+
+
+    heroMotionLabel.textContent =
+      data.motionLabel;
+
+
+    heroModeMeta.textContent =
+      data.meta;
+
+
+    if(restartTimer){
+      startTimer();
+    }
+
+  }
+
+
+  function startTimer(){
+
+    clearInterval(
+      heroTimer
+    );
+
+
+    heroTimer =
+      setInterval(
+        () => {
+
+          setMode(
+            currentMode === "solar"
+              ? "power"
+              : "solar",
+            false
+          );
+
+        },
+        heroDuration
+      );
+
+  }
+
+
+  heroButtons.forEach(
+    button => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          setMode(
+            button.dataset.mode
+          );
+
+        }
+      );
+
+    }
+  );
+
+
+  hero.addEventListener(
+    "mouseenter",
+    () => {
+      clearInterval(heroTimer);
+    }
+  );
+
+
+  hero.addEventListener(
+    "mouseleave",
+    startTimer
+  );
+
+
+  setMode("solar");
+
+})();
+</script>
+
+<!-- ============================================================
+     SECTION 03 — FOCUS STRIP
+     ORDER: CSS → HTML
+     ============================================================ -->
+
+<style>
+/* ============================================================
+   03 — SECTION CSS
+   ============================================================ */
+/* ============================================================
+   03 — FOCUS STRIP
+   ============================================================ */
+.focus-strip{
+  position:relative;
+  background:#0b0e12;
+  color:#fff;
+  border-top:1px solid rgba(255,255,255,.08);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.focus-grid{
+  width:var(--container);
+  margin:auto;
+  display:grid;
+  grid-template-columns:1.15fr 1fr 1fr;
+}
+.focus-item{
+  min-height:158px;
+  padding:33px 34px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  border-right:1px solid rgba(255,255,255,.08);
+}
+.focus-item:first-child{padding-left:0}
+.focus-item:last-child{border-right:0}
+.focus-item small{
+  color:rgba(255,255,255,.42);
+  font:700 8px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+.focus-item strong{
+  margin-top:13px;
+  max-width:430px;
+  font:700 clamp(20px,1.7vw,28px)/1.08 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:-.035em;
+}
+.focus-item p{
+  max-width:390px;
+  margin-top:10px;
+  color:rgba(255,255,255,.48);
+  font-size:11px;
+  line-height:1.65;
+}
+
+/* Focus Strip Responsive */
+@media(max-width:980px){
+  .focus-grid{grid-template-columns:1fr}
+
+  .focus-item{
+    min-height:135px;
+    padding-left:0;
+    border-right:0;
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+
+  .focus-item:last-child{border-bottom:0}
+}
+</style>
+
+<!-- ============================================================
+     03 — FOCUS STRIP
+     ============================================================ -->
+<section class="focus-strip">
+  <div class="focus-grid">
+
+    <div class="focus-item reveal">
+      <small>Alphanumeric Energies</small>
+      <strong>Two focused divisions. One infrastructure vision.</strong>
+    </div>
+
+    <div class="focus-item reveal">
+      <small>Renewable Energy</small>
+      <strong>Solar only.</strong>
+      <p>On-Grid, Off-Grid and Ground-Mounted solutions for commercial, industrial and utility-scale applications.</p>
+    </div>
+
+    <div class="focus-item reveal">
+      <small>Power</small>
+      <strong>LT · HT · EHT · UHT</strong>
+      <p>A clear voltage-class portfolio spanning facility distribution through 765kV transmission infrastructure.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 04 — RENEWABLE ENERGY / SOLAR
+     ORDER: CSS → HTML
+     ============================================================ -->
+
+<style>
+/* ============================================================
+   04 — SECTION CSS
+   ============================================================ */
+/* ============================================================
+   04 — SOLAR
+   ============================================================ */
+.solar-section{
+  position:relative;
+  overflow:hidden;
+  background:var(--paper);
+}
+.solar-section::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:0;
+  width:var(--container);
+  height:1px;
+  transform:translateX(-50%);
+  background:linear-gradient(90deg,transparent,rgba(0,0,0,.12),transparent);
+}
+
+.solar-layout{
+  display:grid;
+  grid-template-columns:1.13fr .87fr;
+  gap:18px;
+}
+
+.solar-feature{
+  position:relative;
+  min-height:690px;
+  overflow:hidden;
+  isolation:isolate;
+  border-radius:var(--radius-xl);
+  background:#101214;
+  color:#fff;
+  box-shadow:0 25px 65px rgba(0,0,0,.10);
+  transition:transform .4s var(--ease),box-shadow .4s ease;
+}
+.solar-feature:hover{
+  transform:translateY(-5px);
+  box-shadow:0 35px 85px rgba(0,0,0,.16);
+}
+.solar-feature img{
+  position:absolute;
+  inset:0;
+  z-index:-3;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transform:scale(1.015);
+  transition:transform 1.05s var(--ease);
+}
+.solar-feature:hover img{transform:scale(1.055)}
+.solar-feature::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,.15) 42%,rgba(0,0,0,.88) 100%);
+}
+.solar-feature::after{
+  content:"";
+  position:absolute;
+  left:36px;
+  right:36px;
+  bottom:0;
+  height:2px;
+  background:linear-gradient(90deg,var(--gold),transparent 75%);
+  transform:scaleX(.18);
+  transform-origin:left;
+  transition:transform .55s var(--ease);
+}
+.solar-feature:hover::after{transform:scaleX(1)}
+
+.solar-badge{
+  position:absolute;
+  top:28px;
+  left:28px;
+  z-index:3;
+  padding:9px 12px;
+  border:1px solid rgba(255,255,255,.22);
+  border-radius:999px;
+  background:rgba(0,0,0,.20);
+  backdrop-filter:blur(10px);
+  color:rgba(255,255,255,.82);
+  font:700 7px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+
+.solar-feature-content{
+  position:absolute;
+  left:36px;
+  right:36px;
+  bottom:36px;
+  z-index:3;
+}
+.solar-feature-content .kicker{color:rgba(255,255,255,.60)}
+.solar-feature-content h3{
+  max-width:650px;
+  margin-top:14px;
+  font:700 clamp(34px,3.5vw,50px)/1.02 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:-.042em;
+}
+.solar-feature-content p{
+  max-width:510px;
+  margin-top:15px;
+  color:rgba(255,255,255,.67);
+  font-size:12px;
+  line-height:1.72;
+}
+.text-link{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin-top:22px;
+  padding-bottom:5px;
+  border-bottom:1px solid rgba(255,255,255,.45);
+  font:700 8px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.text-link span{transition:.25s ease}
+.solar-feature:hover .text-link span{transform:translate(3px,-3px)}
+
+.solar-stack{
+  display:grid;
+  grid-template-rows:repeat(3,1fr);
+  gap:13px;
+}
+
+.solar-card{
+  position:relative;
+  min-height:218px;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:40% 60%;
+  border:1px solid rgba(17,17,17,.08);
+  border-radius:23px;
+  background:#eeede8;
+  box-shadow:0 8px 26px rgba(0,0,0,.035);
+  transition:
+    transform .32s var(--ease),
+    border-color .32s ease,
+    box-shadow .32s ease;
+}
+.solar-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(17,17,17,.15);
+  box-shadow:0 20px 48px rgba(0,0,0,.09);
+}
+.solar-card-image{
+  position:relative;
+  overflow:hidden;
+}
+.solar-card-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .75s var(--ease);
+}
+.solar-card:hover .solar-card-image img{transform:scale(1.075)}
+.solar-card-image::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,transparent 60%,rgba(0,0,0,.08));
+}
+.solar-card-index{
+  position:absolute;
+  left:14px;
+  top:14px;
+  z-index:2;
+  width:33px;
+  height:33px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(255,255,255,.36);
+  border-radius:50%;
+  background:rgba(0,0,0,.24);
+  backdrop-filter:blur(8px);
+  color:#fff;
+  font:700 7px/1 "Plus Jakarta Sans",sans-serif;
+}
+.solar-card-copy{
+  position:relative;
+  padding:23px 24px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.solar-card-label{
+  color:#858a90;
+  font:700 7px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+.solar-card h3{
+  margin-top:10px;
+  font:700 clamp(20px,1.55vw,24px)/1.08 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:-.035em;
+}
+.solar-card p{
+  max-width:290px;
+  margin-top:10px;
+  color:#6b6f74;
+  font-size:10.5px;
+  line-height:1.62;
+}
+.solar-card-arrow{
+  position:absolute;
+  right:18px;
+  bottom:18px;
+  width:35px;
+  height:35px;
+  display:grid;
+  place-items:center;
+  border:1px solid #c5c6c2;
+  border-radius:50%;
+  font-size:13px;
+  transition:.25s ease;
+}
+.solar-card:hover .solar-card-arrow{
+  background:#111;
+  color:#fff;
+  border-color:#111;
+  transform:rotate(7deg);
+}
+
+/* Solar Responsive */
+@media(max-width:1180px){
+  .solar-layout{grid-template-columns:1fr}
+  .solar-feature{min-height:620px}
+
+  .solar-stack{
+    grid-template-columns:repeat(3,1fr);
+    grid-template-rows:none;
+  }
+
+  .solar-card{
+    grid-template-columns:1fr;
+    min-height:390px;
+  }
+
+  .solar-card-image{height:190px}
+}
+
+@media(max-width:700px){
+  .solar-feature{
+    min-height:515px;
+    border-radius:24px;
+  }
+
+  .solar-feature-content{
+    left:24px;
+    right:24px;
+    bottom:25px;
+  }
+
+  .solar-feature-content h3{
+    font-size:clamp(32px,8.8vw,43px);
+  }
+
+  .solar-stack{grid-template-columns:1fr}
+
+  .solar-card{
+    grid-template-columns:138px 1fr;
+    min-height:200px;
+  }
+
+  .solar-card-image{height:100%}
+  .solar-card-copy{padding:20px}
+  .solar-card p{padding-right:20px}
+}
+</style>
+
+<!-- ============================================================
+     04 — RENEWABLE ENERGY / SOLAR
+     ============================================================ -->
+<section class="solar-section section-pad">
+
+  <div class="wrap">
+
+    <div class="section-head reveal">
+      <div>
+        <div class="kicker">02 · Renewable Energy</div>
+        <h2>
+          Solar solutions.
+          <span class="editorial">Built around your energy needs.</span>
+        </h2>
+      </div>
+
+      <p>
+        Three focused solar solution paths covering grid-connected
+        generation, independent energy systems and large-scale
+        ground-mounted installations.
+      </p>
+    </div>
+
+    <div class="solar-layout">
+
+      <a class="solar-feature reveal" href="solar.html">
+
+        <img
+          src="assets/images/banners/energy1.png"
+          alt="Commercial and utility solar energy solutions"
+        >
+
+        <div class="solar-badge">Renewable Energy</div>
+
+        <div class="solar-feature-content">
+          <div class="kicker">Solar Portfolio</div>
+
+          <h3>
+            Clean energy.
+            Built to perform.
+          </h3>
+
+          <p>
+            Solar systems designed for commercial, industrial and
+            utility-scale applications with a clear route from
+            requirement to long-term generation.
+          </p>
+
+          <span class="text-link">
+            Explore Solar <span>↗</span>
+          </span>
+        </div>
+
+      </a>
+
+      <div class="solar-stack">
+
+        <a class="solar-card reveal" href="on-grid.html">
+          <div class="solar-card-image">
+            <img
+              src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1000&q=90"
+              alt="On-grid solar installation"
+            >
+            <div class="solar-card-index">01</div>
+          </div>
+
+          <div class="solar-card-copy">
+            <div class="solar-card-label">Grid Connected</div>
+            <h3>On-Grid Solar</h3>
+            <p>
+              Solar generation connected directly to the utility grid
+              for efficient everyday energy use.
+            </p>
+            <div class="solar-card-arrow">↗</div>
+          </div>
+        </a>
+
+        <a class="solar-card reveal" href="off-grid.html">
+          <div class="solar-card-image">
+            <img
+              src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?auto=format&fit=crop&w=1000&q=90"
+              alt="Off-grid solar system"
+            >
+            <div class="solar-card-index">02</div>
+          </div>
+
+          <div class="solar-card-copy">
+            <div class="solar-card-label">Independent Energy</div>
+            <h3>Off-Grid Solar</h3>
+            <p>
+              Independent solar generation with energy storage for
+              reliable power beyond the grid.
+            </p>
+            <div class="solar-card-arrow">↗</div>
+          </div>
+        </a>
+
+        <a class="solar-card reveal" href="ground-mounted.html">
+          <div class="solar-card-image">
+            <img
+              src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1000&q=90"
+              alt="Ground-mounted solar plant"
+            >
+            <div class="solar-card-index">03</div>
+          </div>
+
+          <div class="solar-card-copy">
+            <div class="solar-card-label">Large-Scale Solar</div>
+            <h3>Ground-Mounted</h3>
+            <p>
+              Scalable land-based solar plants designed for higher
+              generation capacity and large energy demand.
+            </p>
+            <div class="solar-card-arrow">↗</div>
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 05 — POWER
+     ORDER: CSS → HTML
+     ============================================================ -->
+
+<style>
+/* ============================================================
+   05 — SECTION CSS
+   ============================================================ */
+/* ============================================================
+   05 — POWER
+   ============================================================ */
+.power-section{
+  position:relative;
+  overflow:hidden;
+  background:#0a0d11;
+  color:#fff;
+}
+.power-section::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:.42;
+  background:
+    radial-gradient(circle at 85% 12%,rgba(85,148,255,.15),transparent 27%),
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:auto,82px 82px,82px 82px;
+}
+.power-section .wrap{position:relative;z-index:2}
+.power-section .section-head p{color:rgba(255,255,255,.52)}
+.power-section .kicker{color:rgba(255,255,255,.42)}
+.power-section .editorial{color:rgba(255,255,255,.34)}
+
+.voltage-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+
+.voltage-card{
+  position:relative;
+  min-height:455px;
+  overflow:hidden;
+  isolation:isolate;
+  padding:24px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  border:1px solid rgba(255,255,255,.11);
+  border-radius:24px;
+  background:#14181d;
+  box-shadow:0 18px 45px rgba(0,0,0,.16);
+  transition:
+    transform .38s var(--ease),
+    border-color .32s ease,
+    box-shadow .38s ease;
+}
+
+.voltage-card:hover{
+  transform:translateY(-7px);
+  border-color:rgba(255,255,255,.25);
+  box-shadow:0 30px 70px rgba(0,0,0,.30);
+}
+
+.voltage-bg{
+  position:absolute;
+  inset:0;
+  z-index:-4;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  transform:scale(1.01);
+  filter:saturate(.82) contrast(1.03);
+  transition:
+    transform 1s var(--ease),
+    filter .5s ease;
+}
+
+.voltage-card:hover .voltage-bg{
+  transform:scale(1.065);
+  filter:saturate(.96) contrast(1.06);
+}
+
+.voltage-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-3;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(6,8,11,.30) 0%,
+      rgba(6,8,11,.18) 30%,
+      rgba(6,8,11,.54) 62%,
+      rgba(6,8,11,.95) 100%
+    );
+}
+
+.voltage-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  opacity:.30;
+  background:
+    linear-gradient(90deg,rgba(85,148,255,.18),transparent 36%),
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:auto,72px 72px,72px 72px;
+  transition:opacity .3s ease;
+}
+
+.voltage-card:hover::after{opacity:.48}
+
+.voltage-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  position:relative;
+  z-index:3;
+}
+
+.voltage-index{
+  display:inline-flex;
+  align-items:center;
+  min-height:30px;
+  padding:0 10px;
+  border:1px solid rgba(255,255,255,.17);
+  border-radius:999px;
+  background:rgba(6,8,11,.25);
+  backdrop-filter:blur(10px);
+  color:rgba(255,255,255,.70);
+  font:700 7px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+.circle-arrow{
+  width:39px;
+  height:39px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:50%;
+  background:rgba(5,7,9,.20);
+  color:#fff;
+  backdrop-filter:blur(9px);
+  transition:.28s ease;
+}
+
+.voltage-card:hover .circle-arrow{
+  background:#fff;
+  color:#111;
+  border-color:#fff;
+  transform:rotate(8deg);
+}
+
+.voltage-copy{
+  position:relative;
+  z-index:3;
+  padding-top:170px;
+}
+
+.voltage-range{
+  color:rgba(255,255,255,.66);
+  font:700 7.5px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+.voltage-card h3{
+  margin-top:9px;
+  color:#fff;
+  font:700 clamp(31px,2.6vw,42px)/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:-.04em;
+}
+
+.voltage-card p{
+  max-width:285px;
+  margin-top:11px;
+  color:rgba(255,255,255,.67);
+  font-size:10.5px;
+  line-height:1.62;
+}
+
+.voltage-link{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  width:max-content;
+  margin-top:18px;
+  padding-bottom:5px;
+  border-bottom:1px solid rgba(255,255,255,.34);
+  color:rgba(255,255,255,.88);
+  font:700 7.5px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+
+.voltage-link span{
+  transition:transform .25s ease;
+}
+.voltage-card:hover .voltage-link span{
+  transform:translate(3px,-3px);
+}
+
+.voltage-line{
+  position:absolute;
+  left:24px;
+  right:24px;
+  bottom:16px;
+  z-index:3;
+  height:1px;
+  overflow:hidden;
+  background:rgba(255,255,255,.10);
+}
+
+.voltage-line::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-38%;
+  width:38%;
+  height:100%;
+  background:linear-gradient(90deg,transparent,#8db3ff,transparent);
+  animation:voltageScan 5.5s linear infinite;
+}
+
+@keyframes voltageScan{to{left:110%}}
+
+/* Power Responsive */
+@media(max-width:1180px){
+  .voltage-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:700px){
+  .voltage-grid{grid-template-columns:1fr}
+  .voltage-card{min-height:405px}
+  .voltage-copy{padding-top:145px}
+}
+</style>
+
+<!-- ============================================================
+     05 — POWER
+     ============================================================ -->
+<section class="power-section section-pad">
+
+  <div class="wrap">
+
+    <div class="section-head reveal">
+      <div>
+        <div class="kicker">03 · Power Infrastructure</div>
+        <h2>
+          Voltage classes.
+          <span class="editorial">One clear framework.</span>
+        </h2>
+      </div>
+
+      <p>
+        Power infrastructure organized by voltage class for a cleaner,
+        more professional client journey — from LT distribution to
+        765kV UHT transmission.
+      </p>
+    </div>
+
+    <div class="voltage-grid">
+
+      <a class="voltage-card reveal" href="lt.html">
+        <img
+          class="voltage-bg"
+          src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=1400&q=88"
+          alt="LT electrical distribution and panel infrastructure"
+        >
+
+        <div class="voltage-top">
+          <span class="voltage-index">01 / POWER</span>
+          <span class="circle-arrow">↗</span>
+        </div>
+
+        <div class="voltage-copy">
+          <div class="voltage-range">Up to 11kV</div>
+          <h3>LT</h3>
+          <p>Facility distribution, panel infrastructure and protected low-voltage power delivery.</p>
+          <div class="voltage-link">Explore LT <span>↗</span></div>
+        </div>
+
+        <div class="voltage-line"></div>
+      </a>
+
+      <a class="voltage-card reveal" href="ht.html">
+        <img
+          class="voltage-bg"
+          src="https://images.unsplash.com/photo-1558449028-b53a39d100fc?auto=format&fit=crop&w=1400&q=88"
+          alt="HT substation and high tension power infrastructure"
+        >
+
+        <div class="voltage-top">
+          <span class="voltage-index">02 / POWER</span>
+          <span class="circle-arrow">↗</span>
+        </div>
+
+        <div class="voltage-copy">
+          <div class="voltage-range">11kV to 33kV</div>
+          <h3>HT</h3>
+          <p>High-tension receiving, substation and distribution systems for larger facilities and networks.</p>
+          <div class="voltage-link">Explore HT <span>↗</span></div>
+        </div>
+
+        <div class="voltage-line"></div>
+      </a>
+
+      <a class="voltage-card reveal" href="eht.html">
+        <img
+          class="voltage-bg"
+          src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1400&q=88"
+          alt="EHT transmission lines and towers"
+        >
+
+        <div class="voltage-top">
+          <span class="voltage-index">03 / POWER</span>
+          <span class="circle-arrow">↗</span>
+        </div>
+
+        <div class="voltage-copy">
+          <div class="voltage-range">132kV · 220kV · 400kV</div>
+          <h3>EHT</h3>
+          <p>Extra-high-voltage transmission and substation infrastructure for high-capacity power networks.</p>
+          <div class="voltage-link">Explore EHT <span>↗</span></div>
+        </div>
+
+        <div class="voltage-line"></div>
+      </a>
+
+      <a class="voltage-card reveal" href="uht.html">
+        <img
+          class="voltage-bg"
+          src="assets/images/banners/transmission-2.png"
+          alt="765kV UHT transmission infrastructure"
+        >
+
+        <div class="voltage-top">
+          <span class="voltage-index">04 / POWER</span>
+          <span class="circle-arrow">↗</span>
+        </div>
+
+        <div class="voltage-copy">
+          <div class="voltage-range">765kV</div>
+          <h3>UHT</h3>
+          <p>Ultra-high-voltage transmission infrastructure for major long-distance and grid-scale power corridors.</p>
+          <div class="voltage-link">Explore UHT <span>↗</span></div>
+        </div>
+
+        <div class="voltage-line"></div>
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 06 — DELIVERY FRAMEWORK
+     ORDER: CSS → HTML
+     ============================================================ -->
+
+<style>
+/* ============================================================
+   06 — SECTION CSS
+   ============================================================ */
+/* ============================================================
+   06 — DELIVERY
+   ============================================================ */
+.delivery-section{
+  position:relative;
+  overflow:hidden;
+  background:#f3f2ee;
+}
+.delivery-section::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 8% 10%,rgba(215,168,64,.10),transparent 26%),
+    radial-gradient(circle at 92% 82%,rgba(0,0,0,.045),transparent 24%);
+}
+.delivery-section .wrap{position:relative;z-index:2}
+
+.delivery-flow{
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:12px;
+}
+.delivery-rail{
+  position:absolute;
+  left:8%;
+  right:8%;
+  top:52px;
+  height:1px;
+  overflow:hidden;
+  background:#d1d1cb;
+}
+.delivery-rail::after{
+  content:"";
+  position:absolute;
+  width:24%;
+  height:100%;
+  left:-28%;
+  background:linear-gradient(90deg,transparent,#111,transparent);
+  animation:deliveryRail 5s linear infinite;
+}
+@keyframes deliveryRail{to{left:105%}}
+
+.delivery-step{
+  position:relative;
+  min-height:325px;
+  padding:27px 21px 23px;
+  display:flex;
+  flex-direction:column;
+  border:1px solid #deded8;
+  border-radius:22px;
+  background:rgba(255,255,255,.62);
+  backdrop-filter:blur(10px);
+  box-shadow:0 12px 32px rgba(0,0,0,.03);
+  transition:
+    transform .32s var(--ease),
+    border-color .32s ease,
+    box-shadow .32s ease,
+    background .32s ease;
+}
+.delivery-step:hover{
+  transform:translateY(-7px);
+  border-color:#c7c7c0;
+  background:rgba(255,255,255,.88);
+  box-shadow:0 24px 52px rgba(0,0,0,.075);
+}
+.delivery-node{
+  position:relative;
+  z-index:3;
+  width:49px;
+  height:49px;
+  margin-bottom:51px;
+  display:grid;
+  place-items:center;
+  border:1px solid #c7c7c0;
+  border-radius:50%;
+  background:#f4f3ef;
+  transition:.3s ease;
+}
+.delivery-step:hover .delivery-node{
+  background:#111;
+  color:#fff;
+  border-color:#111;
+  transform:scale(1.045);
+}
+.delivery-node svg{
+  width:19px;
+  height:19px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.55;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.delivery-index{
+  margin-bottom:10px;
+  color:#8a8e93;
+  font:700 7px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.delivery-step h3{
+  font:700 clamp(18px,1.45vw,23px)/1.12 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:-.04em;
+}
+.delivery-step p{
+  margin-top:12px;
+  color:#6d7176;
+  font-size:10.5px;
+  line-height:1.68;
+}
+.delivery-arrow{
+  margin-top:auto;
+  padding-top:22px;
+  color:#8a8d91;
+  font-size:15px;
+  transition:.25s ease;
+}
+.delivery-step:hover .delivery-arrow{
+  color:#111;
+  transform:translate(3px,-2px);
+}
+
+/* Delivery Responsive */
+@media(max-width:1180px){
+  .delivery-flow{grid-template-columns:repeat(2,1fr)}
+  .delivery-rail{display:none}
+  .delivery-step:last-child{grid-column:1/-1}
+  .delivery-node{margin-bottom:28px}
+}
+
+@media(max-width:700px){
+  .delivery-flow{grid-template-columns:1fr}
+
+  .delivery-step,
+  .delivery-step:last-child{
+    grid-column:auto;
+    min-height:250px;
+  }
+}
+</style>
+
+<!-- ============================================================
+     06 — DELIVERY FRAMEWORK
+     ============================================================ -->
+<section class="delivery-section section-pad">
+
+  <div class="wrap">
+
+    <div class="section-head reveal">
+      <div>
+        <div class="kicker">04 · Delivery Framework</div>
+        <h2>
+          From requirement to energization.
+          <span class="editorial">One connected delivery path.</span>
+        </h2>
+      </div>
+
+      <p>
+        A clear project journey connecting assessment, planning,
+        supply, site execution and commissioning under one coordinated
+        project view.
+      </p>
+    </div>
+
+    <div class="delivery-flow">
+
+      <div class="delivery-rail" aria-hidden="true"></div>
+
+      <article class="delivery-step reveal">
+        <div class="delivery-node">
+          <svg viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="6"/>
+            <path d="m16 16 4 4M11 8v6M8 11h6"/>
+          </svg>
+        </div>
+        <div class="delivery-index">01 · Discover</div>
+        <h3>Requirement & Site Review</h3>
+        <p>Understand demand, site conditions, operating priorities and the most suitable solution route.</p>
+        <span class="delivery-arrow">↗</span>
+      </article>
+
+      <article class="delivery-step reveal">
+        <div class="delivery-node">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 19 19 4M8 4h11v11M5 8v11h11"/>
+          </svg>
+        </div>
+        <div class="delivery-index">02 · Define</div>
+        <h3>System Planning</h3>
+        <p>Translate project requirements into a practical renewable-energy or power infrastructure architecture.</p>
+        <span class="delivery-arrow">↗</span>
+      </article>
+
+      <article class="delivery-step reveal">
+        <div class="delivery-node">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 7h16v13H4zM8 4h8v3M8 11h8M8 15h5"/>
+          </svg>
+        </div>
+        <div class="delivery-index">03 · Coordinate</div>
+        <h3>Supply & Integration</h3>
+        <p>Coordinate equipment, solar systems and supporting electrical infrastructure within a defined scope.</p>
+        <span class="delivery-arrow">↗</span>
+      </article>
+
+      <article class="delivery-step reveal">
+        <div class="delivery-node">
+          <svg viewBox="0 0 24 24">
+            <path d="M3 18h18M5 18V8l7-4 7 4v10M9 18v-5h6v5"/>
+          </svg>
+        </div>
+        <div class="delivery-index">04 · Execute</div>
+        <h3>Installation & Site Works</h3>
+        <p>Structured site execution focused on safe installation, coordination and dependable project progress.</p>
+        <span class="delivery-arrow">↗</span>
+      </article>
+
+      <article class="delivery-step reveal">
+        <div class="delivery-node">
+          <svg viewBox="0 0 24 24">
+            <path d="m5 12 4 4L19 6"/>
+            <circle cx="12" cy="12" r="9"/>
+          </svg>
+        </div>
+        <div class="delivery-index">05 · Activate</div>
+        <h3>Testing & Commissioning</h3>
+        <p>Complete final verification and move the installation into operational readiness.</p>
+        <span class="delivery-arrow">↗</span>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 07 — FOCUSED CAPABILITY
+     ORDER: CSS → HTML
+     ============================================================ -->
+
+<style>
+/* ============================================================
+   07 — SECTION CSS
+   ============================================================ */
+/* ============================================================
+   07 — WHY / CAPABILITY
+   ============================================================ */
+.why-section{
+  background:#fff;
+}
+
+.why-grid{
+  display:grid;
+  grid-template-columns:1.12fr .88fr .88fr;
+  gap:14px;
+}
+
+.why-card{
+  position:relative;
+  min-height:410px;
+  overflow:hidden;
+  padding:29px;
+  border:1px solid #e0e1dd;
+  border-radius:25px;
+  background:#f3f2ee;
+  isolation:isolate;
+  transition:
+    transform .34s var(--ease),
+    box-shadow .34s ease,
+    border-color .34s ease;
+}
+.why-card:hover{
+  transform:translateY(-5px);
+  border-color:#cdcec9;
+  box-shadow:0 28px 65px rgba(0,0,0,.075);
+}
+
+.why-card.dark{
+  background:#0d1014;
+  color:#fff;
+  border-color:#171a1f;
+}
+.why-card.image-card{
+  color:#fff;
+  background:#111;
+}
+.why-card.image-card img{
+  position:absolute;
+  inset:0;
+  z-index:-3;
+  height:100%;
+  object-fit:cover;
+  transition:transform .9s var(--ease);
+}
+.why-card.image-card:hover img{transform:scale(1.05)}
+.why-card.image-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.82));
+}
+
+.why-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+.why-icon{
+  width:43px;
+  height:43px;
+  display:grid;
+  place-items:center;
+  border:1px solid #d0d1cc;
+  border-radius:13px;
+  background:rgba(255,255,255,.55);
+}
+.dark .why-icon,
+.image-card .why-icon{
+  border-color:rgba(255,255,255,.15);
+  background:rgba(255,255,255,.05);
+  backdrop-filter:blur(9px);
+}
+.why-icon svg{
+  width:19px;
+  height:19px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.6;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.why-num{
+  color:#94989e;
+  font:700 7px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.image-card .why-num{color:rgba(255,255,255,.48)}
+.why-card h3{
+  margin-top:95px;
+  max-width:520px;
+  font:700 clamp(24px,2.15vw,34px)/1.04 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:-.038em;
+}
+.why-card p{
+  max-width:440px;
+  margin-top:13px;
+  color:#6e7379;
+  font-size:11px;
+  line-height:1.7;
+}
+.dark p{color:rgba(255,255,255,.48)}
+.image-card p{color:rgba(255,255,255,.65)}
+.why-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:22px;
+}
+.why-tags span{
+  padding:8px 10px;
+  border:1px solid #d4d5d0;
+  border-radius:999px;
+  color:#70757b;
+  font:700 7px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.dark .why-tags span,
+.image-card .why-tags span{
+  border-color:rgba(255,255,255,.15);
+  color:rgba(255,255,255,.54);
+}
+
+.why-orbit{
+  position:absolute;
+  right:-35px;
+  bottom:-35px;
+  width:260px;
+  height:260px;
+  border:1px solid #272b31;
+  border-radius:50%;
+}
+.why-orbit::before,
+.why-orbit::after{
+  content:"";
+  position:absolute;
+  border:1px dashed #2d3239;
+  border-radius:50%;
+}
+.why-orbit::before{inset:20%}
+.why-orbit::after{inset:38%}
+.why-orbit i{
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:8px;
+  height:8px;
+  margin:-4px;
+  border-radius:50%;
+  background:var(--gold);
+  box-shadow:0 0 18px rgba(215,168,64,.75);
+  transform-origin:0 0;
+  animation:whyOrbit 8s linear infinite;
+}
+@keyframes whyOrbit{
+  from{transform:rotate(0deg) translateX(105px)}
+  to{transform:rotate(360deg) translateX(105px)}
+}
+
+/* Capability Responsive */
+@media(max-width:1180px){
+  .why-grid{grid-template-columns:1fr 1fr}
+  .why-card:first-child{grid-column:1/-1}
+}
+
+@media(max-width:700px){
+  .why-grid{grid-template-columns:1fr}
+
+  .why-card,
+  .why-card:first-child{
+    grid-column:auto;
+    min-height:340px;
+  }
+
+  .why-card h3{margin-top:70px}
+}
+</style>
+
+<!-- ============================================================
+     07 — WHY ALPHANUMERIC ENERGIES
+     ============================================================ -->
+<section class="why-section section-pad">
+
+  <div class="wrap">
+
+    <div class="section-head reveal">
+      <div>
+        <div class="kicker">05 · Focused Capability</div>
+        <h2>
+          Clear scope.
+          <span class="editorial">Built for serious infrastructure.</span>
+        </h2>
+      </div>
+
+      <p>
+        A focused portfolio helps clients understand exactly where
+        Alphanumeric Energies fits — solar generation on one side,
+        power infrastructure on the other, connected through one
+        delivery approach.
+      </p>
+    </div>
+
+    <div class="why-grid">
+
+      <a class="why-card image-card reveal" href="solar.html">
+        <img
+          src="assets/images/banners/energy1.png"
+          alt="Solar renewable energy solutions"
+        >
+
+        <div class="why-top">
+          <span class="why-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 14h16l-2-8H6zM8 14l-1 6M16 14l1 6M5 20h14M9 9h10M13 6v8"/>
+            </svg>
+          </span>
+          <span class="why-num">01 · Renewable Energy</span>
+        </div>
+
+        <h3>One renewable focus: Solar.</h3>
+        <p>On-Grid, Off-Grid and Ground-Mounted systems without unnecessary service clutter.</p>
+
+        <div class="why-tags">
+          <span>On-Grid</span>
+          <span>Off-Grid</span>
+          <span>Ground-Mounted</span>
+        </div>
+      </a>
+
+      <a class="why-card reveal" href="power.html">
+        <div class="why-top">
+          <span class="why-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 19h16M6 19l3-14M18 19 15 5M8 9h8M7 13h10M10 5h4"/>
+            </svg>
+          </span>
+          <span class="why-num">02 · Power</span>
+        </div>
+
+        <h3>Voltage-class clarity.</h3>
+        <p>LT, HT, EHT and UHT presented as a simple, scalable hierarchy from facility distribution to 765kV.</p>
+
+        <div class="why-tags">
+          <span>LT</span>
+          <span>HT</span>
+          <span>EHT</span>
+          <span>UHT</span>
+        </div>
+      </a>
+
+      <div class="why-card dark reveal">
+        <div class="why-top">
+          <span class="why-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5v14"/>
+              <circle cx="12" cy="12" r="8"/>
+            </svg>
+          </span>
+          <span class="why-num">03 · Delivery</span>
+        </div>
+
+        <h3>One connected project path.</h3>
+        <p>From requirement review through commissioning, every stage follows a clear sequence built around project visibility.</p>
+
+        <div class="why-tags">
+          <span>Plan</span>
+          <span>Coordinate</span>
+          <span>Execute</span>
+          <span>Activate</span>
+        </div>
+
+        <div class="why-orbit" aria-hidden="true">
+          <i></i>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 08 — CTA
+     ORDER: CSS → HTML
+     ============================================================ -->
+
+<style>
+/* ============================================================
+   08 — SECTION CSS
+   ============================================================ */
+/* ============================================================
+   08 — CTA
+   ============================================================ */
+.cta-section{
+  position:relative;
+  padding:28px 0 128px;
+  background:#fff;
+}
+.cta-section::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:0;
+  width:var(--container);
+  height:1px;
+  transform:translateX(-50%);
+  background:linear-gradient(90deg,transparent,#d8d9d5 15%,#d8d9d5 85%,transparent);
+}
+.cta-box{
+  position:relative;
+  min-height:430px;
+  overflow:hidden;
+  isolation:isolate;
+  padding:54px;
+  display:flex;
+  align-items:flex-end;
+  border-radius:32px;
+  background:#0b0e12;
+  color:#fff;
+}
+.cta-box::before{
+  content:"";
+  position:absolute;
+  width:700px;
+  height:700px;
+  top:-300px;
+  right:-140px;
+  z-index:-2;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(215,168,64,.22),transparent 66%);
+}
+.cta-box::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-3;
+  opacity:.045;
+  background-image:
+    linear-gradient(rgba(255,255,255,.65) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.65) 1px,transparent 1px);
+  background-size:72px 72px;
+}
+.cta-box .kicker{color:rgba(255,255,255,.46)}
+.cta-box h2{
+  max-width:930px;
+  margin-top:18px;
+  font:700 clamp(40px,4.7vw,68px)/.98 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:-.035em;
+}
+.cta-box p{
+  max-width:560px;
+  margin-top:18px;
+  color:rgba(255,255,255,.55);
+  font-size:12px;
+  line-height:1.72;
+}
+.cta-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:26px;
+}
+
+/* CTA Responsive */
+@media(max-width:700px){
+  .cta-section{padding-bottom:105px}
+
+  .cta-box{
+    min-height:465px;
+    padding:32px 24px;
+    border-radius:25px;
+  }
+
+  .cta-box h2{
+    font-size:clamp(35px,9.5vw,50px);
+  }
+
+  .cta-actions .btn{width:100%}
+}
+</style>
+
+<!-- ============================================================
+     08 — CTA
+     ============================================================ -->
+<section class="cta-section">
+  <div class="wrap">
+
+    <div class="cta-box reveal">
+      <div>
+        <div class="kicker">Start a Conversation</div>
+
+        <h2>
+          From generation to grid.
+          Built around the project.
+        </h2>
+
+        <p>
+          Talk to Alphanumeric Energies for Solar, LT, HT, EHT or UHT
+          infrastructure requirements.
+        </p>
+
+        <div class="cta-actions">
+          <a class="btn btn-light" href="contact.html">
+            Discuss Your Project <span>↗</span>
+          </a>
+          <a class="btn btn-outline" href="about.html">
+            About Alphanumeric Energies
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+
+<!-- ============================================================
+     SECTION 09 — FOOTER
+     ORDER: CSS → HTML
+     ============================================================ -->
+
+<style>
+/* ============================================================
+   09 — SECTION CSS
+   ============================================================ */
+/* ============================================================
+   09 — FOOTER
+   ============================================================ */
+.footer{
+  position:relative;
+  overflow:hidden;
+  margin-top:0;
+  padding:0 0 28px;
+  background:#07090b;
+  color:#fff;
+}
+.footer::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto 0;
+  height:10px;
+  background:linear-gradient(90deg,#d7a840,#8f6b22 38%,#18202c 62%,#5594ff);
+  opacity:.95;
+}
+
+.footer-topline{
+  padding:94px 0 64px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.footer-topline .kicker{
+  color:rgba(255,255,255,.37);
+  margin-bottom:20px;
+}
+.footer-topline h2{
+  max-width:1100px;
+  font:700 clamp(37px,4.5vw,62px)/.98 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:-.043em;
+}
+.footer-topline h2 span{color:#71767e}
+
+.footer-grid{
+  padding:62px 0 54px;
+  display:grid;
+  grid-template-columns:1.4fr .8fr .9fr 1.15fr;
+  gap:48px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.footer .brand-mark{border-color:#30343a}
+.footer-brand-copy{
+  max-width:370px;
+  margin-top:21px;
+  color:rgba(255,255,255,.44);
+  font-size:11px;
+  line-height:1.75;
+}
+.footer-badge{
+  display:inline-flex;
+  margin-top:20px;
+  padding:8px 10px;
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:999px;
+  color:rgba(255,255,255,.42);
+  font:700 7px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+
+.footer-title{
+  margin-bottom:18px;
+  color:rgba(255,255,255,.35);
+  font:700 7px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.footer-links,
+.footer-contact{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.footer-links a,
+.footer-contact a,
+.footer-contact span{
+  color:rgba(255,255,255,.62);
+  font-size:11px;
+  line-height:1.55;
+  transition:.22s ease;
+}
+.footer-links a:hover,
+.footer-contact a:hover{
+  color:#fff;
+  transform:translateX(3px);
+}
+.footer-contact span{
+  max-width:315px;
+  color:rgba(255,255,255,.42);
+}
+
+.footer-cta-link{
+  width:max-content;
+  margin-top:10px;
+  padding-bottom:5px;
+  border-bottom:1px solid rgba(255,255,255,.25);
+  font:700 8px/1 "Plus Jakarta Sans",sans-serif!important;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+}
+
+.socials{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:22px;
+}
+.socials a{
+  width:40px;
+  height:40px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:50%;
+  background:rgba(255,255,255,.025);
+  color:rgba(255,255,255,.58);
+  transition:
+    transform .24s ease,
+    background .24s ease,
+    color .24s ease,
+    border-color .24s ease;
+}
+.socials a svg{
+  width:17px;
+  height:17px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.7;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.socials a .fill-icon{
+  fill:currentColor;
+  stroke:none;
+}
+.socials a:hover{
+  background:#fff;
+  color:#111;
+  border-color:#fff;
+  transform:translateY(-3px);
+}
+
+.footer-bottom{
+  padding-top:25px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  color:rgba(255,255,255,.27);
+  font:700 7px/1 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+.footer-bottom-right{
+  display:flex;
+  gap:22px;
+  flex-wrap:wrap;
+}
+
+/* Footer Responsive */
+@media(max-width:980px){
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .footer-grid > div:first-child{grid-column:1/-1}
+}
+
+@media(max-width:700px){
+  .footer-topline{padding:66px 0 54px}
+
+  .footer-topline h2{
+    font-size:clamp(34px,9vw,48px);
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+    gap:36px;
+  }
+
+  .footer-grid > div:first-child{grid-column:auto}
+
+  .footer-bottom{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+}
+</style>
+
+<!-- ============================================================
+     09 — FOOTER
+     ============================================================ -->
+<footer class="footer">
+
+  <div class="footer-topline">
+    <div class="wrap reveal">
+      <div class="kicker">Alphanumeric Energies</div>
+      <h2>
+        Cleaner generation. Stronger networks.
+        <span>Infrastructure built for progress.</span>
+      </h2>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <div class="footer-grid">
+
+      <div>
+        <a class="brand" href="index.html" aria-label="Alphanumeric Energies Home">
+          <span class="brand-mark">AE</span>
+          <span class="brand-name">
+            ALPHANUMERIC
+            <small>ENERGIES</small>
+          </span>
+        </a>
+
+        <p class="footer-brand-copy">
+          Focused renewable energy and power infrastructure covering
+          Solar, LT, HT, EHT and UHT.
+        </p>
+
+        <span class="footer-badge">
+          Renewable Energy · Power
+        </span>
+      </div>
+
+      <div>
+        <div class="footer-title">Navigate</div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="solar.html">Renewable Energy</a>
+          <a href="power.html">Power</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-title">Solutions</div>
+        <div class="footer-links">
+          <a href="on-grid.html">On-Grid Solar</a>
+          <a href="off-grid.html">Off-Grid Solar</a>
+          <a href="ground-mounted.html">Ground-Mounted Solar</a>
+          <a href="lt.html">LT</a>
+          <a href="ht.html">HT</a>
+          <a href="eht.html">EHT</a>
+          <a href="uht.html">UHT</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-title">Connect</div>
+
+        <div class="footer-contact">
+          <a href="mailto:info@aniplgroup.com">
+            info@aniplgroup.com
+          </a>
+
+          <span>
+            320 Fifth Floor, East Avenue, Ayyappa Society Main Rd,
+            near YSR Statue, SBH Officers Colony, Mega Hills,
+            Madhapur, Hyderabad, Telangana 500081
+          </span>
+
+          <a class="footer-cta-link" href="contact.html">
+            Start a project <span>↗</span>
+          </a>
+        </div>
+
+        <div class="socials">
+
+          <a href="#" aria-label="Instagram" title="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect>
+              <circle cx="12" cy="12" r="4"></circle>
+              <circle class="fill-icon" cx="17.5" cy="6.7" r="1"></circle>
+            </svg>
+          </a>
+
+          <a href="#" aria-label="Facebook" title="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M14.3 8.2h3V4.6c-.5-.1-2.2-.2-4.2-.2-4.1 0-6.9 2.5-6.9 7.1v4H2v4h4.2V24h5.1v-4.5h4.2l.7-4h-4.9v-3.6c0-1.2.3-2 3-2z" class="fill-icon" transform="scale(.78) translate(3 0)"></path>
+            </svg>
+          </a>
+
+          <a href="#" aria-label="LinkedIn" title="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="9" width="4" height="11"></rect>
+              <circle cx="5" cy="5.5" r="2"></circle>
+              <path d="M11 20V9h4v1.8c1-1.5 2.5-2.3 4.1-2.1 2.8.3 3.9 2.3 3.9 5.8V20h-4v-5c0-1.8-.7-2.8-2.1-2.8-1.6 0-2.4 1.1-2.4 3.2V20z"></path>
+            </svg>
+          </a>
+
+          <a href="#" aria-label="Threads" title="Threads">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3.5c-4.8 0-8.2 3.1-8.2 8.5S7 20.5 12 20.5c4.4 0 7.4-2.4 7.4-6.1 0-3.2-2.2-5.1-5.3-5.1-2.8 0-4.8 1.4-4.8 3.6 0 2 1.6 3.3 3.7 3.3 2.7 0 4.5-1.9 4.5-4.6 0-4.7-2.1-7.4-5.8-7.4-3.4 0-5.6 2.1-5.6 5.7"></path>
+            </svg>
+          </a>
+
+          <a href="#" aria-label="X / Twitter" title="X / Twitter">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 4l16 16M20 4 4 20"></path>
+            </svg>
+          </a>
+
+          <a href="#" aria-label="YouTube" title="YouTube">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 12c0-3-.4-5-.9-5.8-.5-.8-1.4-1.2-2.4-1.3C16 4.6 14 4.5 12 4.5s-4 .1-5.7.4c-1 .1-1.9.5-2.4 1.3C3.4 7 3 9 3 12s.4 5 .9 5.8c.5.8 1.4 1.2 2.4 1.3 1.7.3 3.7.4 5.7.4s4-.1 5.7-.4c1-.1 1.9-.5 2.4-1.3.5-.8.9-2.8.9-5.8z"></path>
+              <path d="m10 9 5 3-5 3z" class="fill-icon"></path>
+            </svg>
+          </a>
+
+          <a href="#" aria-label="Google" title="Google">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.5 12.2c0-.6-.1-1.2-.2-1.7H12v3.2h4.8a4.1 4.1 0 0 1-1.8 2.7v2.2h2.9c1.7-1.6 2.6-3.8 2.6-6.4z"></path>
+              <path d="M12 20.8c2.4 0 4.4-.8 5.9-2.2L15 16.4c-.8.5-1.8.8-3 .8-2.3 0-4.3-1.6-5-3.7H4v2.3c1.5 3 4.5 5 8 5z"></path>
+              <path d="M7 13.5a5.5 5.5 0 0 1 0-3V8.2H4a9 9 0 0 0 0 7.6z"></path>
+              <path d="M12 6.8c1.3 0 2.5.4 3.4 1.3L18 5.5A8.7 8.7 0 0 0 4 8.2l3 2.3c.7-2.1 2.7-3.7 5-3.7z"></path>
+            </svg>
+          </a>
+
+          <a href="#" aria-label="Pinterest" title="Pinterest">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3.2a8.8 8.8 0 0 0-3.2 17c-.1-1.4 0-3 .4-4.4l1.1-4.4s-.3-.7-.3-1.7c0-1.6.9-2.8 2.1-2.8 1 0 1.5.7 1.5 1.6 0 1-.6 2.4-.9 3.7-.3 1.1.5 2 1.6 2 2 0 3.5-2.1 3.5-5.1 0-2.7-1.9-4.5-4.7-4.5-3.2 0-5.1 2.4-5.1 4.9 0 1 .4 2 .8 2.5.1.1.1.2.1.4l-.3 1.2c-.1.4-.4.5-.8.3-1.3-.6-2.1-2.5-2.1-4 0-3.2 2.4-6.2 6.8-6.2 3.6 0 6.3 2.5 6.3 5.9 0 3.5-2.2 6.4-5.3 6.4-1 0-2-.5-2.3-1.2l-.6 2.3c-.2.8-.8 1.9-1.1 2.5.8.2 1.7.4 2.6.4A8.8 8.8 0 0 0 12 3.2z"></path>
+            </svg>
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Alphanumeric Energies. All rights reserved.</span>
+
+      <div class="footer-bottom-right">
+        <span>Solar</span>
+        <span>Power</span>
+        <span>Hyderabad</span>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<button
+  class="back-top"
+  id="backTop"
+  aria-label="Back to top"
+>
+  ↑
+</button>
+
+
+<!-- ============================================================
+     GLOBAL UTILITIES JAVASCRIPT
+     Reveal animation · Scroll progress · Back to top
+     ============================================================ -->
+
+<script>
+(() => {
+/* ============================================================
+     GLOBAL REVEAL
+     ============================================================ */
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add("show");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },{
+    threshold:.12,
+    rootMargin:"0px 0px -30px 0px"
+  });
+
+  document.querySelectorAll(".reveal").forEach((element,index) => {
+    element.style.transitionDelay = `${Math.min((index % 5) * 55,220)}ms`;
+    revealObserver.observe(element);
+  });
+
+/* ============================================================
+     SCROLL PROGRESS + BACK TO TOP
+     ============================================================ */
+  const scrollProgress = document.getElementById("scrollProgress");
+  const backTop = document.getElementById("backTop");
+
+  function updateScrollUI(){
+    const pageHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = pageHeight > 0 ? (window.scrollY / pageHeight) * 100 : 0;
+
+    scrollProgress.style.width = `${progress}%`;
+    backTop.classList.toggle("show", window.scrollY > 650);
+  }
+
+  updateScrollUI();
+  window.addEventListener("scroll", updateScrollUI, {passive:true});
+
+  backTop.addEventListener("click", () => {
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
