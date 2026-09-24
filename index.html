@@ -238,190 +238,207 @@ button{color:inherit}
 
 
 <!-- ============================================================
-     SECTION 01 — NAVIGATION
-     DUAL LOGO VERSION
-     DARK / TRANSPARENT NAVBAR = WHITE LOGO
-     WHITE / SCROLLED NAVBAR   = BLACK LOGO
-     ORDER: CSS → HTML → JAVASCRIPT
+     ALPHANUMERIC ENERGIES — COMPLETE PREMIUM NAVBAR
+
+     HOME | ABOUT | SOLUTIONS | PRODUCTS | CONTACT
+
+     SOLUTIONS
+     ├── Renewable Energy
+     │   ├── On-Grid Solar
+     │   ├── Off-Grid Solar
+     │   └── Ground-Mounted Solar
+     │
+     └── Power
+         ├── LT
+         ├── HT
+         ├── EHT
+         └── UHT
+
+     CSS → HTML → JAVASCRIPT
      ============================================================ -->
 
+
 <style>
+
 /* ============================================================
-   01 — NAVIGATION
+   01 — NAVBAR
    ============================================================ */
 
 .site-nav{
-  position:fixed;
-  inset:0 0 auto 0;
-  z-index:1200;
+    --gold:#d7a840;
+    --ease:cubic-bezier(.16,1,.3,1);
 
-  height:82px;
+    position:fixed;
+    inset:0 0 auto 0;
 
-  display:flex;
-  align-items:center;
+    z-index:2000;
 
-  color:#fff;
+    width:100%;
+    height:82px;
 
-  border-bottom:
-    1px solid rgba(255,255,255,.10);
+    display:flex;
+    align-items:center;
 
-  transition:
-    height .32s ease,
-    background .32s ease,
-    color .32s ease,
-    border-color .32s ease,
-    box-shadow .32s ease,
-    backdrop-filter .32s ease;
+    color:#fff;
+
+    background:transparent;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.10);
+
+    transition:
+        height .34s ease,
+        background .34s ease,
+        color .34s ease,
+        border-color .34s ease,
+        box-shadow .34s ease,
+        backdrop-filter .34s ease;
 }
 
 
 /* ============================================================
-   SCROLLED NAVBAR
+   02 — SCROLLED NAVBAR
    ============================================================ */
 
 .site-nav.scrolled{
-  height:72px;
+    height:72px;
 
-  color:#111;
+    color:#111;
 
-  background:
-    rgba(255,255,255,.94);
+    background:
+        rgba(255,255,255,.97);
 
-  border-color:
-    rgba(12,14,17,.08);
+    border-color:
+        rgba(10,12,14,.08);
 
-  backdrop-filter:
-    blur(18px);
+    backdrop-filter:
+        blur(18px);
 
-  -webkit-backdrop-filter:
-    blur(18px);
+    -webkit-backdrop-filter:
+        blur(18px);
 
-  box-shadow:
-    0 12px 34px
-    rgba(0,0,0,.055);
+    box-shadow:
+        0 10px 32px
+        rgba(0,0,0,.055);
 }
 
 
 /* ============================================================
-   NAV INNER
+   03 — NAV INNER
    ============================================================ */
 
 .nav-inner{
-  width:var(--container);
+    width:min(
+        1380px,
+        calc(100% - 70px)
+    );
 
-  margin:auto;
+    height:100%;
 
-  display:flex;
-  align-items:center;
+    margin:auto;
 
-  gap:24px;
+    display:flex;
+    align-items:center;
+
+    gap:28px;
 }
 
 
 /* ============================================================
-   BRAND / DUAL LOGO
+   04 — LOGO
    ============================================================ */
 
 .brand{
-  position:relative;
+    position:relative;
 
-  width:220px;
-  height:54px;
+    width:220px;
+    height:56px;
 
-  display:flex;
-  align-items:center;
+    display:flex;
+    align-items:center;
 
-  flex-shrink:0;
+    flex-shrink:0;
 
-  text-decoration:none;
+    text-decoration:none;
 }
 
-
-/* BOTH LOGOS */
 
 .brand-logo{
-  position:absolute;
+    position:absolute;
 
-  left:0;
-  top:50%;
+    left:0;
+    top:50%;
 
-  width:auto;
-  height:150px;
+    display:block;
 
-  max-width:220px;
+    width:auto;
+    height:150px;
 
-  object-fit:contain;
-  object-position:left center;
+    max-width:220px;
 
-  transform:
-    translateY(-50%);
+    object-fit:contain;
+    object-position:left center;
 
-  will-change:
-    opacity,
-    transform;
+    transform:
+        translateY(-50%);
 
-  transition:
-    opacity .42s ease,
-    transform .42s cubic-bezier(.16,1,.3,1),
-    filter .42s ease;
+    transition:
+        opacity .42s ease,
+        transform .42s var(--ease),
+        filter .42s ease;
 }
 
 
-/* ============================================================
-   DEFAULT NAVBAR
-   DARK / TRANSPARENT
-   WHITE LOGO VISIBLE
-   ============================================================ */
+/* WHITE LOGO */
 
 .logo-light{
-  opacity:1;
+    opacity:1;
 
-  transform:
-    translateY(-50%)
-    scale(1);
+    pointer-events:auto;
 
-  pointer-events:auto;
+    transform:
+        translateY(-50%)
+        scale(1);
 }
 
+
+/* BLACK LOGO */
 
 .logo-dark{
-  opacity:0;
+    opacity:0;
 
-  transform:
-    translateY(-50%)
-    scale(.96);
+    pointer-events:none;
 
-  pointer-events:none;
+    transform:
+        translateY(-50%)
+        scale(.97);
 }
 
 
-/* ============================================================
-   SCROLLED NAVBAR
-   WHITE BACKGROUND
-   BLACK LOGO VISIBLE
-   ============================================================ */
+/* SCROLL SWITCH */
 
 .site-nav.scrolled
 .logo-light{
-  opacity:0;
+    opacity:0;
 
-  transform:
-    translateY(-50%)
-    scale(.96);
+    pointer-events:none;
 
-  pointer-events:none;
+    transform:
+        translateY(-50%)
+        scale(.97);
 }
 
 
 .site-nav.scrolled
 .logo-dark{
-  opacity:1;
+    opacity:1;
 
-  transform:
-    translateY(-50%)
-    scale(1);
+    pointer-events:auto;
 
-  pointer-events:auto;
+    transform:
+        translateY(-50%)
+        scale(1);
 }
 
 
@@ -429,1177 +446,1580 @@ button{color:inherit}
 
 .brand:hover
 .brand-logo{
-  filter:
-    brightness(1.03);
+    filter:
+        brightness(1.03);
 
-  transform:
-    translateY(-50%)
-    scale(1.025);
+    transform:
+        translateY(-50%)
+        scale(1.02);
 }
 
 
 /* ============================================================
-   NAV LINKS
+   05 — NAV LINKS
    ============================================================ */
 
 .nav-links{
-  margin-left:auto;
+    margin-left:auto;
 
-  display:flex;
-  align-items:center;
+    height:100%;
 
-  gap:3px;
+    display:flex;
+    align-items:center;
+
+    gap:5px;
 }
 
 
 .nav-item{
-  position:relative;
+    position:relative;
+
+    height:100%;
+
+    display:flex;
+    align-items:center;
 }
 
 
 .nav-link{
-  min-height:42px;
+    position:relative;
 
-  padding:
-    0
-    13px;
-
-  display:flex;
-  align-items:center;
-
-  gap:8px;
-
-  border-radius:999px;
-
-  color:inherit;
-
-  text-decoration:none;
-
-  font-size:11px;
-  font-weight:600;
-
-  transition:
-    background .22s ease,
-    color .22s ease,
-    transform .22s ease;
-}
-
-
-.nav-link:hover{
-  background:
-    rgba(255,255,255,.10);
-}
-
-
-.site-nav.scrolled
-.nav-link:hover{
-  background:#eff0ec;
-}
-
-
-/* ============================================================
-   CHEVRON
-   ============================================================ */
-
-.chevron{
-  width:6px;
-  height:6px;
-
-  border-right:
-    1.4px solid currentColor;
-
-  border-bottom:
-    1.4px solid currentColor;
-
-  transform:
-    rotate(45deg)
-    translateY(-2px);
-
-  transition:
-    transform .22s ease;
-}
-
-
-.nav-item:hover
-.chevron{
-  transform:
-    rotate(225deg)
-    translate(-1px,-1px);
-}
-
-
-/* ============================================================
-   DROPDOWN
-   ============================================================ */
-
-.dropdown{
-  position:absolute;
-
-  top:
-    calc(100% + 10px);
-
-  left:50%;
-
-  width:max-content;
-
-  min-width:155px;
-  max-width:220px;
-
-  padding:6px;
-
-  transform:
-    translate(-50%,10px);
-
-  border:
-    1px solid #e2e3df;
-
-  border-radius:17px;
-
-  background:
-    rgba(255,255,255,.985);
-
-  color:#111;
-
-  box-shadow:
-    0 28px 65px
-    rgba(0,0,0,.15);
-
-  opacity:0;
-
-  visibility:hidden;
-
-  pointer-events:none;
-
-  transition:
-    opacity .22s ease,
-    visibility .22s ease,
-    transform .22s ease;
-}
-
-
-.nav-item:hover
-.dropdown,
-
-.nav-item:focus-within
-.dropdown{
-  opacity:1;
-
-  visibility:visible;
-
-  pointer-events:auto;
-
-  transform:
-    translate(-50%,0);
-}
-
-
-/* DROPDOWN LINKS */
-
-.dropdown a{
-  min-height:40px;
-
-  padding:
-    0
-    11px;
-
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-
-  gap:10px;
-
-  border-radius:9px;
-
-  color:#111;
-
-  text-decoration:none;
-
-  font-size:11px;
-  font-weight:600;
-
-  transition:
-    background .20s ease,
-    padding-left .20s ease;
-}
-
-
-.dropdown a:hover{
-  background:#f2f2ef;
-
-  padding-left:17px;
-}
-
-
-/* ============================================================
-   MOBILE TOGGLE
-   ============================================================ */
-
-.mobile-toggle{
-  display:none;
-
-  width:43px;
-  height:43px;
-
-  margin-left:auto;
-
-  padding:0;
-
-  border:
-    1px solid rgba(255,255,255,.24);
-
-  border-radius:50%;
-
-  background:transparent;
-
-  color:inherit;
-
-  cursor:pointer;
-
-  transition:
-    border-color .25s ease,
-    background .25s ease,
-    transform .25s ease;
-}
-
-
-.mobile-toggle:hover{
-  background:
-    rgba(255,255,255,.08);
-}
-
-
-.site-nav.scrolled
-.mobile-toggle{
-  border-color:#d4d5d1;
-}
-
-
-.site-nav.scrolled
-.mobile-toggle:hover{
-  background:#f1f1ee;
-}
-
-
-/* MOBILE ICON LINES */
-
-.mobile-toggle span{
-  display:block;
-
-  width:16px;
-  height:1px;
-
-  margin:
-    4px
-    auto;
-
-  background:
-    currentColor;
-
-  transition:
-    transform .25s ease,
-    opacity .25s ease;
-}
-
-
-/* OPEN MOBILE ICON */
-
-.mobile-toggle[aria-expanded="true"]
-span:first-child{
-  transform:
-    translateY(2.5px)
-    rotate(45deg);
-}
-
-
-.mobile-toggle[aria-expanded="true"]
-span:last-child{
-  transform:
-    translateY(-2.5px)
-    rotate(-45deg);
-}
-
-
-/* ============================================================
-   TABLET / MOBILE
-   ============================================================ */
-
-@media(max-width:980px){
-
-  .site-nav{
-    height:75px;
-  }
-
-
-  .site-nav.scrolled{
-    height:72px;
-  }
-
-
-  .brand{
-    width:195px;
-    height:50px;
-  }
-
-
-  .brand-logo{
-    height:45px;
-    max-width:195px;
-  }
-
-
-  .site-nav.scrolled
-  .brand-logo{
-    height:42px;
-  }
-
-
-  .mobile-toggle{
-    display:block;
-  }
-
-
-  .nav-links{
-    position:fixed;
-
-    top:75px;
-
-    left:16px;
-    right:16px;
-
-    max-height:
-      calc(100vh - 94px);
-
-    overflow:auto;
-
-    margin-left:0;
-
-    padding:10px;
-
-    display:none;
-
-    flex-direction:column;
-
-    align-items:stretch;
-
-    border:
-      1px solid #e0e1dd;
-
-    border-radius:19px;
-
-    background:
-      rgba(255,255,255,.985);
-
-    color:#111;
-
-    box-shadow:
-      0 28px 75px
-      rgba(0,0,0,.18);
-
-    backdrop-filter:
-      blur(18px);
-
-    -webkit-backdrop-filter:
-      blur(18px);
-  }
-
-
-  .site-nav.scrolled
-  .nav-links{
-    top:72px;
-  }
-
-
-  .nav-links.open{
-    display:flex;
-  }
-
-
-  .nav-item{
-    width:100%;
-  }
-
-
-  .nav-link{
-    width:100%;
-
-    min-height:49px;
+    min-height:42px;
 
     padding:
-      0
-      14px;
+        0
+        12px;
 
-    justify-content:space-between;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:8px;
+
+    border:0;
+
+    background:transparent;
+
+    color:inherit;
+
+    text-decoration:none;
+
+    font-family:
+        "Inter",
+        Arial,
+        sans-serif;
+
+    font-size:11px;
+    line-height:1;
+
+    font-weight:600;
+
+    white-space:nowrap;
+
+    cursor:pointer;
+
+    transition:
+        color .25s ease;
+}
+
+
+/* PREMIUM UNDERLINE */
+
+.nav-link::after{
+    content:"";
+
+    position:absolute;
+
+    left:12px;
+    right:12px;
+    bottom:4px;
+
+    height:1px;
+
+    background:
+        var(--gold);
+
+    transform:
+        scaleX(0);
+
+    transform-origin:center;
+
+    transition:
+        transform .32s
+        var(--ease);
+}
+
+
+.nav-link:hover::after{
+    transform:
+        scaleX(1);
+}
+
+
+/* ============================================================
+   06 — CHEVRON
+   ============================================================ */
+
+.chevron{
+    width:6px;
+    height:6px;
+
+    margin-top:-3px;
+
+    border-right:
+        1.3px solid
+        currentColor;
+
+    border-bottom:
+        1.3px solid
+        currentColor;
+
+    transform:
+        rotate(45deg);
+
+    transition:
+        transform .28s
+        var(--ease);
+}
+
+
+.solutions-menu:hover
+> .nav-link
+.chevron,
+
+.solutions-menu:focus-within
+> .nav-link
+.chevron,
+
+.solutions-menu.open
+> .nav-link
+.chevron{
+    transform:
+        rotate(225deg)
+        translate(-1px,-1px);
+}
+
+
+/* ============================================================
+   07 — SOLUTIONS MENU
+   ============================================================ */
+
+.solutions-menu{
+    position:relative;
+}
+
+
+/* invisible hover bridge */
+
+.solutions-menu::before{
+    content:"";
+
+    position:absolute;
+
+    top:100%;
+
+    left:-16px;
+    right:-16px;
+
+    height:11px;
+}
+
+
+/* ============================================================
+   08 — COMPACT SOLUTIONS DROPDOWN
+   ============================================================ */
+
+.solutions-dropdown{
+    position:absolute;
+
+    top:
+        calc(100% + 8px);
+
+    left:50%;
+
+    width:440px;
+
+    padding:
+        19px
+        20px
+        18px;
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0d0f10 0%,
+            #070808 100%
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
 
     border-radius:11px;
 
-    color:#111;
-  }
+    box-shadow:
+        0 20px 48px
+        rgba(0,0,0,.28);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+    transform:
+        translate(-50%,8px);
+
+    transform-origin:
+        top center;
+
+    transition:
+        opacity .22s ease,
+        visibility .22s ease,
+        transform .30s
+        var(--ease);
+}
 
 
-  .nav-link:hover{
-    background:#f0f0ed;
-  }
+/* DESKTOP OPEN */
 
+.solutions-menu:hover
+.solutions-dropdown,
 
-  /* MOBILE DROPDOWN */
-
-  .dropdown{
-    position:static;
-
-    width:100%;
-
-    max-width:none;
-
-    margin:
-      0
-      0
-      7px;
-
-    padding:6px;
-
-    display:none;
-
-    transform:none !important;
-
+.solutions-menu:focus-within
+.solutions-dropdown{
     opacity:1;
 
     visibility:visible;
 
     pointer-events:auto;
 
-    background:#f3f3ef;
-
-    box-shadow:none;
-  }
-
-
-  .nav-item.open
-  .dropdown{
-    display:block;
-  }
-
-
-  .nav-item:hover
-  .dropdown{
-    display:none;
-  }
-
-
-  .nav-item.open:hover
-  .dropdown{
-    display:block;
-  }
-
-
-  .nav-item.open
-  .chevron{
     transform:
-      rotate(225deg)
-      translate(-1px,-1px);
-  }
+        translate(-50%,0);
+}
+
+
+/* ============================================================
+   09 — EXACT 2 VERTICALS
+   ============================================================ */
+
+.solutions-grid{
+    display:grid;
+
+    /*
+       Renewable needs more space.
+       Power only gets necessary space.
+    */
+
+    grid-template-columns:
+        1.28fr
+        .72fr;
+
+    align-items:start;
+}
+
+
+/* ============================================================
+   10 — COLUMNS
+   ============================================================ */
+
+.solution-col{
+    min-width:0;
+}
+
+
+/* RENEWABLE */
+
+.solution-col:first-child{
+    padding-right:19px;
+
+    border-right:
+        1px solid
+        rgba(255,255,255,.12);
+}
+
+
+/* POWER */
+
+.solution-col:last-child{
+    padding-left:19px;
+}
+
+
+/* ============================================================
+   11 — COLUMN TITLE
+   ============================================================ */
+
+.solution-title{
+    position:relative;
+
+    margin:
+        0
+        0
+        10px;
+
+    padding-bottom:11px;
+
+    color:#fff;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.15);
+
+    font-family:
+        "Plus Jakarta Sans",
+        "Inter",
+        Arial,
+        sans-serif;
+
+    font-size:14px;
+    line-height:1.2;
+
+    font-weight:650;
+
+    letter-spacing:-.02em;
+}
+
+
+/* GOLD LINE */
+
+.solution-title::after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:-1px;
+
+    width:28px;
+    height:1px;
+
+    background:
+        var(--gold);
+}
+
+
+/* ============================================================
+   12 — SOLUTION LINKS
+   ============================================================ */
+
+.solution-list{
+    display:flex;
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:0;
+}
+
+
+.solution-list a{
+    position:relative;
+
+    min-height:33px;
+
+    display:flex;
+    align-items:center;
+
+    padding-left:15px;
+
+    color:
+        rgba(255,255,255,.68);
+
+    text-decoration:none;
+
+    font-family:
+        "Inter",
+        Arial,
+        sans-serif;
+
+    font-size:11px;
+    line-height:1.3;
+
+    font-weight:450;
+
+    white-space:nowrap;
+
+    transition:
+        color .24s ease,
+        padding-left .30s
+        var(--ease);
+}
+
+
+/* SMALL DASH */
+
+.solution-list a::before{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    width:5px;
+    height:1px;
+
+    background:
+        rgba(255,255,255,.30);
+
+    transition:
+        width .28s var(--ease),
+        background .28s ease;
+}
+
+
+.solution-list a:hover{
+    color:#fff;
+
+    padding-left:20px;
+}
+
+
+.solution-list a:hover::before{
+    width:9px;
+
+    background:
+        var(--gold);
+}
+
+
+/* ============================================================
+   13 — MOBILE MENU BUTTON
+   ============================================================ */
+
+.mobile-toggle{
+    display:none;
+
+    width:42px;
+    height:42px;
+
+    margin-left:auto;
+
+    padding:0;
+
+    border:
+        1px solid
+        rgba(255,255,255,.24);
+
+    border-radius:50%;
+
+    background:transparent;
+
+    color:inherit;
+
+    cursor:pointer;
+
+    transition:
+        background .25s ease,
+        border-color .25s ease;
+}
+
+
+.mobile-toggle:hover{
+    background:
+        rgba(255,255,255,.07);
+}
+
+
+.site-nav.scrolled
+.mobile-toggle{
+    border-color:
+        rgba(0,0,0,.16);
+}
+
+
+.site-nav.scrolled
+.mobile-toggle:hover{
+    background:#f1f1ed;
+}
+
+
+/* TOGGLE LINES */
+
+.mobile-toggle span{
+    display:block;
+
+    width:16px;
+    height:1px;
+
+    margin:
+        4px
+        auto;
+
+    background:
+        currentColor;
+
+    transition:
+        transform .25s ease;
+}
+
+
+.mobile-toggle[aria-expanded="true"]
+span:first-child{
+    transform:
+        translateY(2.5px)
+        rotate(45deg);
+}
+
+
+.mobile-toggle[aria-expanded="true"]
+span:last-child{
+    transform:
+        translateY(-2.5px)
+        rotate(-45deg);
+}
+
+
+/* ============================================================
+   14 — TABLET
+   ============================================================ */
+
+@media(max-width:980px){
+
+    .site-nav{
+        height:74px;
+    }
+
+
+    .site-nav.scrolled{
+        height:70px;
+    }
+
+
+    .nav-inner{
+        width:
+            calc(100% - 32px);
+
+        gap:18px;
+    }
+
+
+    /* LOGO */
+
+    .brand{
+        width:190px;
+        height:50px;
+    }
+
+
+    .brand-logo{
+        height:45px;
+
+        max-width:190px;
+    }
+
+
+    .site-nav.scrolled
+    .brand-logo{
+        height:42px;
+    }
+
+
+    /* TOGGLE */
+
+    .mobile-toggle{
+        display:block;
+    }
+
+
+    /* ========================================================
+       MOBILE NAV PANEL
+       ======================================================== */
+
+    .nav-links{
+        position:fixed;
+
+        top:74px;
+
+        left:16px;
+        right:16px;
+
+        height:auto;
+
+        max-height:
+            calc(100vh - 92px);
+
+        overflow:auto;
+
+        margin:0;
+
+        padding:9px;
+
+        display:none;
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        gap:2px;
+
+        color:#111;
+
+        background:
+            rgba(255,255,255,.99);
+
+        border:
+            1px solid
+            rgba(0,0,0,.09);
+
+        border-radius:15px;
+
+        box-shadow:
+            0 24px 65px
+            rgba(0,0,0,.18);
+
+        backdrop-filter:
+            blur(18px);
+
+        -webkit-backdrop-filter:
+            blur(18px);
+    }
+
+
+    .site-nav.scrolled
+    .nav-links{
+        top:70px;
+    }
+
+
+    .nav-links.open{
+        display:flex;
+    }
+
+
+    .nav-item{
+        width:100%;
+
+        height:auto;
+
+        display:block;
+    }
+
+
+    .nav-link{
+        width:100%;
+
+        min-height:47px;
+
+        padding:
+            0
+            13px;
+
+        justify-content:
+            space-between;
+
+        color:#111;
+    }
+
+
+    .nav-link::after{
+        display:none;
+    }
+
+
+    /* ========================================================
+       MOBILE SOLUTIONS
+       ======================================================== */
+
+    .solutions-menu::before{
+        display:none;
+    }
+
+
+    .solutions-dropdown{
+        position:static;
+
+        width:100%;
+
+        margin:
+            0
+            0
+            5px;
+
+        padding:
+            15px;
+
+        display:none;
+
+        border-radius:9px;
+
+        opacity:1;
+
+        visibility:visible;
+
+        pointer-events:auto;
+
+        transform:none;
+
+        box-shadow:none;
+    }
+
+
+    .solutions-menu.open
+    .solutions-dropdown{
+        display:block;
+    }
+
+
+    /* prevent desktop hover opening */
+
+    .solutions-menu:hover
+    .solutions-dropdown,
+
+    .solutions-menu:focus-within
+    .solutions-dropdown{
+        opacity:1;
+
+        visibility:visible;
+
+        transform:none;
+    }
+
+
+    .solutions-menu:not(.open)
+    .solutions-dropdown{
+        display:none;
+    }
+
+
+    /* MOBILE = STACKED */
+
+    .solutions-grid{
+        grid-template-columns:1fr;
+    }
+
+
+    .solution-col:first-child{
+        padding:
+            0
+            0
+            14px;
+
+        border-right:0;
+
+        border-bottom:
+            1px solid
+            rgba(255,255,255,.11);
+    }
+
+
+    .solution-col:last-child{
+        padding:
+            14px
+            0
+            0;
+    }
+
+
+    .solution-title{
+        margin-bottom:7px;
+
+        padding-bottom:10px;
+
+        font-size:13px;
+    }
+
+
+    .solution-list a{
+        min-height:33px;
+
+        font-size:11px;
+    }
 
 }
 
 
 /* ============================================================
-   MOBILE
+   15 — MOBILE
    ============================================================ */
 
 @media(max-width:700px){
 
-  .nav-inner{
-    gap:16px;
-  }
+    .nav-inner{
+        width:
+            calc(100% - 24px);
+    }
 
 
-  .brand{
-    width:170px;
-    height:44px;
-  }
+    .brand{
+        width:168px;
+        height:44px;
+    }
 
 
-  .brand-logo{
-    height:40px;
-    max-width:170px;
-  }
+    .brand-logo{
+        height:40px;
+
+        max-width:168px;
+    }
 
 
-  .site-nav.scrolled
-  .brand-logo{
-    height:38px;
-  }
+    .site-nav.scrolled
+    .brand-logo{
+        height:38px;
+    }
 
 
-  .mobile-toggle{
-    width:40px;
-    height:40px;
-  }
+    .mobile-toggle{
+        width:39px;
+        height:39px;
+    }
+
+
+    .nav-links{
+        left:12px;
+        right:12px;
+    }
 
 }
 
 
 /* ============================================================
-   SMALL MOBILE
+   16 — SMALL MOBILE
    ============================================================ */
 
 @media(max-width:420px){
 
-  .brand{
-    width:150px;
-  }
+    .brand{
+        width:148px;
+    }
 
 
-  .brand-logo{
-    height:36px;
-    max-width:150px;
-  }
+    .brand-logo{
+        height:36px;
+
+        max-width:148px;
+    }
 
 
-  .site-nav.scrolled
-  .brand-logo{
-    height:35px;
-  }
+    .site-nav.scrolled
+    .brand-logo{
+        height:35px;
+    }
 
 
-  .nav-links{
-    left:10px;
-    right:10px;
-  }
+    .nav-links{
+        left:10px;
+        right:10px;
+    }
 
 }
+
+
+/* ============================================================
+   BODY LOCK
+   ============================================================ */
+
+body.menu-open{
+    overflow:hidden;
+}
+
 </style>
 
 
 
 <!-- ============================================================
-     SECTION 01 — NAVIGATION HTML
+     HTML
      ============================================================ -->
 
 <header
-  class="site-nav"
-  id="siteNav"
+    class="site-nav"
+    id="siteNav"
 >
 
-  <div class="nav-inner">
+    <div class="nav-inner">
 
 
-    <!-- ========================================================
-         LOGO
-         WHITE LOGO = DARK / TRANSPARENT NAVBAR
-         BLACK LOGO = WHITE / SCROLLED NAVBAR
-         ======================================================== -->
-
-    <a
-      class="brand"
-      href="index.html"
-      aria-label="Alphanumeric Energies Home"
-    >
-
-      <!-- WHITE LOGO -->
-      <img
-        class="brand-logo logo-light"
-        src="assets/images/alpha_white_logo.png"
-        alt="Alphanumeric Energies"
-      >
-
-
-      <!-- BLACK LOGO -->
-      <img
-        class="brand-logo logo-dark"
-        src="assets/images/alpha_black_logo.png"
-        alt="Alphanumeric Energies"
-      >
-
-    </a>
-
-
-
-    <!-- ========================================================
-         NAVIGATION LINKS
-         ======================================================== -->
-
-    <nav
-      class="nav-links"
-      id="navLinks"
-      aria-label="Primary Navigation"
-    >
-
-
-      <!-- HOME -->
-
-      <div class="nav-item">
+        <!-- ====================================================
+             LOGO
+             ==================================================== -->
 
         <a
-          class="nav-link"
-          href="index.html"
-        >
-          Home
-        </a>
-
-      </div>
-
-
-
-      <!-- ABOUT -->
-
-      <div class="nav-item">
-
-        <a
-          class="nav-link"
-          href="about.html"
-        >
-          About
-        </a>
-
-      </div>
-
-
-
-      <!-- ======================================================
-           RENEWABLE ENERGY
-           ====================================================== -->
-
-      <div class="nav-item has-dropdown">
-
-        <a
-          class="nav-link"
-          href="solar.html"
+            class="brand"
+            href="index.html"
+            aria-label="Alphanumeric Energies Home"
         >
 
-          Renewable Energy
 
-          <span
-            class="chevron"
-            aria-hidden="true"
-          ></span>
+            <!-- WHITE LOGO -->
+
+            <img
+                class="brand-logo logo-light"
+                src="assets/images/alpha_white_logo.png"
+                alt="Alphanumeric Energies"
+            >
+
+
+            <!-- BLACK LOGO -->
+
+            <img
+                class="brand-logo logo-dark"
+                src="assets/images/alpha_black_logo.png"
+                alt="Alphanumeric Energies"
+            >
+
 
         </a>
 
 
-        <div class="dropdown">
 
+        <!-- ====================================================
+             NAVIGATION
+             ==================================================== -->
 
-          <a href="on-grid.html">
-
-            <span>
-              On-Grid
-            </span>
-
-          </a>
-
-
-          <a href="off-grid.html">
-
-            <span>
-              Off-Grid
-            </span>
-
-          </a>
-
-
-          <a href="ground-mounted.html">
-
-            <span>
-              Ground-Mounted
-            </span>
-
-          </a>
-
-
-        </div>
-
-      </div>
-
-
-
-      <!-- ======================================================
-           POWER
-           ====================================================== -->
-
-      <div class="nav-item has-dropdown">
-
-        <a
-          class="nav-link"
-          href="power.html"
+        <nav
+            class="nav-links"
+            id="navLinks"
+            aria-label="Primary Navigation"
         >
 
-          Power
 
-          <span
-            class="chevron"
-            aria-hidden="true"
-          ></span>
+            <!-- HOME -->
 
-        </a>
+            <div class="nav-item">
 
+                <a
+                    class="nav-link"
+                    href="index.html"
+                >
+                    Home
+                </a>
 
-        <div class="dropdown">
-
-
-          <a href="lt.html">
-
-            <span>
-              LT
-            </span>
-
-          </a>
-
-
-          <a href="ht.html">
-
-            <span>
-              HT
-            </span>
-
-          </a>
-
-
-          <a href="eht.html">
-
-            <span>
-              EHT
-            </span>
-
-          </a>
-
-
-          <a href="uht.html">
-
-            <span>
-              UHT
-            </span>
-
-          </a>
-
-
-        </div>
-
-      </div>
+            </div>
 
 
 
-      <!-- CONTACT -->
+            <!-- ABOUT -->
 
-      <div class="nav-item">
+            <div class="nav-item">
 
-        <a
-          class="nav-link"
-          href="contact.html"
+                <a
+                    class="nav-link"
+                    href="about.html"
+                >
+                    About
+                </a>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 SOLUTIONS
+                 ================================================= -->
+
+            <div
+                class="nav-item solutions-menu"
+                id="solutionsMenu"
+            >
+
+
+                <button
+                    class="nav-link"
+                    id="solutionsTrigger"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="solutionsDropdown"
+                >
+
+                    <span>
+                        Solutions
+                    </span>
+
+
+                    <span
+                        class="chevron"
+                        aria-hidden="true"
+                    ></span>
+
+                </button>
+
+
+
+                <!-- =============================================
+                     COMPACT DROPDOWN
+                     ============================================= -->
+
+                <div
+                    class="solutions-dropdown"
+                    id="solutionsDropdown"
+                >
+
+
+                    <div class="solutions-grid">
+
+
+                        <!-- =====================================
+                             RENEWABLE ENERGY
+                             ===================================== -->
+
+                        <div class="solution-col">
+
+
+                            <h3 class="solution-title">
+                                Renewable Energy
+                            </h3>
+
+
+                            <div class="solution-list">
+
+
+                                <a href="on-grid.html">
+                                    On-Grid Solar
+                                </a>
+
+
+                                <a href="off-grid.html">
+                                    Off-Grid Solar
+                                </a>
+
+
+                                <a href="ground-mounted.html">
+                                    Ground-Mounted Solar
+                                </a>
+
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <!-- =====================================
+                             POWER
+                             ===================================== -->
+
+                        <div class="solution-col">
+
+
+                            <h3 class="solution-title">
+                                Power
+                            </h3>
+
+
+                            <div class="solution-list">
+
+
+                                <a href="lt.html">
+                                    LT
+                                </a>
+
+
+                                <a href="ht.html">
+                                    HT
+                                </a>
+
+
+                                <a href="eht.html">
+                                    EHT
+                                </a>
+
+
+                                <a href="uht.html">
+                                    UHT
+                                </a>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- PRODUCTS -->
+
+            <div class="nav-item">
+
+                <a
+                    class="nav-link"
+                    href="products.html"
+                >
+                    Products
+                </a>
+
+            </div>
+
+
+
+            <!-- CONTACT -->
+
+            <div class="nav-item">
+
+                <a
+                    class="nav-link"
+                    href="contact.html"
+                >
+                    Contact
+                </a>
+
+            </div>
+
+
+        </nav>
+
+
+
+        <!-- ====================================================
+             MOBILE TOGGLE
+             ==================================================== -->
+
+        <button
+            class="mobile-toggle"
+            id="mobileToggle"
+            type="button"
+            aria-label="Open navigation"
+            aria-expanded="false"
+            aria-controls="navLinks"
         >
-          Contact
-        </a>
 
-      </div>
+            <span></span>
+            <span></span>
 
-
-    </nav>
+        </button>
 
 
-
-    <!-- ========================================================
-         MOBILE MENU BUTTON
-         ======================================================== -->
-
-    <button
-      class="mobile-toggle"
-      id="mobileToggle"
-      type="button"
-      aria-label="Open navigation"
-      aria-expanded="false"
-      aria-controls="navLinks"
-    >
-
-      <span></span>
-      <span></span>
-
-    </button>
-
-
-  </div>
+    </div>
 
 </header>
 
 
 
 <!-- ============================================================
-     SECTION 01 — NAVIGATION JAVASCRIPT
+     JAVASCRIPT
      ============================================================ -->
 
 <script>
+
 (() => {
 
-  /* ============================================================
-     ELEMENTS
-     ============================================================ */
 
-  const siteNav =
-    document.getElementById(
-      "siteNav"
-    );
+    /* ========================================================
+       ELEMENTS
+       ======================================================== */
 
-
-  const mobileToggle =
-    document.getElementById(
-      "mobileToggle"
-    );
-
-
-  const navLinks =
-    document.getElementById(
-      "navLinks"
-    );
-
-
-  const dropdownLinks = [
-    ...document.querySelectorAll(
-      ".has-dropdown > .nav-link"
-    )
-  ];
-
-
-  const navItems = [
-    ...document.querySelectorAll(
-      ".nav-item"
-    )
-  ];
-
-
-  /* ============================================================
-     NAVBAR SCROLL
-     > 28px = WHITE NAVBAR + BLACK LOGO
-     TOP      = TRANSPARENT NAVBAR + WHITE LOGO
-     ============================================================ */
-
-  function updateNavbar(){
-
-    siteNav.classList.toggle(
-      "scrolled",
-      window.scrollY > 28
-    );
-
-  }
-
-
-  updateNavbar();
-
-
-  window.addEventListener(
-    "scroll",
-    updateNavbar,
-    {
-      passive:true
-    }
-  );
-
-
-  /* ============================================================
-     MOBILE MENU
-     ============================================================ */
-
-  mobileToggle.addEventListener(
-    "click",
-    () => {
-
-      const open =
-        navLinks.classList.toggle(
-          "open"
+    const siteNav =
+        document.getElementById(
+            "siteNav"
         );
 
 
-      mobileToggle.setAttribute(
-        "aria-expanded",
-        open
-          ? "true"
-          : "false"
-      );
+    const navLinks =
+        document.getElementById(
+            "navLinks"
+        );
 
 
-      mobileToggle.setAttribute(
-        "aria-label",
-        open
-          ? "Close navigation"
-          : "Open navigation"
-      );
+    const mobileToggle =
+        document.getElementById(
+            "mobileToggle"
+        );
 
 
-      document.body.classList.toggle(
-        "menu-open",
-        open
-      );
+    const solutionsMenu =
+        document.getElementById(
+            "solutionsMenu"
+        );
+
+
+    const solutionsTrigger =
+        document.getElementById(
+            "solutionsTrigger"
+        );
+
+
+    if(
+        !siteNav ||
+        !navLinks ||
+        !mobileToggle ||
+        !solutionsMenu ||
+        !solutionsTrigger
+    ){
+        return;
+    }
+
+
+
+    /* ========================================================
+       NAVBAR SCROLL
+       ======================================================== */
+
+    function updateNavbar(){
+
+        siteNav.classList.toggle(
+            "scrolled",
+            window.scrollY > 28
+        );
 
     }
-  );
 
 
-  /* ============================================================
-     MOBILE DROPDOWNS
-     ============================================================ */
+    updateNavbar();
 
-  dropdownLinks.forEach(
-    link => {
 
-      link.addEventListener(
+    window.addEventListener(
+        "scroll",
+        updateNavbar,
+        {
+            passive:true
+        }
+    );
+
+
+
+    /* ========================================================
+       OPEN MOBILE MENU
+       ======================================================== */
+
+    function openMobileMenu(){
+
+        navLinks.classList.add(
+            "open"
+        );
+
+
+        mobileToggle.setAttribute(
+            "aria-expanded",
+            "true"
+        );
+
+
+        mobileToggle.setAttribute(
+            "aria-label",
+            "Close navigation"
+        );
+
+
+        document.body.classList.add(
+            "menu-open"
+        );
+
+    }
+
+
+
+    /* ========================================================
+       CLOSE SOLUTIONS
+       ======================================================== */
+
+    function closeSolutions(){
+
+        solutionsMenu.classList.remove(
+            "open"
+        );
+
+
+        solutionsTrigger.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+    }
+
+
+
+    /* ========================================================
+       CLOSE MOBILE MENU
+       ======================================================== */
+
+    function closeMobileMenu(){
+
+        navLinks.classList.remove(
+            "open"
+        );
+
+
+        mobileToggle.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+
+        mobileToggle.setAttribute(
+            "aria-label",
+            "Open navigation"
+        );
+
+
+        document.body.classList.remove(
+            "menu-open"
+        );
+
+
+        closeSolutions();
+
+    }
+
+
+
+    /* ========================================================
+       MOBILE MENU BUTTON
+       ======================================================== */
+
+    mobileToggle.addEventListener(
+        "click",
+        () => {
+
+            const opened =
+                navLinks.classList.contains(
+                    "open"
+                );
+
+
+            if(opened){
+
+                closeMobileMenu();
+
+            }
+            else{
+
+                openMobileMenu();
+
+            }
+
+        }
+    );
+
+
+
+    /* ========================================================
+       SOLUTIONS MOBILE CLICK
+       ======================================================== */
+
+    solutionsTrigger.addEventListener(
         "click",
         event => {
 
-          if(
-            window.innerWidth <= 980
-          ){
-
-            event.preventDefault();
-
-
-            const item =
-              link.parentElement;
-
-
-            navItems.forEach(
-              openItem => {
-
-                if(
-                  openItem !== item
-                ){
-
-                  openItem.classList.remove(
-                    "open"
-                  );
-
-                }
-
-              }
-            );
-
-
-            item.classList.toggle(
-              "open"
-            );
-
-          }
-
-        }
-      );
-
-    }
-  );
-
-
-  /* ============================================================
-     CLOSE MOBILE MENU AFTER LINK CLICK
-     ============================================================ */
-
-  document
-    .querySelectorAll(
-      ".nav-links a"
-    )
-    .forEach(
-      link => {
-
-        link.addEventListener(
-          "click",
-          () => {
-
             if(
-              window.innerWidth <= 980 &&
-              !link.parentElement.classList.contains(
-                "has-dropdown"
-              )
+                window.innerWidth <= 980
             ){
 
-              navLinks.classList.remove(
-                "open"
-              );
+                event.preventDefault();
 
 
-              document.body.classList.remove(
-                "menu-open"
-              );
+                const opened =
+                    solutionsMenu.classList.toggle(
+                        "open"
+                    );
 
 
-              mobileToggle.setAttribute(
-                "aria-expanded",
-                "false"
-              );
-
-
-              mobileToggle.setAttribute(
-                "aria-label",
-                "Open navigation"
-              );
+                solutionsTrigger.setAttribute(
+                    "aria-expanded",
+                    opened
+                        ? "true"
+                        : "false"
+                );
 
             }
 
-          }
-        );
-
-      }
+        }
     );
 
 
-  /* ============================================================
-     CLOSE MENU ON OUTSIDE CLICK
-     ============================================================ */
 
-  document.addEventListener(
-    "click",
-    event => {
+    /* ========================================================
+       DESKTOP ACCESSIBILITY STATE
+       ======================================================== */
 
-      if(
-        window.innerWidth > 980
-      ){
-        return;
-      }
+    solutionsMenu.addEventListener(
+        "mouseenter",
+        () => {
 
+            if(
+                window.innerWidth > 980
+            ){
 
-      const clickedInsideNav =
-        siteNav.contains(
-          event.target
-        );
-
-
-      if(
-        !clickedInsideNav &&
-        navLinks.classList.contains(
-          "open"
-        )
-      ){
-
-        navLinks.classList.remove(
-          "open"
-        );
-
-
-        document.body.classList.remove(
-          "menu-open"
-        );
-
-
-        mobileToggle.setAttribute(
-          "aria-expanded",
-          "false"
-        );
-
-
-        mobileToggle.setAttribute(
-          "aria-label",
-          "Open navigation"
-        );
-
-      }
-
-    }
-  );
-
-
-  /* ============================================================
-     ESC KEY
-     ============================================================ */
-
-  document.addEventListener(
-    "keydown",
-    event => {
-
-      if(
-        event.key !== "Escape"
-      ){
-        return;
-      }
-
-
-      navLinks.classList.remove(
-        "open"
-      );
-
-
-      document.body.classList.remove(
-        "menu-open"
-      );
-
-
-      mobileToggle.setAttribute(
-        "aria-expanded",
-        "false"
-      );
-
-
-      mobileToggle.setAttribute(
-        "aria-label",
-        "Open navigation"
-      );
-
-
-      document
-        .querySelectorAll(
-          ".nav-item.open"
-        )
-        .forEach(
-          item => {
-
-            item.classList.remove(
-              "open"
-            );
-
-          }
-        );
-
-    }
-  );
-
-
-  /* ============================================================
-     RESET MOBILE MENU ON DESKTOP
-     ============================================================ */
-
-  window.addEventListener(
-    "resize",
-    () => {
-
-      if(
-        window.innerWidth > 980
-      ){
-
-        navLinks.classList.remove(
-          "open"
-        );
-
-
-        document.body.classList.remove(
-          "menu-open"
-        );
-
-
-        mobileToggle.setAttribute(
-          "aria-expanded",
-          "false"
-        );
-
-
-        mobileToggle.setAttribute(
-          "aria-label",
-          "Open navigation"
-        );
-
-
-        document
-          .querySelectorAll(
-            ".nav-item.open"
-          )
-          .forEach(
-            item => {
-
-              item.classList.remove(
-                "open"
-              );
+                solutionsTrigger.setAttribute(
+                    "aria-expanded",
+                    "true"
+                );
 
             }
-          );
 
-      }
+        }
+    );
 
-    }
-  );
+
+    solutionsMenu.addEventListener(
+        "mouseleave",
+        () => {
+
+            if(
+                window.innerWidth > 980
+            ){
+
+                solutionsTrigger.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
+
+        }
+    );
+
+
+
+    /* ========================================================
+       CLOSE MOBILE AFTER FINAL LINK
+       ======================================================== */
+
+    const finalLinks = [
+        ...document.querySelectorAll(
+            `
+            .solution-list a,
+            .nav-item:not(.solutions-menu) .nav-link
+            `
+        )
+    ];
+
+
+    finalLinks.forEach(
+        link => {
+
+            link.addEventListener(
+                "click",
+                () => {
+
+                    if(
+                        window.innerWidth <= 980
+                    ){
+
+                        closeMobileMenu();
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+
+
+    /* ========================================================
+       OUTSIDE CLICK
+       ======================================================== */
+
+    document.addEventListener(
+        "click",
+        event => {
+
+            if(
+                window.innerWidth > 980
+            ){
+                return;
+            }
+
+
+            if(
+                !siteNav.contains(
+                    event.target
+                )
+            ){
+
+                closeMobileMenu();
+
+            }
+
+        }
+    );
+
+
+
+    /* ========================================================
+       ESCAPE KEY
+       ======================================================== */
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if(
+                event.key === "Escape"
+            ){
+
+                closeMobileMenu();
+
+            }
+
+        }
+    );
+
+
+
+    /* ========================================================
+       RESIZE RESET
+       ======================================================== */
+
+    let resizeTimer;
+
+
+    window.addEventListener(
+        "resize",
+        () => {
+
+            clearTimeout(
+                resizeTimer
+            );
+
+
+            resizeTimer =
+                setTimeout(
+                    () => {
+
+                        if(
+                            window.innerWidth > 980
+                        ){
+
+                            navLinks.classList.remove(
+                                "open"
+                            );
+
+
+                            closeSolutions();
+
+
+                            mobileToggle.setAttribute(
+                                "aria-expanded",
+                                "false"
+                            );
+
+
+                            mobileToggle.setAttribute(
+                                "aria-label",
+                                "Open navigation"
+                            );
+
+
+                            document.body.classList.remove(
+                                "menu-open"
+                            );
+
+                        }
+
+                    },
+                    100
+                );
+
+        }
+    );
 
 
 })();
+
 </script>
 
 <main>
@@ -1660,11 +2080,16 @@ span:last-child{
 
 .hero-media{
     position:absolute;
-    inset:0;
+    inset:-2px;
 
     overflow:hidden;
 
-    background:#030609;
+    background:
+        linear-gradient(
+            180deg,
+            #071019 0%,
+            #030609 100%
+        );
 }
 
 
@@ -1679,7 +2104,8 @@ span:last-child{
 
     display:block;
 
-    object-fit:contain;
+    /* FILL THE COMPLETE HERO — NO BLACK LETTERBOX AREA */
+    object-fit:cover;
     object-position:center center;
 
     user-select:none;
@@ -1701,7 +2127,8 @@ span:last-child{
         filter 1.2s ease,
         transform 8s ease;
 
-    transform:scale(1);
+    /* tiny overscan avoids any edge / top gap */
+    transform:scale(1.025);
 }
 
 
@@ -1745,10 +2172,15 @@ span:last-child{
     mask-size:
         var(--reveal) 100%;
 
+    /* match the OFF frame perfectly and overscan the edges */
+    transform:scale(1.025);
+    transform-origin:center center;
+
     transition:
         -webkit-mask-size 1.25s var(--ease),
         mask-size 1.25s var(--ease),
-        opacity .8s ease;
+        opacity .8s ease,
+        transform 8s ease;
 }
 
 
@@ -1789,7 +2221,7 @@ span:last-child{
 
     opacity:0;
 
-    transform:scale(1.015);
+    transform:scale(1.025);
 
     transition:
         opacity 1.35s ease,
@@ -1800,7 +2232,7 @@ span:last-child{
 .hero-premium[data-mode="energy"]
 .energy-image{
     opacity:1;
-    transform:scale(1.045);
+    transform:scale(1.055);
 }
 
 
@@ -1816,23 +2248,36 @@ span:last-child{
 
     pointer-events:none;
 
+    /*
+       1) strong readable left-side shade for content
+       2) soft top shadow to blend navbar into the image
+       3) gentle bottom cinematic finish
+       No hard black strip.
+    */
     background:
 
         linear-gradient(
             90deg,
-            rgba(1,4,8,.89) 0%,
-            rgba(1,4,8,.70) 23%,
-            rgba(1,4,8,.28) 48%,
-            rgba(1,4,8,.05) 72%,
-            rgba(1,4,8,.12) 100%
+            rgba(1,4,8,.80) 0%,
+            rgba(1,4,8,.58) 23%,
+            rgba(1,4,8,.22) 48%,
+            rgba(1,4,8,.04) 72%,
+            rgba(1,4,8,.08) 100%
+        ),
+
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.40) 0%,
+            rgba(0,0,0,.18) 8%,
+            rgba(0,0,0,.05) 18%,
+            transparent 30%
         ),
 
         linear-gradient(
             0deg,
-            rgba(0,0,0,.60) 0%,
-            transparent 25%,
-            transparent 72%,
-            rgba(0,0,0,.32) 100%
+            rgba(0,0,0,.44) 0%,
+            rgba(0,0,0,.15) 12%,
+            transparent 27%
         );
 }
 
@@ -1848,11 +2293,34 @@ span:last-child{
     background:
         radial-gradient(
             circle at 75% 45%,
-            rgba(var(--accent-rgb),.06),
-            transparent 36%
+            rgba(var(--accent-rgb),.045),
+            transparent 38%
         );
 
     transition:background .8s ease;
+}
+
+
+/* soft top edge blend — hides any remaining image edge naturally */
+.hero-shade::after{
+    content:"";
+
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+
+    height:88px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(2,6,10,.34) 0%,
+            rgba(2,6,10,.12) 46%,
+            transparent 100%
+        );
+
+    pointer-events:none;
 }
 
 
@@ -2389,7 +2857,9 @@ span:last-child{
 
     z-index:45;
 
-    top:38px;
+    top:auto;
+
+    bottom:32px;
 
     right:max(
         34px,
@@ -2657,8 +3127,9 @@ span:last-child{
     }
 
     .hero-mode-switch{
+        top:auto;
         right:20px;
-        top:25px;
+        bottom:20px;
     }
 
     .power-stage-nav{
@@ -2721,8 +3192,9 @@ span:last-child{
     }
 
     .hero-mode-switch{
-        top:18px;
+        top:auto;
         right:15px;
+        bottom:16px;
     }
 
     .mode-button{
@@ -3614,615 +4086,94 @@ span:last-child{
 
 </script>
 
-
 <!-- ============================================================
-     WHY CHOOSE US — ULTRA PREMIUM VERSION
-     CSS → HTML → JAVASCRIPT
+     WHY CHOOSE US — COMPACT PREMIUM BAND
+     HIGH VISIBILITY • NO EXTRA SPACE • NO IMAGES REQUIRED
      ============================================================ -->
 
 <style>
+
 /* ============================================================
-   01. ROOT / DESIGN TOKENS
+   ROOT
    ============================================================ */
-.why-pro{
-    --brand-blue:#004aad;
-    --brand-blue-rgb:0,74,173;
 
-    --brand-gold:#d7a840;
-    --brand-gold-rgb:215,168,64;
+.why-compact{
+    --gold:#d7a840;
+    --gold-soft:#e9c875;
 
-    --bg-deep:#07101b;
-    --bg-mid:#0b1623;
-    --bg-light:#111e2c;
+    --ink:#121414;
+    --dark:#101314;
+    --dark-2:#171a1b;
 
-    --panel:#101c29;
-    --panel-light:#152434;
-
-    --white:#ffffff;
-    --text:#f6f8fb;
-    --muted:#aab7c7;
-    --soft:#748397;
+    --paper:#f4f1ea;
+    --muted:#666864;
 
     --ease:cubic-bezier(.16,1,.3,1);
 
     position:relative;
-    isolation:isolate;
     overflow:hidden;
 
-    padding:90px 0 96px;
-
-    color:var(--text);
+    padding:58px 0 64px;
 
     background:
-        radial-gradient(
-            circle at 8% 0%,
-            rgba(var(--brand-blue-rgb),.24),
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 96% 100%,
-            rgba(var(--brand-gold-rgb),.10),
-            transparent 28%
-        ),
         linear-gradient(
-            135deg,
-            #050b12 0%,
-            var(--bg-deep) 38%,
-            var(--bg-mid) 100%
+            180deg,
+            #f6f3ed 0%,
+            #eee9df 100%
         );
 
-    font-family:"Inter",Arial,sans-serif;
-}
-
-
-/* subtle premium grid */
-.why-pro::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    z-index:-2;
-    pointer-events:none;
-
-    opacity:.17;
-
-    background-image:
-        linear-gradient(
-            rgba(255,255,255,.055) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,.055) 1px,
-            transparent 1px
-        );
-
-    background-size:64px 64px;
-
-    mask-image:
-        linear-gradient(
-            to bottom,
-            transparent 0%,
-            black 18%,
-            black 82%,
-            transparent 100%
-        );
-}
-
-
-/* ambient center glow */
-.why-pro::after{
-    content:"";
-
-    position:absolute;
-    z-index:-1;
-
-    width:700px;
-    height:700px;
-
-    left:22%;
-    top:50%;
-
-    transform:translate(-50%,-50%);
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(var(--brand-blue-rgb),.13),
-            rgba(var(--brand-blue-rgb),.035) 42%,
-            transparent 70%
-        );
-
-    filter:blur(10px);
-
-    pointer-events:none;
-}
-
-
-.why-pro-wrap{
-    width:min(calc(100% - 56px),1400px);
-    margin:0 auto;
+    color:var(--ink);
 }
 
 
 /* ============================================================
-   02. SECTION HEADING
+   WRAPPER
    ============================================================ */
-.why-pro-head{
-    position:relative;
 
-    display:flex;
-    align-items:flex-end;
-    justify-content:space-between;
+.why-compact-wrap{
+    width:min(
+        1280px,
+        calc(100% - 64px)
+    );
 
-    gap:40px;
-
-    margin-bottom:34px;
+    margin:auto;
 }
 
 
-.why-pro-heading-left{
-    max-width:760px;
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+.why-compact-head{
+    display:grid;
+
+    grid-template-columns:
+        minmax(0,1fr)
+        360px;
+
+    align-items:end;
+
+    gap:55px;
+
+    margin-bottom:27px;
 }
 
 
-.why-pro-eyebrow{
+.why-compact-kicker{
     display:flex;
     align-items:center;
-    gap:11px;
 
-    margin-bottom:13px;
+    gap:10px;
 
-    color:rgba(255,255,255,.64);
+    margin-bottom:9px;
 
-    font-family:"Inter",Arial,sans-serif;
-    font-size:10px;
-    font-weight:700;
+    color:#947128;
 
-    letter-spacing:.22em;
-    text-transform:uppercase;
-}
-
-
-.why-pro-eyebrow::before{
-    content:"";
-
-    width:30px;
-    height:1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--brand-gold),
-            rgba(var(--brand-gold-rgb),.25)
-        );
-
-    box-shadow:
-        0 0 14px rgba(var(--brand-gold-rgb),.22);
-}
-
-
-.why-pro-head h2{
-    margin:0;
-
-    max-width:720px;
-
-    font-family:
+    font:
+        700
+        7px/1
         "Plus Jakarta Sans",
-        "Inter",
-        Arial,
         sans-serif;
-
-    font-size:clamp(34px,4vw,58px);
-    line-height:.98;
-
-    font-weight:720;
-
-    letter-spacing:-.055em;
-
-    color:#fff;
-}
-
-
-.why-pro-head h2 span{
-    color:#9facbb;
-}
-
-
-.why-pro-head-copy{
-    max-width:360px;
-
-    margin:0 0 3px;
-
-    color:rgba(220,229,239,.67);
-
-    font-size:13px;
-    line-height:1.75;
-
-    font-weight:420;
-}
-
-
-/* ============================================================
-   03. MAIN PREMIUM STAGE
-   ============================================================ */
-.why-pro-stage{
-    position:relative;
-
-    display:grid;
-    grid-template-columns:minmax(460px,.94fr) minmax(520px,1.06fr);
-
-    gap:0;
-
-    min-height:560px;
-
-    padding:12px;
-
-    border:1px solid rgba(255,255,255,.09);
-
-    border-radius:32px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.075),
-            rgba(255,255,255,.024) 35%,
-            rgba(255,255,255,.016) 70%,
-            rgba(255,255,255,.05)
-        );
-
-    box-shadow:
-        0 45px 90px rgba(0,0,0,.38),
-        0 12px 38px rgba(0,0,0,.25),
-        inset 0 1px 0 rgba(255,255,255,.09);
-
-    backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px);
-
-    overflow:hidden;
-}
-
-
-/* top highlight */
-.why-pro-stage::before{
-    content:"";
-
-    position:absolute;
-
-    left:9%;
-    right:9%;
-    top:0;
-
-    height:1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,.5),
-            transparent
-        );
-
-    opacity:.48;
-}
-
-
-/* subtle blue ambient glow */
-.why-pro-stage::after{
-    content:"";
-
-    position:absolute;
-
-    width:440px;
-    height:440px;
-
-    left:-140px;
-    top:-180px;
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(var(--brand-blue-rgb),.16),
-            transparent 68%
-        );
-
-    pointer-events:none;
-}
-
-
-/* ============================================================
-   04. LEFT ORBIT PANEL
-   ============================================================ */
-.why-pro-orbit{
-    position:relative;
-    isolation:isolate;
-
-    min-width:0;
-    height:536px;
-
-    overflow:hidden;
-
-    border-radius:23px 0 0 23px;
-
-    background:
-        radial-gradient(
-            circle at 50% 48%,
-            rgba(30,55,79,.78),
-            rgba(13,27,41,.82) 42%,
-            rgba(7,17,28,.88) 72%
-        ),
-        linear-gradient(
-            145deg,
-            #102031,
-            #08131f
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,.06);
-
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.05),
-        inset -1px 0 0 rgba(255,255,255,.025);
-}
-
-
-/* vignette */
-.why-pro-orbit::after{
-    content:"";
-
-    position:absolute;
-    inset:0;
-
-    z-index:-1;
-
-    pointer-events:none;
-
-    background:
-        radial-gradient(
-            circle at center,
-            transparent 30%,
-            rgba(0,0,0,.12) 69%,
-            rgba(0,0,0,.35) 100%
-        );
-}
-
-
-/* upper reflection */
-.why-pro-orbit::before{
-    content:"";
-
-    position:absolute;
-
-    left:10%;
-    right:10%;
-    top:0;
-
-    height:1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,.24),
-            transparent
-        );
-
-    opacity:.7;
-}
-
-
-/* ============================================================
-   05. ORBIT SVG
-   ============================================================ */
-.why-pro-svg{
-    position:absolute;
-    inset:0;
-
-    pointer-events:none;
-}
-
-
-.why-pro-svg svg{
-    display:block;
-
-    width:100%;
-    height:100%;
-
-    overflow:visible;
-}
-
-
-/* outer ring */
-.why-pro-svg .orbit-ring{
-    fill:none;
-
-    stroke:rgba(255,255,255,.14);
-    stroke-width:1.15;
-}
-
-
-/* secondary ring */
-.why-pro-svg .orbit-ring-inner{
-    fill:none;
-
-    stroke:rgba(255,255,255,.05);
-    stroke-width:1;
-}
-
-
-/* third subtle inner ring */
-.why-pro-svg .orbit-ring-soft{
-    fill:none;
-
-    stroke:rgba(255,255,255,.026);
-    stroke-width:1;
-}
-
-
-/* blue active arc */
-.why-pro-svg .orbit-blue{
-    fill:none;
-
-    stroke:var(--brand-blue);
-
-    stroke-width:4.6;
-
-    stroke-linecap:round;
-
-    stroke-dasharray:82 1000;
-    stroke-dashoffset:118;
-
-    filter:
-        drop-shadow(
-            0 0 6px
-            rgba(var(--brand-blue-rgb),.5)
-        )
-        drop-shadow(
-            0 0 14px
-            rgba(var(--brand-blue-rgb),.25)
-        );
-
-    opacity:.95;
-}
-
-
-/* gold active arc */
-.why-pro-svg .orbit-gold{
-    fill:none;
-
-    stroke:var(--brand-gold);
-
-    stroke-width:3.3;
-
-    stroke-linecap:round;
-
-    stroke-dasharray:58 1000;
-    stroke-dashoffset:530;
-
-    filter:
-        drop-shadow(
-            0 0 7px
-            rgba(var(--brand-gold-rgb),.35)
-        );
-
-    opacity:.9;
-}
-
-
-/* ============================================================
-   06. CENTER CORE
-   ============================================================ */
-.why-pro-core{
-    position:absolute;
-
-    left:50%;
-    top:50%;
-
-    width:268px;
-    height:268px;
-
-    transform:translate(-50%,-50%);
-
-    display:grid;
-    place-items:center;
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle at 38% 24%,
-            rgba(255,255,255,.11),
-            transparent 32%
-        ),
-        linear-gradient(
-            145deg,
-            rgba(27,47,68,.96),
-            rgba(10,23,36,.98)
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,.12);
-
-    box-shadow:
-        0 30px 55px rgba(0,0,0,.36),
-        0 0 70px rgba(var(--brand-blue-rgb),.08),
-        inset 0 1px 0 rgba(255,255,255,.10);
-
-    z-index:2;
-}
-
-
-/* middle ring */
-.why-pro-core::before{
-    content:"";
-
-    position:absolute;
-    inset:15px;
-
-    border-radius:50%;
-
-    border:
-        1px solid
-        rgba(255,255,255,.065);
-
-    box-shadow:
-        inset 0 0 34px rgba(255,255,255,.018);
-}
-
-
-/* inner blue atmosphere */
-.why-pro-core::after{
-    content:"";
-
-    position:absolute;
-
-    width:120px;
-    height:120px;
-
-    left:50%;
-    top:50%;
-
-    transform:translate(-50%,-50%);
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(var(--brand-blue-rgb),.10),
-            transparent 72%
-        );
-
-    filter:blur(3px);
-
-    pointer-events:none;
-}
-
-
-.why-pro-core-inner{
-    position:relative;
-    z-index:3;
-
-    max-width:200px;
-
-    text-align:center;
-}
-
-
-.why-pro-core-kicker{
-    margin-bottom:11px;
-
-    color:rgba(255,255,255,.48);
-
-    font-size:8px;
-    line-height:1;
-
-    font-weight:750;
 
     letter-spacing:.18em;
 
@@ -4230,976 +4181,662 @@ span:last-child{
 }
 
 
-.why-pro-core-title{
+.why-compact-kicker::before{
+    content:"";
+
+    width:28px;
+    height:1px;
+
+    background:var(--gold);
+}
+
+
+.why-compact-title{
     margin:0;
 
-    color:#fff;
+    max-width:600px;
 
-    font-family:
+    color:#171919;
+
+    font:
+        600
+        clamp(29px,3vw,41px)/1.03
         "Plus Jakarta Sans",
-        "Inter",
         sans-serif;
 
-    font-size:29px;
-    line-height:1.03;
-
-    font-weight:720;
-
-    letter-spacing:-.05em;
+    letter-spacing:-.045em;
 }
 
 
-.why-pro-core-title span{
-    display:block;
+.why-compact-title span{
+    color:#8b8d88;
 
-    margin-top:3px;
-
-    color:#d7e0ea;
+    font-weight:500;
 }
 
 
-.why-pro-core-line{
+.why-compact-intro{
+    max-width:340px;
+
+    margin:0;
+
+    color:#62645f;
+
+    font:
+        400
+        10.7px/1.7
+        "Inter",
+        sans-serif;
+}
+
+
+/* ============================================================
+   PREMIUM BAND
+   ============================================================ */
+
+.why-compact-band{
     position:relative;
 
-    width:54px;
-    height:2px;
+    display:grid;
 
-    margin:16px auto 0;
+    grid-template-columns:
+        repeat(4,1fr);
+
+    min-height:305px;
 
     overflow:hidden;
 
-    border-radius:999px;
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--brand-blue) 0 55%,
-            var(--brand-gold) 55% 100%
-        );
-
-    box-shadow:
-        0 0 12px rgba(var(--brand-blue-rgb),.3);
-}
-
-
-.why-pro-core-copy{
-    margin:14px 0 0;
-
-    color:rgba(226,234,242,.68);
-
-    font-size:11px;
-    line-height:1.6;
-
-    font-weight:430;
-}
-
-
-/* ============================================================
-   07. ORBIT NODES
-   ============================================================ */
-.why-pro-node{
-    position:absolute;
-    z-index:6;
-
-    width:52px;
-    height:52px;
-
-    padding:0;
-
-    display:grid;
-    place-items:center;
-
-    border-radius:50%;
-
-    border:
-        1px solid
-        rgba(255,255,255,.12);
-
-    outline:none;
-
     background:
         linear-gradient(
             145deg,
-            rgba(27,46,65,.98),
-            rgba(7,18,29,.99)
+            #151819 0%,
+            #0e1112 100%
         );
 
     box-shadow:
-        0 13px 27px rgba(0,0,0,.32),
-        inset 0 1px 0 rgba(255,255,255,.08);
+        0 24px 55px
+        rgba(33,29,20,.14);
 
-    color:rgba(255,255,255,.58);
-
-    font-family:
-        "Plus Jakarta Sans",
-        "Inter",
-        sans-serif;
-
-    font-size:12px;
-    line-height:1;
-
-    font-weight:750;
-
-    letter-spacing:.02em;
-
-    cursor:pointer;
-
-    opacity:0;
-
-    transform:
-        translate(-50%,-50%)
-        scale(.86);
-
-    transition:
-        color .35s ease,
-        background .35s ease,
-        border-color .35s ease,
-        box-shadow .35s ease,
-        transform .45s var(--ease);
+    border:
+        1px solid
+        rgba(0,0,0,.05);
 }
 
 
-.why-pro-node::before{
+/* top gold line */
+
+.why-compact-band::before{
     content:"";
 
-    position:absolute;
-    inset:5px;
-
-    border-radius:inherit;
-
-    border:
-        1px solid
-        rgba(255,255,255,.065);
-
-    transition:
-        border-color .35s ease,
-        box-shadow .35s ease;
-}
-
-
-.why-pro-node:hover{
-    color:#fff;
-
-    transform:
-        translate(-50%,-50%)
-        scale(1.06);
-}
-
-
-.why-pro-node.is-active{
-    color:#fff;
-
-    border-color:
-        rgba(var(--brand-blue-rgb),.72);
-
-    background:
-        linear-gradient(
-            145deg,
-            #173a61,
-            #07182b
-        );
-
-    box-shadow:
-        0 16px 34px rgba(0,0,0,.35),
-        0 0 0 5px rgba(var(--brand-blue-rgb),.11),
-        0 0 28px rgba(var(--brand-blue-rgb),.28),
-        inset 0 1px 0 rgba(255,255,255,.11);
-
-    transform:
-        translate(-50%,-50%)
-        scale(1.06);
-}
-
-
-.why-pro-node.is-active::before{
-    border-color:
-        rgba(var(--brand-blue-rgb),.35);
-}
-
-
-.why-pro-node.is-gold{
-    border-color:
-        rgba(var(--brand-gold-rgb),.72);
-
-    background:
-        linear-gradient(
-            145deg,
-            #493a1c,
-            #171309
-        );
-
-    box-shadow:
-        0 16px 34px rgba(0,0,0,.35),
-        0 0 0 5px rgba(var(--brand-gold-rgb),.09),
-        0 0 28px rgba(var(--brand-gold-rgb),.18),
-        inset 0 1px 0 rgba(255,255,255,.10);
-}
-
-
-.why-pro-node.is-gold::before{
-    border-color:
-        rgba(var(--brand-gold-rgb),.32);
-}
-
-
-/* ============================================================
-   08. MOVING ORBIT ICON
-   ============================================================ */
-.why-pro-mover{
     position:absolute;
 
     left:0;
     top:0;
 
-    z-index:10;
-
-    width:38px;
-    height:38px;
-
-    display:grid;
-    place-items:center;
-
-    border-radius:50%;
-
-    pointer-events:none;
-
-    background:
-        radial-gradient(
-            circle at 35% 28%,
-            rgba(255,255,255,.18),
-            transparent 34%
-        ),
-        linear-gradient(
-            145deg,
-            #0b57bb,
-            #002c68
-        );
-
-    border:
-        1px solid
-        rgba(98,168,255,.75);
-
-    box-shadow:
-        0 11px 22px rgba(0,0,0,.38),
-        0 0 0 5px rgba(var(--brand-blue-rgb),.10),
-        0 0 25px rgba(var(--brand-blue-rgb),.46);
-}
-
-
-.why-pro-mover.gold{
-    background:
-        radial-gradient(
-            circle at 35% 28%,
-            rgba(255,255,255,.20),
-            transparent 34%
-        ),
-        linear-gradient(
-            145deg,
-            #e0b454,
-            #8e691b
-        );
-
-    border-color:
-        rgba(255,218,132,.82);
-
-    box-shadow:
-        0 11px 22px rgba(0,0,0,.38),
-        0 0 0 5px rgba(var(--brand-gold-rgb),.09),
-        0 0 24px rgba(var(--brand-gold-rgb),.32);
-}
-
-
-.why-pro-mover svg{
-    width:16px;
-    height:16px;
-
-    fill:none;
-
-    stroke:#fff;
-    stroke-width:1.8;
-
-    stroke-linecap:round;
-    stroke-linejoin:round;
-}
-
-
-/* ============================================================
-   09. RIGHT PANEL
-   ============================================================ */
-.why-pro-list{
-    position:relative;
-
-    min-width:0;
-    height:536px;
-
-    display:grid;
-    grid-template-rows:repeat(4,1fr);
-
-    gap:9px;
-
-    padding:14px 14px 14px 20px;
-
-    border-radius:0 23px 23px 0;
+    width:100%;
+    height:2px;
 
     background:
         linear-gradient(
-            145deg,
-            rgba(14,28,42,.76),
-            rgba(7,17,27,.82)
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,.045);
-
-    border-left:0;
-}
-
-
-/* center divider glow */
-.why-pro-list::before{
-    content:"";
-
-    position:absolute;
-
-    left:0;
-    top:8%;
-    bottom:8%;
-
-    width:1px;
-
-    background:
-        linear-gradient(
-            180deg,
+            90deg,
             transparent,
-            rgba(255,255,255,.06),
-            rgba(var(--brand-blue-rgb),.55),
-            rgba(255,255,255,.06),
+            var(--gold),
             transparent
         );
 
-    box-shadow:
-        0 0 15px rgba(var(--brand-blue-rgb),.16);
+    opacity:.75;
 }
 
 
 /* ============================================================
-   10. FEATURE ITEMS
+   ITEM
    ============================================================ */
-.why-pro-item{
-    --accent:var(--brand-blue);
-    --accent-rgb:var(--brand-blue-rgb);
 
+.why-compact-item{
     position:relative;
 
-    min-height:0;
+    min-width:0;
 
-    display:grid;
+    padding:
+        24px
+        23px
+        23px;
 
-    grid-template-columns:50px minmax(0,1fr) 28px;
-
-    align-items:center;
-
-    gap:17px;
-
-    padding:12px 18px 12px 14px;
-
-    overflow:hidden;
-
-    border-radius:15px;
-
-    border:
+    border-right:
         1px solid
-        transparent;
-
-    background:
-        rgba(255,255,255,.012);
+        rgba(255,255,255,.10);
 
     cursor:pointer;
 
     transition:
-        transform .4s var(--ease),
-        border-color .35s ease,
-        background .35s ease,
-        box-shadow .35s ease;
+        background .45s ease,
+        transform .5s var(--ease);
 }
 
 
-.why-pro-item:nth-child(even){
-    --accent:var(--brand-gold);
-    --accent-rgb:var(--brand-gold-rgb);
+.why-compact-item:last-child{
+    border-right:0;
 }
 
 
-/* left accent bar */
-.why-pro-item::before{
-    content:"";
+/* hover */
 
-    position:absolute;
-
-    left:0;
-    top:17%;
-    bottom:17%;
-
-    width:2px;
-
-    border-radius:999px;
-
+.why-compact-item:hover{
     background:
-        var(--accent);
-
-    box-shadow:
-        0 0 15px
-        rgba(var(--accent-rgb),.48);
-
-    transform:scaleY(0);
-
-    opacity:0;
-
-    transition:
-        transform .42s var(--ease),
-        opacity .3s ease;
+        rgba(255,255,255,.025);
 }
 
 
-/* card ambient */
-.why-pro-item::after{
-    content:"";
+/* active */
 
-    position:absolute;
-
-    width:190px;
-    height:190px;
-
-    right:-110px;
-    top:50%;
-
-    transform:translateY(-50%);
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(var(--accent-rgb),.10),
-            transparent 70%
-        );
-
-    opacity:0;
-
-    transition:opacity .35s ease;
-
-    pointer-events:none;
-}
-
-
-.why-pro-item:hover{
-    background:
-        rgba(255,255,255,.028);
-}
-
-
-.why-pro-item.is-active{
-    border-color:
-        rgba(var(--accent-rgb),.23);
-
+.why-compact-item.is-active{
     background:
         linear-gradient(
-            100deg,
-            rgba(var(--accent-rgb),.11),
-            rgba(255,255,255,.042) 43%,
-            rgba(255,255,255,.018)
+            180deg,
+            rgba(215,168,64,.12),
+            rgba(255,255,255,.025)
         );
-
-    box-shadow:
-        0 14px 30px rgba(0,0,0,.18),
-        inset 0 1px 0 rgba(255,255,255,.055);
-
-    transform:translateX(5px);
 }
 
 
-.why-pro-item.is-active::before{
-    opacity:1;
+/* active gold top */
 
-    transform:scaleY(1);
+.why-compact-item::before{
+    content:"";
+
+    position:absolute;
+
+    left:22px;
+    right:22px;
+    top:0;
+
+    height:2px;
+
+    background:var(--gold);
+
+    transform:
+        scaleX(0);
+
+    transform-origin:left;
+
+    transition:
+        transform .6s var(--ease);
 }
 
 
-.why-pro-item.is-active::after{
-    opacity:1;
+.why-compact-item.is-active::before{
+    transform:
+        scaleX(1);
 }
 
 
 /* ============================================================
-   11. FEATURE ICON
+   NUMBER
    ============================================================ */
-.why-pro-icon{
-    position:relative;
-    z-index:2;
 
-    width:46px;
-    height:46px;
+.why-compact-number{
+    position:absolute;
+
+    top:19px;
+    right:18px;
+
+    color:
+        rgba(255,255,255,.07);
+
+    font:
+        650
+        46px/1
+        "Plus Jakarta Sans",
+        sans-serif;
+
+    letter-spacing:-.07em;
+
+    transition:
+        color .4s ease;
+}
+
+
+.why-compact-item.is-active
+.why-compact-number{
+    color:
+        rgba(215,168,64,.15);
+}
+
+
+/* ============================================================
+   ICON
+   ============================================================ */
+
+.why-compact-icon{
+    width:43px;
+    height:43px;
 
     display:grid;
     place-items:center;
 
-    border-radius:13px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.07),
-            rgba(255,255,255,.025)
-        );
+    margin-bottom:44px;
 
     border:
         1px solid
-        rgba(255,255,255,.09);
+        rgba(255,255,255,.15);
 
-    box-shadow:
-        0 9px 20px rgba(0,0,0,.18),
-        inset 0 1px 0 rgba(255,255,255,.055);
+    background:
+        rgba(255,255,255,.035);
+
+    color:
+        rgba(255,255,255,.75);
 
     transition:
-        transform .4s var(--ease),
-        border-color .35s ease,
-        box-shadow .35s ease,
-        background .35s ease;
+        background .45s ease,
+        border-color .45s ease,
+        color .45s ease,
+        transform .45s var(--ease);
 }
 
 
-.why-pro-icon svg{
-    width:19px;
-    height:19px;
+.why-compact-icon svg{
+    width:18px;
+    height:18px;
 
     fill:none;
 
-    stroke:#aeb9c6;
-    stroke-width:1.65;
+    stroke:currentColor;
+    stroke-width:1.6;
 
     stroke-linecap:round;
     stroke-linejoin:round;
-
-    transition:
-        stroke .35s ease,
-        transform .4s var(--ease);
 }
 
 
-.why-pro-item.is-active .why-pro-icon{
-    transform:scale(1.04);
+.why-compact-item.is-active
+.why-compact-icon{
+    background:var(--gold);
 
-    border-color:
-        rgba(var(--accent-rgb),.4);
+    border-color:var(--gold);
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(var(--accent-rgb),.18),
-            rgba(var(--accent-rgb),.055)
-        );
+    color:#111;
 
-    box-shadow:
-        0 11px 22px rgba(0,0,0,.23),
-        0 0 0 4px rgba(var(--accent-rgb),.055),
-        inset 0 1px 0 rgba(255,255,255,.07);
-}
-
-
-.why-pro-item.is-active .why-pro-icon svg{
-    stroke:#fff;
-
-    transform:scale(1.04);
+    transform:
+        translateY(-2px);
 }
 
 
 /* ============================================================
-   12. FEATURE COPY
+   LABEL
    ============================================================ */
-.why-pro-copy{
-    position:relative;
-    z-index:2;
 
-    max-width:470px;
+.why-compact-label{
+    margin-bottom:8px;
+
+    color:
+        rgba(255,255,255,.40);
+
+    font:
+        700
+        6.3px/1
+        "Plus Jakarta Sans",
+        sans-serif;
+
+    letter-spacing:.16em;
+
+    text-transform:uppercase;
 }
 
 
-.why-pro-copy h3{
+.why-compact-item.is-active
+.why-compact-label{
+    color:
+        var(--gold-soft);
+}
+
+
+/* ============================================================
+   TITLE
+   ============================================================ */
+
+.why-compact-item h3{
+    min-height:39px;
+
     margin:0;
 
-    color:#edf2f7;
+    max-width:235px;
 
-    font-family:
+    color:
+        rgba(255,255,255,.91);
+
+    font:
+        600
+        15px/1.28
         "Plus Jakarta Sans",
+        sans-serif;
+
+    letter-spacing:-.025em;
+}
+
+
+/* ============================================================
+   DESCRIPTION
+   ============================================================ */
+
+.why-compact-item p{
+    max-width:245px;
+
+    margin:
+        10px
+        0
+        0;
+
+    color:
+        rgba(255,255,255,.60);
+
+    font:
+        400
+        10px/1.62
         "Inter",
         sans-serif;
 
-    font-size:16px;
-    line-height:1.25;
-
-    font-weight:670;
-
-    letter-spacing:-.025em;
-
     transition:
-        color .3s ease,
-        transform .4s var(--ease);
+        color .35s ease;
 }
 
 
-.why-pro-copy p{
-    margin:7px 0 0;
-
-    max-width:455px;
-
-    color:rgba(205,216,228,.65);
-
-    font-size:11.5px;
-    line-height:1.62;
-
-    font-weight:420;
-
-    transition:
-        color .3s ease;
-}
-
-
-.why-pro-item.is-active .why-pro-copy h3{
-    color:#fff;
-}
-
-
-.why-pro-item.is-active .why-pro-copy p{
-    color:rgba(225,233,241,.82);
+.why-compact-item.is-active p{
+    color:
+        rgba(255,255,255,.77);
 }
 
 
 /* ============================================================
-   13. RIGHT ARROW
+   BOTTOM DETAIL
    ============================================================ */
-.why-pro-arrow{
-    position:relative;
-    z-index:3;
 
-    width:26px;
-    height:26px;
+.why-compact-bottom{
+    display:flex;
 
-    display:grid;
-    place-items:center;
+    align-items:center;
+    justify-content:space-between;
 
-    border-radius:50%;
+    gap:20px;
 
-    border:
-        1px solid
-        rgba(255,255,255,.07);
-
-    color:rgba(255,255,255,.35);
-
-    font-size:13px;
-
-    transition:
-        transform .4s var(--ease),
-        color .3s ease,
-        background .3s ease,
-        border-color .3s ease;
+    margin-top:18px;
 }
 
 
-.why-pro-item.is-active .why-pro-arrow{
-    color:#fff;
+/* count */
 
-    border-color:
-        rgba(var(--accent-rgb),.28);
+.why-compact-count{
+    color:#777973;
+
+    font:
+        700
+        6.2px/1
+        "Plus Jakarta Sans",
+        sans-serif;
+
+    letter-spacing:.12em;
+
+    text-transform:uppercase;
+}
+
+
+/* progress */
+
+.why-compact-progress{
+    position:relative;
+
+    flex:1;
+
+    height:1px;
+
+    max-width:300px;
+
+    overflow:hidden;
 
     background:
-        rgba(var(--accent-rgb),.12);
+        rgba(20,22,22,.12);
+}
 
-    transform:translateX(3px);
+
+.why-compact-progress span{
+    display:block;
+
+    width:25%;
+    height:100%;
+
+    background:var(--gold);
+
+    transition:
+        transform .65s var(--ease);
+}
+
+
+.why-compact-caption{
+    color:#777973;
+
+    font:
+        600
+        6.2px/1
+        "Plus Jakarta Sans",
+        sans-serif;
+
+    letter-spacing:.10em;
+
+    text-transform:uppercase;
 }
 
 
 /* ============================================================
-   14. ENTRY ANIMATIONS
+   ACTIVE CONTENT ANIMATION
    ============================================================ */
-.why-pro.is-visible .why-pro-node{
+
+.why-compact-item.is-active h3,
+.why-compact-item.is-active p{
     animation:
-        whyProNodeIn
-        .75s var(--ease)
-        forwards;
+        compactReveal
+        .45s
+        var(--ease);
 }
 
 
-.why-pro.is-visible .why-pro-node:nth-of-type(1){
-    animation-delay:.10s;
-}
+@keyframes compactReveal{
 
-.why-pro.is-visible .why-pro-node:nth-of-type(2){
-    animation-delay:.20s;
-}
-
-.why-pro.is-visible .why-pro-node:nth-of-type(3){
-    animation-delay:.30s;
-}
-
-.why-pro.is-visible .why-pro-node:nth-of-type(4){
-    animation-delay:.40s;
-}
-
-
-@keyframes whyProNodeIn{
-    0%{
-        opacity:0;
+    from{
+        opacity:.55;
 
         transform:
-            translate(-50%,-50%)
-            scale(.78);
+            translateY(5px);
     }
 
-    100%{
+    to{
         opacity:1;
 
-        transform:
-            translate(-50%,-50%)
-            scale(1);
-    }
-}
-
-
-.why-pro-item.is-active .why-pro-copy{
-    animation:
-        whyTextReveal
-        .48s var(--ease);
-}
-
-
-@keyframes whyTextReveal{
-    0%{
-        opacity:.45;
-        transform:translateY(7px);
+        transform:none;
     }
 
-    100%{
-        opacity:1;
-        transform:translateY(0);
-    }
 }
 
 
 /* ============================================================
-   15. TABLET
+   ENTRY
    ============================================================ */
-@media(max-width:1100px){
 
-    .why-pro{
-        padding:70px 0;
+.why-compact-head,
+.why-compact-band,
+.why-compact-bottom{
+    opacity:0;
+
+    transform:
+        translateY(14px);
+
+    transition:
+        opacity .7s ease,
+        transform .75s var(--ease);
+}
+
+
+.why-compact.is-visible
+.why-compact-head,
+.why-compact.is-visible
+.why-compact-band,
+.why-compact.is-visible
+.why-compact-bottom{
+    opacity:1;
+
+    transform:none;
+}
+
+
+.why-compact.is-visible
+.why-compact-band{
+    transition-delay:.08s;
+}
+
+
+.why-compact.is-visible
+.why-compact-bottom{
+    transition-delay:.14s;
+}
+
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+
+@media(max-width:1000px){
+
+    .why-compact-wrap{
+        width:
+            calc(100% - 40px);
     }
 
-    .why-pro-head{
-        align-items:flex-start;
-    }
 
-    .why-pro-stage{
+    .why-compact-head{
         grid-template-columns:1fr;
+
+        gap:14px;
     }
 
-    .why-pro-orbit{
-        height:500px;
 
-        border-radius:23px 23px 0 0;
+    .why-compact-intro{
+        max-width:560px;
     }
 
-    .why-pro-list{
-        height:auto;
 
-        grid-template-rows:repeat(4,minmax(110px,auto));
+    .why-compact-band{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
 
-        border-radius:0 0 23px 23px;
 
-        border-left:
+    .why-compact-item{
+        min-height:255px;
+    }
+
+
+    .why-compact-item:nth-child(2){
+        border-right:0;
+    }
+
+
+    .why-compact-item:nth-child(-n+2){
+        border-bottom:
             1px solid
-            rgba(255,255,255,.045);
-
-        border-top:0;
-
-        padding:12px;
+            rgba(255,255,255,.10);
     }
 
-    .why-pro-list::before{
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media(max-width:650px){
+
+    .why-compact{
+        padding:
+            54px 0
+            60px;
+    }
+
+
+    .why-compact-wrap{
+        width:
+            calc(100% - 24px);
+    }
+
+
+    .why-compact-title{
+        font-size:30px;
+    }
+
+
+    .why-compact-head{
+        margin-bottom:24px;
+    }
+
+
+    .why-compact-band{
+        grid-template-columns:1fr;
+
+        min-height:0;
+    }
+
+
+    .why-compact-item{
+        min-height:0;
+
+        padding:
+            20px
+            20px
+            21px;
+
+        border-right:0;
+
+        border-bottom:
+            1px solid
+            rgba(255,255,255,.10);
+    }
+
+
+    .why-compact-item:last-child{
+        border-bottom:0;
+    }
+
+
+    .why-compact-icon{
+        width:40px;
+        height:40px;
+
+        margin-bottom:20px;
+    }
+
+
+    .why-compact-item h3{
+        min-height:0;
+
+        font-size:14px;
+    }
+
+
+    .why-compact-item p{
+        max-width:100%;
+
+        font-size:9.8px;
+    }
+
+
+    .why-compact-number{
+        font-size:40px;
+    }
+
+
+    .why-compact-caption{
         display:none;
     }
 
 }
 
-
-/* ============================================================
-   16. MOBILE
-   ============================================================ */
-@media(max-width:720px){
-
-    .why-pro{
-        padding:56px 0 60px;
-    }
-
-    .why-pro-wrap{
-        width:min(calc(100% - 24px),1400px);
-    }
-
-    .why-pro-head{
-        display:block;
-
-        margin-bottom:25px;
-    }
-
-    .why-pro-eyebrow{
-        font-size:8.5px;
-    }
-
-    .why-pro-head h2{
-        font-size:35px;
-        line-height:1;
-    }
-
-    .why-pro-head-copy{
-        margin-top:17px;
-
-        max-width:100%;
-
-        font-size:12px;
-        line-height:1.65;
-    }
-
-    .why-pro-stage{
-        min-height:0;
-
-        padding:7px;
-
-        border-radius:23px;
-    }
-
-    .why-pro-orbit{
-        height:390px;
-
-        border-radius:17px 17px 0 0;
-    }
-
-    .why-pro-core{
-        width:200px;
-        height:200px;
-    }
-
-    .why-pro-core-inner{
-        max-width:156px;
-    }
-
-    .why-pro-core-kicker{
-        font-size:6.5px;
-    }
-
-    .why-pro-core-title{
-        font-size:22px;
-    }
-
-    .why-pro-core-copy{
-        margin-top:10px;
-
-        font-size:9.5px;
-        line-height:1.5;
-    }
-
-    .why-pro-core-line{
-        margin-top:12px;
-    }
-
-    .why-pro-node{
-        width:42px;
-        height:42px;
-
-        font-size:10px;
-    }
-
-    .why-pro-mover{
-        width:29px;
-        height:29px;
-    }
-
-    .why-pro-mover svg{
-        width:12px;
-        height:12px;
-    }
-
-    .why-pro-list{
-        gap:6px;
-
-        padding:8px;
-
-        border-radius:0 0 17px 17px;
-    }
-
-    .why-pro-item{
-        grid-template-columns:42px minmax(0,1fr) 23px;
-
-        gap:12px;
-
-        min-height:104px;
-
-        padding:12px 11px;
-
-        border-radius:13px;
-    }
-
-    .why-pro-item.is-active{
-        transform:none;
-    }
-
-    .why-pro-icon{
-        width:40px;
-        height:40px;
-
-        border-radius:11px;
-    }
-
-    .why-pro-icon svg{
-        width:17px;
-        height:17px;
-    }
-
-    .why-pro-copy h3{
-        font-size:14px;
-    }
-
-    .why-pro-copy p{
-        margin-top:5px;
-
-        font-size:10.5px;
-        line-height:1.55;
-    }
-
-    .why-pro-arrow{
-        width:22px;
-        height:22px;
-
-        font-size:11px;
-    }
-
-}
-
-
-/* ============================================================
-   17. REDUCED MOTION
-   ============================================================ */
-@media(prefers-reduced-motion:reduce){
-
-    .why-pro *,
-    .why-pro *::before,
-    .why-pro *::after{
-        animation-duration:.01ms !important;
-        animation-iteration-count:1 !important;
-
-        transition-duration:.01ms !important;
-    }
-
-}
 </style>
 
 
@@ -5208,797 +4845,418 @@ span:last-child{
      ============================================================ -->
 
 <section
-    class="why-pro"
-    id="whyProSection"
+    class="why-compact"
+    id="whyCompact"
 >
 
-    <div class="why-pro-wrap">
+    <div class="why-compact-wrap">
 
-        <!-- HEADER -->
-        <div class="why-pro-head">
 
-            <div class="why-pro-heading-left">
+        <!-- ====================================================
+             HEADER
+             ==================================================== -->
 
-                <div class="why-pro-eyebrow">
-                    ALPHANUMERIC INNOVATIONS
+        <div class="why-compact-head">
+
+            <div>
+
+                <div class="why-compact-kicker">
+                    Alphanumeric Innovations
                 </div>
 
-                <h2>
-                    Why clients
-                    <span>choose us.</span>
+
+                <h2 class="why-compact-title">
+
+                    Why 
+                    <span>
+                        choose us.
+                    </span>
+
                 </h2>
 
             </div>
 
 
-            <p class="why-pro-head-copy">
-                Practical thinking, reliable execution and
-                future-ready solutions brought together through
-                a disciplined in-house approach.
+            <p class="why-compact-intro">
+
+                Practical thinking, reliable execution
+                and future-ready solutions brought
+                together through a disciplined
+                in-house approach.
+
             </p>
 
         </div>
 
 
-        <!-- MAIN STAGE -->
-        <div class="why-pro-stage">
+
+        <!-- ====================================================
+             PREMIUM BAND
+             ==================================================== -->
+
+        <div class="why-compact-band">
 
 
-            <!-- ==================================================
-                 LEFT — ORBIT
-                 ================================================== -->
-            <div
-                class="why-pro-orbit"
-                id="whyProOrbit"
+            <!-- =================================================
+                 01
+                 ================================================= -->
+
+            <article
+                class="why-compact-item is-active"
+                data-index="0"
             >
 
-
-                <!-- SVG ORBIT -->
-                <div
-                    class="why-pro-svg"
-                    aria-hidden="true"
-                >
-
-                    <svg
-                        id="whyProSvg"
-                        viewBox="0 0 520 520"
-                        preserveAspectRatio="xMidYMid meet"
-                    >
-
-                        <!-- MAIN PATH -->
-                        <circle
-                            id="whyProPath"
-                            class="orbit-ring"
-                            cx="260"
-                            cy="260"
-                            r="181"
-                        />
-
-
-                        <!-- INNER RINGS -->
-                        <circle
-                            class="orbit-ring-inner"
-                            cx="260"
-                            cy="260"
-                            r="154"
-                        />
-
-                        <circle
-                            class="orbit-ring-soft"
-                            cx="260"
-                            cy="260"
-                            r="129"
-                        />
-
-
-                        <!-- ACCENT ARCS -->
-                        <circle
-                            class="orbit-blue"
-                            cx="260"
-                            cy="260"
-                            r="181"
-                        />
-
-                        <circle
-                            class="orbit-gold"
-                            cx="260"
-                            cy="260"
-                            r="181"
-                        />
-
-                    </svg>
-
-                </div>
-
-
-                <!-- CENTER -->
-                <div class="why-pro-core">
-
-                    <div class="why-pro-core-inner">
-
-                        <div class="why-pro-core-kicker">
-                            BUILT WITH PURPOSE
-                        </div>
-
-                        <h3 class="why-pro-core-title">
-                            Built on
-                            <span>4 strengths.</span>
-                        </h3>
-
-                        <div class="why-pro-core-line"></div>
-
-                        <p class="why-pro-core-copy">
-                            Value, reliability,
-                            in-house capability and
-                            future-ready technology.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <!-- MOVING ICON -->
-                <div
-                    class="why-pro-mover"
-                    id="whyProMover"
-                    aria-hidden="true"
-                >
-
-                    <svg
-                        id="whyProMoverIcon"
-                        viewBox="0 0 24 24"
-                    >
-                        <path d="M4 16l4-4 3 3 6-6"/>
-                        <path d="M17 9h3v3"/>
-                    </svg>
-
-                </div>
-
-
-                <!-- ORBIT NODES -->
-
-                <button
-                    class="why-pro-node is-active"
-                    data-index="0"
-                    type="button"
-                    aria-label="Economical"
-                >
+                <span class="why-compact-number">
                     01
-                </button>
+                </span>
 
 
-                <button
-                    class="why-pro-node"
-                    data-index="1"
-                    type="button"
-                    aria-label="Reliable Professional Services"
-                >
-                    02
-                </button>
+                <div class="why-compact-icon">
+
+                    <svg viewBox="0 0 24 24">
+
+                        <path
+                            d="M4 16l4-4 3 3 6-6"
+                        />
+
+                        <path
+                            d="M17 9h3v3"
+                        />
+
+                    </svg>
+
+                </div>
 
 
-                <button
-                    class="why-pro-node"
-                    data-index="2"
-                    type="button"
-                    aria-label="In-House Innovation Design and Manufacturing"
-                >
-                    03
-                </button>
+                <div class="why-compact-label">
+                    Advanced Technology 
+                </div>
 
 
-                <button
-                    class="why-pro-node"
-                    data-index="3"
-                    type="button"
-                    aria-label="Scientific Approach Advanced Technology"
-                >
-                    04
-                </button>
+                <h3>
+                    Economical
+                </h3>
 
-            </div>
+
+                <p>
+
+                    Smart Technology Selected to Long-Lasting Value Customer-Centric Economy
+
+                </p>
+
+            </article>
 
 
 
-            <!-- ==================================================
-                 RIGHT — CONTENT
-                 ================================================== -->
-            <div
-                class="why-pro-list"
-                id="whyProList"
+            <!-- =================================================
+                 02
+                 ================================================= -->
+
+            <article
+                class="why-compact-item"
+                data-index="1"
             >
 
-
-                <!-- ITEM 01 -->
-                <article
-                    class="why-pro-item is-active"
-                    data-index="0"
-                >
-
-                    <div class="why-pro-icon">
-
-                        <svg viewBox="0 0 24 24">
-                            <path d="M4 16l4-4 3 3 6-6"/>
-                            <path d="M17 9h3v3"/>
-                        </svg>
-
-                    </div>
+                <span class="why-compact-number">
+                    02
+                </span>
 
 
-                    <div class="why-pro-copy">
+                <div class="why-compact-icon">
 
-                        <h3>
-                            Economical
-                        </h3>
+                    <svg viewBox="0 0 24 24">
 
-                        <p>
-                            Smart technology selected to deliver
-                            long-term value, dependable performance
-                            and commercially practical solutions.
-                        </p>
+                        <path d="M5 12h14"/>
 
-                    </div>
+                        <path
+                            d="M8 8l-3 4 3 4"
+                        />
 
+                        <path
+                            d="M16 8l3 4-3 4"
+                        />
 
-                    <div class="why-pro-arrow">
-                        ↗
-                    </div>
+                    </svg>
 
-                </article>
+                </div>
 
 
-
-                <!-- ITEM 02 -->
-                <article
-                    class="why-pro-item"
-                    data-index="1"
-                >
-
-                    <div class="why-pro-icon">
-
-                        <svg viewBox="0 0 24 24">
-                            <path d="M5 12h14"/>
-                            <path d="M8 8l-3 4 3 4"/>
-                            <path d="M16 8l3 4-3 4"/>
-                        </svg>
-
-                    </div>
+                <div class="why-compact-label">
+                    Reliable
+                </div>
 
 
-                    <div class="why-pro-copy">
-
-                        <h3>
-                            Reliable Professional Services
-                        </h3>
-
-                        <p>
-                            Structured planning, detailed execution
-                            and consistent project support from
-                            initial coordination through completion.
-                        </p>
-
-                    </div>
+                <h3>
+                    Professional Services
+                </h3>
 
 
-                    <div class="why-pro-arrow">
-                        ↗
-                    </div>
+                <p>
 
-                </article>
+                   Strategic planning throughout the project at the micro level and Continuous support throughout the project.
+
+                </p>
+
+            </article>
 
 
 
-                <!-- ITEM 03 -->
-                <article
-                    class="why-pro-item"
-                    data-index="2"
-                >
+            <!-- =================================================
+                 03
+                 ================================================= -->
 
-                    <div class="why-pro-icon">
+            <article
+                class="why-compact-item"
+                data-index="2"
+            >
 
-                        <svg viewBox="0 0 24 24">
-                            <rect
-                                x="4"
-                                y="5"
-                                width="16"
-                                height="14"
-                                rx="2"
-                            />
-                            <path d="M8 9h8"/>
-                            <path d="M8 13h3"/>
-                            <path d="M15 13h1"/>
-                        </svg>
-
-                    </div>
+                <span class="why-compact-number">
+                    03
+                </span>
 
 
-                    <div class="why-pro-copy">
+                <div class="why-compact-icon">
 
-                        <h3>
-                            In-House Innovation, Design &amp; Manufacturing
-                        </h3>
+                    <svg viewBox="0 0 24 24">
 
-                        <p>
-                            From concept and design to development
-                            and manufacturing, our in-house capability
-                            supports better control and customization.
-                        </p>
+                        <rect
+                            x="4"
+                            y="5"
+                            width="16"
+                            height="14"
+                            rx="2"
+                        />
 
-                    </div>
+                        <path d="M8 9h8"/>
 
+                        <path d="M8 13h3"/>
 
-                    <div class="why-pro-arrow">
-                        ↗
-                    </div>
+                        <path d="M15 13h1"/>
 
-                </article>
+                    </svg>
 
-
-
-                <!-- ITEM 04 -->
-                <article
-                    class="why-pro-item"
-                    data-index="3"
-                >
-
-                    <div class="why-pro-icon">
-
-                        <svg viewBox="0 0 24 24">
-
-                            <path
-                                d="
-                                M12 3
-                                l7 4
-                                v5
-                                c0 4.4-2.8 7-7 9
-                                c-4.2-2-7-4.6-7-9
-                                V7
-                                l7-4z
-                                "
-                            />
-
-                            <path d="M9 12l2 2 4-4"/>
-
-                        </svg>
-
-                    </div>
+                </div>
 
 
-                    <div class="why-pro-copy">
-
-                        <h3>
-                            Scientific Approach &amp; Advanced Technology
-                        </h3>
-
-                        <p>
-                            Analysis, technical logic and modern
-                            technology guide scalable, efficient
-                            and future-ready project solutions.
-                        </p>
-
-                    </div>
+                <div class="why-compact-label">
+                    In-House
+                </div>
 
 
-                    <div class="why-pro-arrow">
-                        ↗
-                    </div>
+                <h3>
+                  
+Innovation Design & Manufacturing
+                    
+                </h3>
 
-                </article>
 
-            </div>
+                <p>
+
+                    From concept and design to development and manufacturing, our in-house capability enables better control and Superiority customization.
+
+                </p>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 04
+                 ================================================= -->
+
+            <article
+                class="why-compact-item"
+                data-index="3"
+            >
+
+                <span class="why-compact-number">
+                    04
+                </span>
+
+
+                <div class="why-compact-icon">
+
+                    <svg viewBox="0 0 24 24">
+
+                        <path
+                            d="
+                            M12 3
+                            l7 4
+                            v5
+                            c0 4.4-2.8 7-7 9
+                            c-4.2-2-7-4.6-7-9
+                            V7
+                            l7-4z
+                            "
+                        />
+
+                        <path
+                            d="M9 12l2 2 4-4"
+                        />
+
+                    </svg>
+
+                </div>
+
+
+                <div class="why-compact-label">
+                    Scientific Approach
+                </div>
+
+
+                <h3>
+                   
+Advanced Technology
+                </h3>
+
+
+                <p>
+
+                  Analysis, technical logic and forward thinking guide solutions that are scalable, efficient and future-ready.
+
+                </p>
+
+            </article>
+
 
         </div>
+
+
+
+        <!-- ====================================================
+             SMALL BOTTOM CONTROL
+             ==================================================== -->
+
+        <div class="why-compact-bottom">
+
+
+            <div
+                class="why-compact-count"
+                id="whyCompactCount"
+            >
+                01 / 04
+            </div>
+
+
+            <div class="why-compact-progress">
+
+                <span
+                    id="whyCompactProgress"
+                ></span>
+
+            </div>
+
+
+            <div class="why-compact-caption">
+                Four core strengths
+            </div>
+
+
+        </div>
+
 
     </div>
 
 </section>
 
 
-<!-- ============================================================
-     JAVASCRIPT
-     ============================================================ -->
-
 <script>
+
 (() => {
 
     const section =
-        document.getElementById("whyProSection");
-
-    const orbit =
-        document.getElementById("whyProOrbit");
-
-    const path =
-        document.getElementById("whyProPath");
-
-    const mover =
-        document.getElementById("whyProMover");
-
-    const moverIcon =
-        document.getElementById("whyProMoverIcon");
+        document.getElementById(
+            "whyCompact"
+        );
 
 
-    if(
-        !section ||
-        !orbit ||
-        !path ||
-        !mover ||
-        !moverIcon
-    ){
+    if(!section){
         return;
     }
 
 
-    const nodes =
-        [...section.querySelectorAll(".why-pro-node")];
-
-    const items =
-        [...section.querySelectorAll(".why-pro-item")];
-
-
-    /* ========================================================
-       NODE LOCATIONS AROUND ORBIT
-       ======================================================== */
-
-    const stops = [
-        .76,
-        .91,
-        .08,
-        .25
+    const items = [
+        ...section.querySelectorAll(
+            ".why-compact-item"
+        )
     ];
 
 
-    /* ========================================================
-       MOVING ICONS
-       ======================================================== */
-
-    const icons = [
-
-        `
-        <path d="M4 16l4-4 3 3 6-6"/>
-        <path d="M17 9h3v3"/>
-        `,
-
-        `
-        <path d="M5 12h14"/>
-        <path d="M8 8l-3 4 3 4"/>
-        <path d="M16 8l3 4-3 4"/>
-        `,
-
-        `
-        <rect
-            x="4"
-            y="5"
-            width="16"
-            height="14"
-            rx="2"
-        />
-        <path d="M8 9h8"/>
-        <path d="M8 13h3"/>
-        <path d="M15 13h1"/>
-        `,
-
-        `
-        <path
-            d="
-            M12 3
-            l7 4
-            v5
-            c0 4.4-2.8 7-7 9
-            c-4.2-2-7-4.6-7-9
-            V7
-            l7-4z
-            "
-        />
-        <path d="M9 12l2 2 4-4"/>
-        `
-
-    ];
-
-
-    let current = 0;
-
-    let autoTimer = null;
-
-    let animationFrame = null;
-
-    let started = false;
-
-
-    const holdTime = 3900;
-
-    const travelTime = 920;
-
-
-    /* ========================================================
-       GET TRUE SVG POINT
-       Works correctly even with preserveAspectRatio
-       ======================================================== */
-
-    function getPoint(progress){
-
-        const total =
-            path.getTotalLength();
-
-        const point =
-            path.getPointAtLength(
-                total * progress
-            );
-
-
-        const svgPoint =
-            path.ownerSVGElement.createSVGPoint();
-
-        svgPoint.x = point.x;
-        svgPoint.y = point.y;
-
-
-        const matrix =
-            path.getScreenCTM();
-
-
-        if(!matrix){
-            return {
-                x:orbit.clientWidth / 2,
-                y:orbit.clientHeight / 2
-            };
-        }
-
-
-        const screenPoint =
-            svgPoint.matrixTransform(matrix);
-
-
-        const orbitRect =
-            orbit.getBoundingClientRect();
-
-
-        return {
-
-            x:
-                screenPoint.x -
-                orbitRect.left,
-
-            y:
-                screenPoint.y -
-                orbitRect.top
-
-        };
-
-    }
-
-
-    /* ========================================================
-       PLACE NODES
-       ======================================================== */
-
-    function layoutNodes(){
-
-        nodes.forEach(
-            (node,index) => {
-
-                const point =
-                    getPoint(stops[index]);
-
-
-                node.style.left =
-                    `${point.x}px`;
-
-                node.style.top =
-                    `${point.y}px`;
-
-            }
-        );
-
-    }
-
-
-    /* ========================================================
-       PLACE MOVING INDICATOR
-       ======================================================== */
-
-    function placeMover(progress){
-
-        const point =
-            getPoint(progress);
-
-
-        mover.style.transform =
-            `translate(
-                ${point.x - mover.offsetWidth / 2}px,
-                ${point.y - mover.offsetHeight / 2}px
-            )`;
-
-    }
-
-
-    /* ========================================================
-       ANIMATE MOVING INDICATOR
-       ======================================================== */
-
-    function moveMover(from,to){
-
-        cancelAnimationFrame(
-            animationFrame
+    const progress =
+        document.getElementById(
+            "whyCompactProgress"
         );
 
 
-        let startProgress = from;
-        let endProgress = to;
+    const count =
+        document.getElementById(
+            "whyCompactCount"
+        );
 
 
-        /* smooth circular wrap */
-        if(
-            endProgress <
-            startProgress - .5
-        ){
-            endProgress += 1;
-        }
+    let current =
+        0;
 
 
-        if(
-            endProgress >
-            startProgress + .5
-        ){
-            startProgress += 1;
-        }
+    let timer =
+        null;
 
 
-        const startTime =
-            performance.now();
+    const duration =
+        3400;
 
-
-        function frame(now){
-
-            const elapsed =
-                Math.min(
-                    (now - startTime) /
-                    travelTime,
-                    1
-                );
-
-
-            /*
-             Premium easing
-            */
-            const eased =
-                1 -
-                Math.pow(
-                    1 - elapsed,
-                    4
-                );
-
-
-            let progress =
-                startProgress +
-                (
-                    endProgress -
-                    startProgress
-                ) *
-                eased;
-
-
-            progress =
-                (
-                    (progress % 1) + 1
-                ) % 1;
-
-
-            placeMover(progress);
-
-
-            if(elapsed < 1){
-
-                animationFrame =
-                    requestAnimationFrame(
-                        frame
-                    );
-
-            }
-
-        }
-
-
-        animationFrame =
-            requestAnimationFrame(
-                frame
-            );
-
-    }
 
 
     /* ========================================================
-       SET ACTIVE ITEM
+       SET ACTIVE
        ======================================================== */
 
     function setActive(
         index,
-        restartAuto = true
+        restart = true
     ){
 
-        if(index === current){
-
-            if(restartAuto){
-                startAuto();
-            }
-
-            return;
-        }
+        current =
+            Number(index);
 
 
-        const previous =
-            current;
-
-
-        moveMover(
-            stops[previous],
-            stops[index]
-        );
-
-
-        current = index;
-
-
-        /* NODES */
-        nodes.forEach(
-            (node,i) => {
-
-                node.classList.toggle(
-                    "is-active",
-                    i === index
-                );
-
-
-                node.classList.toggle(
-                    "is-gold",
-                    i === index &&
-                    i % 2 === 1
-                );
-
-            }
-        );
-
-
-        /* ITEMS */
         items.forEach(
             (item,i) => {
 
                 item.classList.toggle(
                     "is-active",
-                    i === index
+                    i === current
                 );
 
             }
         );
 
 
-        /* MOVING INDICATOR COLOR */
-        mover.classList.toggle(
-            "gold",
-            index % 2 === 1
-        );
+        progress.style.transform =
+            `translateX(${current * 100}%)`;
 
 
-        /* MOVING INDICATOR ICON */
-        moverIcon.innerHTML =
-            icons[index];
+        count.textContent =
+            `${String(current + 1).padStart(2,"0")} / 04`;
 
 
-        if(restartAuto){
+        if(restart){
             startAuto();
         }
 
     }
 
 
+
     /* ========================================================
-       NEXT ITEM
+       NEXT
        ======================================================== */
 
     function next(){
 
         setActive(
-            (current + 1) %
+            (current + 1)
+            %
             items.length,
             false
         );
@@ -6006,74 +5264,51 @@ span:last-child{
     }
 
 
+
     /* ========================================================
-       AUTO PLAY
+       AUTO
        ======================================================== */
 
     function startAuto(){
 
-        clearInterval(
-            autoTimer
-        );
+        clearInterval(timer);
 
 
-        autoTimer =
+        timer =
             setInterval(
                 next,
-                holdTime
+                duration
             );
 
     }
 
 
-    function pauseAuto(){
+    function stopAuto(){
 
-        clearInterval(
-            autoTimer
-        );
+        clearInterval(timer);
 
     }
 
 
-    /* ========================================================
-       NODE CLICK
-       ======================================================== */
-
-    nodes.forEach(
-        (node,index) => {
-
-            node.addEventListener(
-                "click",
-                () => {
-
-                    setActive(
-                        index,
-                        true
-                    );
-
-                }
-            );
-
-        }
-    );
-
 
     /* ========================================================
-       ITEM INTERACTION
+       INTERACTION
        ======================================================== */
 
     items.forEach(
         (item,index) => {
+
 
             item.addEventListener(
                 "mouseenter",
                 () => {
 
                     if(
-                        window.innerWidth > 720
+                        window.innerWidth >
+                        650
                     ){
 
-                        pauseAuto();
+                        stopAuto();
 
                         setActive(
                             index,
@@ -6098,104 +5333,36 @@ span:last-child{
                 }
             );
 
+
         }
     );
 
 
-    /* restart after leaving list */
-    const list =
-        document.getElementById(
-            "whyProList"
-        );
-
-
-    if(list){
-
-        list.addEventListener(
+    section
+        .querySelector(
+            ".why-compact-band"
+        )
+        .addEventListener(
             "mouseleave",
             () => {
 
                 if(
-                    window.innerWidth > 720
+                    window.innerWidth >
+                    650
                 ){
+
                     startAuto();
+
                 }
 
             }
         );
 
-    }
 
 
     /* ========================================================
-       RESIZE
+       ENTRY
        ======================================================== */
-
-    let resizeTimer;
-
-
-    window.addEventListener(
-        "resize",
-        () => {
-
-            clearTimeout(
-                resizeTimer
-            );
-
-
-            resizeTimer =
-                setTimeout(
-                    () => {
-
-                        layoutNodes();
-
-                        placeMover(
-                            stops[current]
-                        );
-
-                    },
-                    80
-                );
-
-        }
-    );
-
-
-    /* ========================================================
-       INITIAL VIEW ANIMATION
-       ======================================================== */
-
-    function initialize(){
-
-        if(started){
-            return;
-        }
-
-
-        started = true;
-
-
-        section.classList.add(
-            "is-visible"
-        );
-
-
-        requestAnimationFrame(
-            () => {
-
-                layoutNodes();
-
-                placeMover(
-                    stops[0]
-                );
-
-                startAuto();
-
-            }
-        );
-
-    }
-
 
     if(
         "IntersectionObserver"
@@ -6204,6 +5371,7 @@ span:last-child{
 
         const observer =
             new IntersectionObserver(
+
                 entries => {
 
                     entries.forEach(
@@ -6213,7 +5381,14 @@ span:last-child{
                                 entry.isIntersecting
                             ){
 
-                                initialize();
+                                section
+                                    .classList
+                                    .add(
+                                        "is-visible"
+                                    );
+
+
+                                startAuto();
 
                                 observer.disconnect();
 
@@ -6223,9 +5398,11 @@ span:last-child{
                     );
 
                 },
+
                 {
                     threshold:.15
                 }
+
             );
 
 
@@ -6236,11 +5413,16 @@ span:last-child{
     }
     else{
 
-        initialize();
+        section.classList.add(
+            "is-visible"
+        );
+
+        startAuto();
 
     }
 
 })();
+
 </script>
 
 

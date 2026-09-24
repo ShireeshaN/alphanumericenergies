@@ -6269,3 +6269,2069 @@ document.addEventListener("DOMContentLoaded", () => {
 
 })();
 </script>
+
+
+
+
+
+<!-- ============================================================
+     PREMIUM HERO
+     POWER FIRST → ENERGY SECOND
+     
+     POWER ANIMATION:
+     OFF → LT → HT → EHT → UHT → ENERGY
+     
+     IMAGE SIZE:
+     1935 × 813
+     
+     REQUIRED IMAGES:
+     assets/images/banners/power-off.png
+     assets/images/banners/power-on.png
+     assets/images/banners/reneableenergys1.png
+     ============================================================ -->
+
+<style>
+
+/* ============================================================
+   HERO
+   ============================================================ */
+
+.hero-premium{
+    --accent:#2c8efe;
+    --accent-rgb:44,142,254;
+    --ease:cubic-bezier(.16,1,.3,1);
+
+    position:relative;
+    width:100%;
+    height:min(813px, calc(100vw * 813 / 1935));
+    min-height:560px;
+
+    overflow:hidden;
+    isolation:isolate;
+
+    background:#030609;
+    color:#fff;
+
+    font-family:"Inter",sans-serif;
+}
+
+
+/* ENERGY COLOR */
+
+.hero-premium[data-mode="energy"]{
+    --accent:#ffd45c;
+    --accent-rgb:255,212,92;
+}
+
+
+/* ============================================================
+   IMAGE STAGE
+   ============================================================ */
+
+.hero-media{
+    position:absolute;
+    inset:-2px;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            #071019 0%,
+            #030609 100%
+        );
+}
+
+
+/* ALL IMAGES */
+
+.hero-media img{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    display:block;
+
+    /* FILL THE COMPLETE HERO — NO BLACK LETTERBOX AREA */
+    object-fit:cover;
+    object-position:center center;
+
+    user-select:none;
+    pointer-events:none;
+}
+
+
+/* ============================================================
+   POWER — OFF IMAGE
+   ============================================================ */
+
+.power-off{
+    z-index:1;
+
+    opacity:1;
+
+    transition:
+        opacity 1.2s ease,
+        filter 1.2s ease,
+        transform 8s ease;
+
+    /* tiny overscan avoids any edge / top gap */
+    transform:scale(1.025);
+}
+
+
+/* ============================================================
+   POWER — ON IMAGE
+   Progressive soft reveal
+   ============================================================ */
+
+.power-on{
+    --reveal:0%;
+
+    z-index:2;
+
+    opacity:1;
+
+    -webkit-mask-image:
+        linear-gradient(
+            90deg,
+            #000 0%,
+            #000 calc(100% - 100px),
+            transparent 100%
+        );
+
+    mask-image:
+        linear-gradient(
+            90deg,
+            #000 0%,
+            #000 calc(100% - 100px),
+            transparent 100%
+        );
+
+    -webkit-mask-repeat:no-repeat;
+    mask-repeat:no-repeat;
+
+    -webkit-mask-position:left center;
+    mask-position:left center;
+
+    -webkit-mask-size:
+        var(--reveal) 100%;
+
+    mask-size:
+        var(--reveal) 100%;
+
+    /* match the OFF frame perfectly and overscan the edges */
+    transform:scale(1.025);
+    transform-origin:center center;
+
+    transition:
+        -webkit-mask-size 1.25s var(--ease),
+        mask-size 1.25s var(--ease),
+        opacity .8s ease,
+        transform 8s ease;
+}
+
+
+/* LT */
+
+.hero-premium[data-power-stage="1"] .power-on{
+    --reveal:24%;
+}
+
+
+/* HT */
+
+.hero-premium[data-power-stage="2"] .power-on{
+    --reveal:46%;
+}
+
+
+/* EHT */
+
+.hero-premium[data-power-stage="3"] .power-on{
+    --reveal:74%;
+}
+
+
+/* UHT */
+
+.hero-premium[data-power-stage="4"] .power-on{
+    --reveal:106%;
+}
+
+
+/* ============================================================
+   ENERGY IMAGE
+   ============================================================ */
+
+.energy-image{
+    z-index:4;
+
+    opacity:0;
+
+    transform:scale(1.025);
+
+    transition:
+        opacity 1.35s ease,
+        transform 7s ease;
+}
+
+
+.hero-premium[data-mode="energy"]
+.energy-image{
+    opacity:1;
+    transform:scale(1.055);
+}
+
+
+/* ============================================================
+   CINEMATIC OVERLAYS
+   ============================================================ */
+
+.hero-shade{
+    position:absolute;
+    inset:0;
+
+    z-index:10;
+
+    pointer-events:none;
+
+    /*
+       1) strong readable left-side shade for content
+       2) soft top shadow to blend navbar into the image
+       3) gentle bottom cinematic finish
+       No hard black strip.
+    */
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(1,4,8,.80) 0%,
+            rgba(1,4,8,.58) 23%,
+            rgba(1,4,8,.22) 48%,
+            rgba(1,4,8,.04) 72%,
+            rgba(1,4,8,.08) 100%
+        ),
+
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.40) 0%,
+            rgba(0,0,0,.18) 8%,
+            rgba(0,0,0,.05) 18%,
+            transparent 30%
+        ),
+
+        linear-gradient(
+            0deg,
+            rgba(0,0,0,.44) 0%,
+            rgba(0,0,0,.15) 12%,
+            transparent 27%
+        );
+}
+
+
+/* top subtle vignette */
+
+.hero-shade::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle at 75% 45%,
+            rgba(var(--accent-rgb),.045),
+            transparent 38%
+        );
+
+    transition:background .8s ease;
+}
+
+
+/* soft top edge blend — hides any remaining image edge naturally */
+.hero-shade::after{
+    content:"";
+
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+
+    height:88px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(2,6,10,.34) 0%,
+            rgba(2,6,10,.12) 46%,
+            transparent 100%
+        );
+
+    pointer-events:none;
+}
+
+
+/* ============================================================
+   POWER MOVING ENERGY GLOW
+   ============================================================ */
+
+.power-energy-wave{
+    position:absolute;
+
+    z-index:11;
+
+    top:0;
+    bottom:0;
+
+    left:-15%;
+
+    width:14%;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    background:
+        linear-gradient(
+            105deg,
+            transparent,
+            rgba(255,255,255,.01),
+            rgba(var(--accent-rgb),.10),
+            rgba(255,255,255,.16),
+            rgba(var(--accent-rgb),.08),
+            transparent
+        );
+
+    filter:blur(12px);
+
+    transform:skewX(-10deg);
+}
+
+
+.hero-premium[data-mode="power"]
+.power-energy-wave{
+    animation:
+        powerEnergySweep
+        4.8s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes powerEnergySweep{
+
+    0%{
+        left:-20%;
+        opacity:0;
+    }
+
+    18%{
+        opacity:.35;
+    }
+
+    78%{
+        opacity:.22;
+    }
+
+    100%{
+        left:112%;
+        opacity:0;
+    }
+}
+
+
+/* ============================================================
+   CONTENT
+   ============================================================ */
+
+.hero-container{
+    position:relative;
+
+    z-index:30;
+
+    width:min(1380px, calc(100% - 72px));
+    height:100%;
+
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+}
+
+
+.hero-content{
+    width:min(570px,48vw);
+
+    padding-top:35px;
+}
+
+
+/* KICKER */
+
+.hero-kicker{
+    display:flex;
+    align-items:center;
+
+    gap:11px;
+
+    margin-bottom:19px;
+
+    color:rgba(255,255,255,.58);
+
+    font-size:10px;
+    font-weight:650;
+
+    letter-spacing:.22em;
+    text-transform:uppercase;
+}
+
+
+/* .hero-kicker-dot{
+    width:6px;
+    height:6px;
+
+    border-radius:50%;
+
+    background:var(--accent);
+
+    box-shadow:
+        0 0 12px rgba(var(--accent-rgb),.9),
+        0 0 28px rgba(var(--accent-rgb),.4);
+} */
+
+
+/* TITLE */
+
+.hero-title{
+    margin:0;
+
+    max-width:580px;
+
+    font-family:"Plus Jakarta Sans",sans-serif;
+
+    font-size:
+        clamp(34px,3.25vw,58px);
+
+    font-weight:700;
+
+    line-height:.99;
+
+    letter-spacing:-.055em;
+
+    color:#fff;
+}
+
+
+.hero-title .soft{
+    display:block;
+
+    margin-top:8px;
+
+    color:rgba(255,255,255,.60);
+
+    font-weight:500;
+}
+
+
+/* DESCRIPTION */
+
+.hero-description{
+    width:min(475px,100%);
+
+    margin:
+        21px
+        0
+        0;
+
+    color:rgba(255,255,255,.60);
+
+    font-size:12px;
+    font-weight:400;
+
+    line-height:1.75;
+}
+
+
+/* ============================================================
+   STAGE VALUE
+   ============================================================ */
+
+.power-value-wrap{
+    display:flex;
+    align-items:flex-end;
+
+    gap:14px;
+
+    margin-top:30px;
+
+    min-height:61px;
+}
+
+
+.power-code{
+    font-family:"Plus Jakarta Sans",sans-serif;
+
+    font-size:32px;
+    font-weight:750;
+
+    line-height:1;
+
+    letter-spacing:-.04em;
+
+    color:#fff;
+}
+
+
+.power-voltage{
+    padding-bottom:3px;
+
+    color:rgba(255,255,255,.65);
+
+    font-size:12px;
+    font-weight:550;
+
+    letter-spacing:.02em;
+}
+
+
+/* text transition */
+
+.hero-content.is-changing
+.hero-kicker{
+    animation:
+        heroSmallReveal
+        .72s
+        var(--ease);
+}
+
+
+.hero-content.is-changing
+.hero-title{
+    animation:
+        heroTitleReveal
+        .86s
+        var(--ease);
+}
+
+
+.hero-content.is-changing
+.hero-description{
+    animation:
+        heroTextReveal
+        1s
+        var(--ease);
+}
+
+
+.hero-content.is-changing
+.power-value-wrap{
+    animation:
+        heroValueReveal
+        .82s
+        var(--ease);
+}
+
+
+@keyframes heroTitleReveal{
+
+    0%{
+        opacity:0;
+
+        transform:
+            translateY(26px);
+
+        filter:blur(8px);
+    }
+
+    100%{
+        opacity:1;
+
+        transform:none;
+
+        filter:blur(0);
+    }
+}
+
+
+@keyframes heroTextReveal{
+
+    0%{
+        opacity:0;
+        transform:translateY(13px);
+    }
+
+    100%{
+        opacity:1;
+        transform:none;
+    }
+}
+
+
+@keyframes heroSmallReveal{
+
+    0%{
+        opacity:0;
+        transform:translateY(-8px);
+    }
+
+    100%{
+        opacity:1;
+        transform:none;
+    }
+}
+
+
+@keyframes heroValueReveal{
+
+    0%{
+        opacity:0;
+
+        transform:
+            translateX(-16px);
+
+        filter:blur(5px);
+    }
+
+    100%{
+        opacity:1;
+
+        transform:none;
+
+        filter:blur(0);
+    }
+}
+
+
+/* ============================================================
+   POWER STAGE NAV
+   ============================================================ */
+
+.power-stage-nav{
+    position:absolute;
+
+    z-index:40;
+
+    right:max(
+        34px,
+        calc(
+            (
+                100vw -
+                min(1380px, calc(100% - 72px))
+            ) / 2
+        )
+    );
+
+    bottom:42px;
+
+    display:flex;
+    align-items:center;
+
+    gap:7px;
+
+    transition:
+        opacity .5s ease,
+        transform .5s ease;
+}
+
+
+.hero-premium[data-mode="energy"]
+.power-stage-nav{
+    opacity:0;
+
+    pointer-events:none;
+
+    transform:
+        translateY(10px);
+}
+
+
+/* STAGE BUTTON */
+
+.power-stage{
+    position:relative;
+
+    min-width:76px;
+
+    padding:
+        11px
+        13px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.10);
+
+    border-radius:8px;
+
+    outline:0;
+
+    background:
+        rgba(5,10,16,.34);
+
+    backdrop-filter:
+        blur(14px);
+
+    -webkit-backdrop-filter:
+        blur(14px);
+
+    color:
+        rgba(255,255,255,.43);
+
+    cursor:pointer;
+
+    text-align:left;
+
+    transition:
+        background .45s ease,
+        border-color .45s ease,
+        transform .45s var(--ease),
+        color .45s ease;
+}
+
+
+.power-stage:hover{
+    color:#fff;
+
+    border-color:
+        rgba(255,255,255,.25);
+}
+
+
+.power-stage.active{
+    color:#fff;
+
+    background:
+        rgba(
+            var(--accent-rgb),
+            .13
+        );
+
+    border-color:
+        rgba(
+            var(--accent-rgb),
+            .48
+        );
+
+    transform:
+        translateY(-4px);
+}
+
+
+.power-stage strong{
+    display:block;
+
+    font-family:
+        "Plus Jakarta Sans",
+        sans-serif;
+
+    font-size:12px;
+
+    line-height:1;
+
+    letter-spacing:.06em;
+}
+
+
+.power-stage small{
+    display:block;
+
+    margin-top:6px;
+
+    font-size:8.5px;
+
+    color:
+        rgba(255,255,255,.48);
+
+    white-space:nowrap;
+}
+
+
+.power-stage.active small{
+    color:
+        rgba(255,255,255,.72);
+}
+
+
+/* ACTIVE LIGHT */
+
+.power-stage::before{
+    content:"";
+
+    position:absolute;
+
+    left:12px;
+    right:12px;
+    bottom:-1px;
+
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--accent),
+            #fff,
+            var(--accent),
+            transparent
+        );
+
+    transform:
+        scaleX(.15);
+
+    opacity:0;
+
+    transition:
+        opacity .4s ease,
+        transform .6s var(--ease);
+
+    box-shadow:
+        0 0 10px
+        rgba(var(--accent-rgb),.8);
+}
+
+
+.power-stage.active::before{
+    opacity:1;
+    transform:scaleX(1);
+}
+
+
+/* ============================================================
+   POWER / ENERGY SWITCH
+   ============================================================ */
+
+.hero-mode-switch{
+    position:absolute;
+
+    z-index:45;
+
+    top:auto;
+
+    bottom:32px;
+
+    right:max(
+        34px,
+        calc(
+            (
+                100vw -
+                min(1380px, calc(100% - 72px))
+            ) / 2
+        )
+    );
+
+    display:flex;
+
+    padding:4px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    border-radius:999px;
+
+    background:
+        rgba(3,7,12,.30);
+
+    backdrop-filter:
+        blur(14px);
+
+    -webkit-backdrop-filter:
+        blur(14px);
+}
+
+
+.mode-button{
+    position:relative;
+
+    border:0;
+    outline:0;
+
+    padding:
+        9px
+        15px;
+
+    border-radius:999px;
+
+    background:transparent;
+
+    color:
+        rgba(255,255,255,.43);
+
+    cursor:pointer;
+
+    font-size:9px;
+    font-weight:700;
+
+    letter-spacing:.14em;
+
+    transition:
+        color .4s ease,
+        background .4s ease,
+        box-shadow .4s ease;
+}
+
+
+.mode-button.active{
+    color:#fff;
+
+    background:
+        rgba(255,255,255,.10);
+
+    box-shadow:
+        inset 0 0 0 1px
+        rgba(255,255,255,.05);
+}
+
+
+/* ============================================================
+   ENERGY SERVICES
+   ============================================================ */
+
+.energy-services{
+    display:flex;
+
+    gap:8px;
+
+    margin-top:29px;
+
+    opacity:0;
+
+    transform:
+        translateY(10px);
+
+    pointer-events:none;
+
+    transition:
+        opacity .7s ease,
+        transform .7s var(--ease);
+}
+
+
+.hero-premium[data-mode="energy"]
+.energy-services{
+    opacity:1;
+    transform:none;
+}
+
+
+.energy-service{
+    padding:
+        8px
+        12px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.13);
+
+    border-radius:999px;
+
+    background:
+        rgba(0,0,0,.18);
+
+    backdrop-filter:
+        blur(10px);
+
+    -webkit-backdrop-filter:
+        blur(10px);
+
+    color:
+        rgba(255,255,255,.72);
+
+    font-size:9px;
+
+    letter-spacing:.04em;
+
+    opacity:0;
+
+    transform:
+        translateY(10px);
+}
+
+
+.hero-premium[data-mode="energy"]
+.energy-service:nth-child(1){
+    animation:
+        energyChip .6s .35s forwards;
+}
+
+
+.hero-premium[data-mode="energy"]
+.energy-service:nth-child(2){
+    animation:
+        energyChip .6s .53s forwards;
+}
+
+
+.hero-premium[data-mode="energy"]
+.energy-service:nth-child(3){
+    animation:
+        energyChip .6s .71s forwards;
+}
+
+
+@keyframes energyChip{
+
+    to{
+        opacity:1;
+        transform:none;
+    }
+}
+
+
+/* ============================================================
+   TRANSITION FLASH
+   ============================================================ */
+
+.hero-flash{
+    position:absolute;
+
+    z-index:20;
+
+    left:64%;
+    top:50%;
+
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:var(--accent);
+
+    pointer-events:none;
+
+    opacity:0;
+
+    box-shadow:
+        0 0 100px 40px
+        rgba(var(--accent-rgb),.22);
+}
+
+
+.hero-flash.play{
+    animation:
+        heroFlash
+        .9s
+        ease-out;
+}
+
+
+@keyframes heroFlash{
+
+    0%{
+        opacity:0;
+
+        transform:
+            scale(.1);
+    }
+
+    25%{
+        opacity:.7;
+    }
+
+    100%{
+        opacity:0;
+
+        transform:
+            scale(17);
+    }
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media(max-width:1100px){
+
+    .hero-premium{
+        min-height:530px;
+    }
+
+    .hero-content{
+        width:55%;
+    }
+
+    .power-stage-nav{
+        bottom:28px;
+    }
+
+}
+
+
+@media(max-width:850px){
+
+    .hero-premium{
+        height:540px;
+        min-height:540px;
+    }
+
+    .hero-container{
+        width:
+            calc(100% - 40px);
+    }
+
+    .hero-content{
+        width:68%;
+    }
+
+    .hero-mode-switch{
+        top:auto;
+        right:20px;
+        bottom:20px;
+    }
+
+    .power-stage-nav{
+        left:20px;
+        right:20px;
+
+        bottom:20px;
+
+        justify-content:flex-end;
+    }
+
+    .power-stage{
+        min-width:auto;
+
+        padding:
+            9px
+            10px;
+    }
+
+    .power-stage small{
+        display:none;
+    }
+
+}
+
+
+@media(max-width:650px){
+
+    .hero-premium{
+        height:570px;
+        min-height:570px;
+    }
+
+    .hero-container{
+        width:
+            calc(100% - 30px);
+
+        align-items:center;
+    }
+
+    .hero-content{
+        width:90%;
+
+        padding-top:20px;
+    }
+
+    .hero-title{
+        font-size:
+            clamp(
+                30px,
+                9vw,
+                42px
+            );
+    }
+
+    .hero-description{
+        width:86%;
+
+        font-size:10.5px;
+    }
+
+    .hero-mode-switch{
+        top:auto;
+        right:15px;
+        bottom:16px;
+    }
+
+    .mode-button{
+        padding:
+            7px
+            10px;
+
+        font-size:8px;
+    }
+
+    .power-stage-nav{
+        left:15px;
+        right:15px;
+
+        justify-content:space-between;
+
+        gap:4px;
+    }
+
+    .power-stage{
+        flex:1;
+
+        padding:
+            8px
+            7px;
+
+        text-align:center;
+    }
+
+    .power-stage strong{
+        font-size:10px;
+    }
+
+    .energy-services{
+        flex-wrap:wrap;
+    }
+
+}
+
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+
+@media(prefers-reduced-motion:reduce){
+
+    .power-on,
+    .energy-image,
+    .hero-content *,
+    .power-energy-wave,
+    .hero-flash,
+    .energy-service{
+        animation:none !important;
+        transition:none !important;
+    }
+
+}
+
+</style>
+
+
+<!-- ============================================================
+     HTML
+     ============================================================ -->
+
+<section
+    class="hero-premium"
+    id="premiumHero"
+    data-mode="power"
+    data-power-stage="0"
+>
+
+
+    <!-- ========================================================
+         IMAGES
+         ======================================================== -->
+
+    <div class="hero-media">
+
+
+        <!-- POWER OFF IMAGE -->
+
+        <img
+            class="power-off"
+            src="assets/images/banners/power_off.png"
+            alt="Power landscape"
+        >
+
+
+        <!-- POWER ON IMAGE -->
+
+        <img
+            class="power-on"
+            src="assets/images/banners/power_on.png"
+            alt="Power infrastructure"
+        >
+
+
+        <!-- ENERGY IMAGE -->
+
+        <img
+            class="energy-image"
+            src="assets/images/banners/reneableenergys1.png"
+            alt="Renewable energy"
+        >
+
+
+    </div>
+
+
+    <!-- CINEMATIC SHADE -->
+
+    <div
+        class="hero-shade"
+        aria-hidden="true"
+    ></div>
+
+
+    <!-- POWER LIGHT SWEEP -->
+
+    <div
+        class="power-energy-wave"
+        aria-hidden="true"
+    ></div>
+
+
+
+    <!-- ========================================================
+         POWER / ENERGY
+         ======================================================== -->
+
+    <div class="hero-mode-switch">
+
+        <button
+            class="mode-button active"
+            data-mode-button="power"
+            type="button"
+        >
+            POWER
+        </button>
+
+        <button
+            class="mode-button"
+            data-mode-button="energy"
+            type="button"
+        >
+            ENERGY
+        </button>
+
+    </div>
+
+
+
+    <!-- ========================================================
+         MAIN CONTENT
+         ======================================================== -->
+
+    <div class="hero-container">
+
+        <div
+            class="hero-content"
+            id="heroContent"
+        >
+
+
+            <div class="hero-kicker">
+
+                <span
+                    class="hero-kicker-dot"
+                ></span>
+
+                <span id="heroKicker">
+                    POWER INFRASTRUCTURE
+                </span>
+
+            </div>
+
+
+            <h1
+                class="hero-title"
+                id="heroTitle"
+            >
+                Power that moves
+                <span class="soft">
+                    every possibility.
+                </span>
+            </h1>
+
+
+            <p
+                class="hero-description"
+                id="heroDescription"
+            >
+                Integrated power infrastructure across
+                distribution, substations and transmission
+                networks.
+            </p>
+
+
+            <!-- POWER STAGE TEXT -->
+
+            <div
+                class="power-value-wrap"
+                id="powerValueWrap"
+            >
+
+                <div
+                    class="power-code"
+                    id="powerCode"
+                >
+                    POWER
+                </div>
+
+                <div
+                    class="power-voltage"
+                    id="powerVoltage"
+                >
+                    
+                </div>
+
+            </div>
+
+
+            <!-- ENERGY SERVICES -->
+
+            <div class="energy-services">
+
+                <span class="energy-service">
+                    ON-GRID
+                </span>
+
+                <span class="energy-service">
+                    OFF-GRID
+                </span>
+
+                <span class="energy-service">
+                    GROUND-MOUNTED
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+    <!-- TRANSITION FLASH -->
+
+    <span
+        class="hero-flash"
+        id="heroFlash"
+        aria-hidden="true"
+    ></span>
+
+
+</section>
+
+
+
+<script>
+
+(() => {
+
+    /* ========================================================
+       ELEMENTS
+       ======================================================== */
+
+    const hero =
+        document.getElementById(
+            "premiumHero"
+        );
+
+    const heroContent =
+        document.getElementById(
+            "heroContent"
+        );
+
+    const heroKicker =
+        document.getElementById(
+            "heroKicker"
+        );
+
+    const heroTitle =
+        document.getElementById(
+            "heroTitle"
+        );
+
+    const heroDescription =
+        document.getElementById(
+            "heroDescription"
+        );
+
+    const powerCode =
+        document.getElementById(
+            "powerCode"
+        );
+
+    const powerVoltage =
+        document.getElementById(
+            "powerVoltage"
+        );
+
+    const powerValueWrap =
+        document.getElementById(
+            "powerValueWrap"
+        );
+
+    const heroFlash =
+        document.getElementById(
+            "heroFlash"
+        );
+
+
+    const stageButtons = [
+        ...document.querySelectorAll(
+            ".power-stage"
+        )
+    ];
+
+
+    const modeButtons = [
+        ...document.querySelectorAll(
+            ".mode-button"
+        )
+    ];
+
+
+
+    /* ========================================================
+       POWER DATA
+       ======================================================== */
+
+    const powerStages = {
+
+        0:{
+
+            kicker:
+                "",
+
+            title:
+                `Power that moves
+                 <span class="soft">
+                    every possibility.
+                 </span>`,
+
+            description:
+                `Integrated power infrastructure across distribution, substations and transmission networks.`,
+
+            code:
+                "POWER",
+
+            voltage:
+                ""
+
+        },
+
+
+        1:{
+
+            kicker:
+                "",
+
+            title:
+                `Reliable distribution
+                 <span class="soft">
+                    where power begins.
+                 </span>`,
+
+            description:
+                `Dependable low-voltage distribution for commercial, industrial and infrastructure applications.`,
+
+            code:
+                "LT",
+
+            voltage:
+                ""
+
+        },
+
+
+        2:{
+
+            kicker:
+                "",
+
+            title:
+                `Built to carry
+                 <span class="soft">
+                    greater demand.
+                 </span>`,
+
+            description:
+                `Robust high-tension systems designed for reliable distribution across demanding facilities and networks.`,
+
+            code:
+                "HT",
+
+            voltage:
+                ""
+
+        },
+
+
+        3:{
+
+            kicker:
+                "",
+
+            title:
+                `Power transmitted
+                 <span class="soft">
+                    across distance.
+                 </span>`,
+
+            description:
+                `High-capacity transmission infrastructure designed for efficient long-distance power movement.`,
+
+            code:
+                "EHT",
+
+            voltage:
+                ""
+
+        },
+
+
+        4:{
+
+            kicker:
+                "",
+
+            title:
+                `Infrastructure built
+                 <span class="soft">
+                    for national scale.
+                 </span>`,
+
+            description:
+                `Ultra-high-voltage transmission infrastructure supporting large-scale power movement and grid connectivity.`,
+
+            code:
+                "UHT",
+
+            voltage:
+                ""
+
+        }
+
+    };
+
+
+
+    /* ========================================================
+       TIMERS
+       ======================================================== */
+
+    let sequenceTimers = [];
+
+    let energyTimer = null;
+
+    let mode = "power";
+
+
+
+    function clearSequence(){
+
+        sequenceTimers.forEach(
+            timer =>
+                clearTimeout(timer)
+        );
+
+        sequenceTimers = [];
+
+        clearTimeout(
+            energyTimer
+        );
+
+    }
+
+
+
+    /* ========================================================
+       REPLAY TEXT ANIMATION
+       ======================================================== */
+
+    function animateContent(){
+
+        heroContent.classList.remove(
+            "is-changing"
+        );
+
+        void heroContent.offsetWidth;
+
+        heroContent.classList.add(
+            "is-changing"
+        );
+
+    }
+
+
+
+    /* ========================================================
+       FLASH
+       ======================================================== */
+
+    function playFlash(){
+
+        heroFlash.classList.remove(
+            "play"
+        );
+
+        void heroFlash.offsetWidth;
+
+        heroFlash.classList.add(
+            "play"
+        );
+
+    }
+
+
+
+    /* ========================================================
+       SET POWER STAGE
+       ======================================================== */
+
+    function setPowerStage(
+        stage,
+        animate = true
+    ){
+
+        stage =
+            Number(stage);
+
+
+        const data =
+            powerStages[stage];
+
+
+        if(!data){
+            return;
+        }
+
+
+        hero.dataset.powerStage =
+            stage;
+
+
+        stageButtons.forEach(
+            button => {
+
+                const value =
+                    Number(
+                        button.dataset.stage
+                    );
+
+                button.classList.toggle(
+                    "active",
+                    value <= stage &&
+                    stage !== 0
+                );
+
+            }
+        );
+
+
+        heroKicker.textContent =
+            data.kicker;
+
+
+        heroTitle.innerHTML =
+            data.title;
+
+
+        heroDescription.textContent =
+            data.description;
+
+
+        powerCode.textContent =
+            data.code;
+
+
+        powerVoltage.textContent =
+            data.voltage;
+
+
+        powerValueWrap.style.display =
+            "flex";
+
+
+        if(animate){
+            animateContent();
+        }
+
+    }
+
+
+
+    /* ========================================================
+       POWER MODE
+       ======================================================== */
+
+    function showPower(
+        autoplay = true
+    ){
+
+        clearSequence();
+
+        mode = "power";
+
+        hero.dataset.mode =
+            "power";
+
+
+        modeButtons.forEach(
+            button => {
+
+                button.classList.toggle(
+                    "active",
+                    button.dataset.modeButton ===
+                    "power"
+                );
+
+            }
+        );
+
+
+        setPowerStage(
+            0,
+            true
+        );
+
+
+        playFlash();
+
+
+        if(!autoplay){
+            return;
+        }
+
+
+        /*
+            POWER TIMELINE
+
+            0.0 sec = OFF
+            1.1 sec = LT
+            2.6 sec = HT
+            4.1 sec = EHT
+            5.7 sec = UHT
+            8.0 sec = ENERGY
+        */
+
+
+        sequenceTimers.push(
+
+            setTimeout(
+                () => setPowerStage(1),
+                1100
+            )
+
+        );
+
+
+        sequenceTimers.push(
+
+            setTimeout(
+                () => setPowerStage(2),
+                2600
+            )
+
+        );
+
+
+        sequenceTimers.push(
+
+            setTimeout(
+                () => setPowerStage(3),
+                4100
+            )
+
+        );
+
+
+        sequenceTimers.push(
+
+            setTimeout(
+                () => setPowerStage(4),
+                5700
+            )
+
+        );
+
+
+        sequenceTimers.push(
+
+            setTimeout(
+                () => showEnergy(true),
+                8000
+            )
+
+        );
+
+    }
+
+
+
+    /* ========================================================
+       ENERGY MODE
+       ======================================================== */
+
+    function showEnergy(
+        autoplay = true
+    ){
+
+        clearSequence();
+
+        mode =
+            "energy";
+
+
+        hero.dataset.mode =
+            "energy";
+
+
+        modeButtons.forEach(
+            button => {
+
+                button.classList.toggle(
+                    "active",
+                    button.dataset.modeButton ===
+                    "energy"
+                );
+
+            }
+        );
+
+
+        heroKicker.textContent =
+            "RENEWABLE ENERGY";
+
+
+        heroTitle.innerHTML =
+            `Energy made
+             <span class="soft">
+                smarter for tomorrow.
+             </span>`;
+
+
+        heroDescription.textContent =
+            `On-grid, off-grid and ground-mounted solar solutions for commercial, industrial and large-scale applications.`;
+
+
+        powerValueWrap.style.display =
+            "none";
+
+
+        animateContent();
+
+        playFlash();
+
+
+        if(!autoplay){
+            return;
+        }
+
+
+        energyTimer =
+            setTimeout(
+                () => showPower(true),
+                6200
+            );
+
+    }
+
+
+
+    /* ========================================================
+       STAGE BUTTON CLICK
+       ======================================================== */
+
+    stageButtons.forEach(
+        button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    clearSequence();
+
+                    if(
+                        mode !== "power"
+                    ){
+                        showPower(false);
+                    }
+
+                    setPowerStage(
+                        button.dataset.stage
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
+
+    /* ========================================================
+       POWER / ENERGY MANUAL BUTTONS
+       ======================================================== */
+
+    modeButtons.forEach(
+        button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    const selected =
+                        button.dataset.modeButton;
+
+
+                    if(
+                        selected === "power"
+                    ){
+
+                        showPower(true);
+
+                    }else{
+
+                        showEnergy(true);
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+
+
+    /* ========================================================
+       PAUSE WHEN TAB NOT VISIBLE
+       ======================================================== */
+
+    document.addEventListener(
+        "visibilitychange",
+        () => {
+
+            if(document.hidden){
+
+                clearSequence();
+
+            }else{
+
+                if(
+                    mode === "power"
+                ){
+
+                    showPower(true);
+
+                }else{
+
+                    showEnergy(true);
+
+                }
+
+            }
+
+        }
+    );
+
+
+
+    /* ========================================================
+       INITIAL
+       POWER ALWAYS FIRST
+       ======================================================== */
+
+    showPower(true);
+
+})();
+
+</script>
